@@ -184,6 +184,26 @@ export const Navbar = () => {
       ? "text-white"
       : "text-foreground";
 
+  // Helper function to get nav link classes based on active state and scroll position
+  // When NOT scrolled (top): active = gold (#EBB41B)
+  // When scrolled: active = red (text-primary)
+  const getNavLinkClasses = (isActive: boolean) => {
+    const baseClasses = "nav-link transition-colors duration-300 font-medium";
+    
+    if (isActive) {
+      if (isScrolled) {
+        // Scrolled (navbar has solid bg): active = red
+        return `${baseClasses} text-primary`;
+      } else {
+        // Not scrolled (at top, transparent bg): active = gold
+        return `${baseClasses} text-[#EBB41B]`;
+      }
+    } else {
+      // Inactive items - keep current colors
+      return `${baseClasses} ${navbarTextColor}`;
+    }
+  };
+
   // Used on nav-link. We want smooth transitions, so add transition to color
   const navLinkBase =
     `nav-link transition-colors duration-300 ${navbarTextColor}`;
@@ -256,7 +276,7 @@ export const Navbar = () => {
                 e.preventDefault();
                 goHome();
               }}
-              className={`${navLinkBase} ${isHomeActive ? "active" : ""}`}
+              className={getNavLinkClasses(isHomeActive)}
             >
               Home
             </a>
@@ -269,10 +289,7 @@ export const Navbar = () => {
               ref={eventsDropdownRef}
             >
               <button
-                className={
-                  `${navLinkBase} flex items-center gap-1 ` +
-                  ((showEventsDropdown || isEventsActive) ? "active" : "")
-                }
+                className={`${getNavLinkClasses(isEventsActive)} flex items-center gap-1`}
                 onClick={(e) => {
                   e.preventDefault();
                   setShowEventsDropdown((val) => !val);
@@ -282,7 +299,14 @@ export const Navbar = () => {
                 type="button"
               >
                 Events
-                <ChevronDown size={18} className={`ml-0.5 transition-colors duration-300 ${isAtTop ? "text-white" : "text-foreground"}`} />
+                <ChevronDown 
+                  size={18} 
+                  className={`ml-0.5 transition-colors duration-300 ${
+                    isEventsActive
+                      ? (isScrolled ? "text-primary" : "text-[#EBB41B]")
+                      : (isAtTop ? "text-white" : "text-foreground")
+                  }`} 
+                />
               </button>
               <AnimatePresence>
                 {showEventsDropdown && (
@@ -338,29 +362,31 @@ export const Navbar = () => {
             </div>
 
             {/* Rest of the links */}
-            {navLinksNoHome.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (link.isRoute) {
-                    navigate(link.href);
-                    setIsMobileOpen(false);
-                  } else {
-                    goToSection(link.section);
-                  }
-                }}
-                className={`${navLinkBase} ${
-                  // Highlight based on route or scroll section
-                  link.isRoute
-                    ? (link.href === "/join-our-team" && isJoinUsActive ? "active" : "")
-                    : (isHomeActive && activeSection === link.section ? "active" : "")
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinksNoHome.map((link) => {
+              // Determine if this link is active
+              const linkIsActive = link.isRoute
+                ? (link.href === "/join-our-team" && isJoinUsActive)
+                : (isHomeActive && activeSection === link.section);
+              
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (link.isRoute) {
+                      navigate(link.href);
+                      setIsMobileOpen(false);
+                    } else {
+                      goToSection(link.section);
+                    }
+                  }}
+                  className={getNavLinkClasses(linkIsActive)}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </div>
 
           {/* CTA Button */}

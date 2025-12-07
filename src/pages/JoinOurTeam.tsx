@@ -131,9 +131,12 @@ const JoinOurTeam = () => {
     <main className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 bg-festival-offwhite">
-        <div className="container mx-auto px-4 md:px-6">
+      {/* Hero Section - Matching event page banners */}
+      <section 
+        className="relative min-h-[55vh] flex items-center overflow-hidden"
+        style={{ backgroundColor: "#780F7C" }}
+      >
+        <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -144,7 +147,7 @@ const JoinOurTeam = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-block px-4 py-2 bg-accent text-accent-foreground text-sm font-semibold rounded-full mb-6"
+              className="inline-block px-4 py-2 bg-white/15 text-white text-sm font-semibold rounded-full mb-6"
             >
               Be Part of the Organising Team
             </motion.span>
@@ -153,7 +156,7 @@ const JoinOurTeam = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-6 leading-tight"
+              className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6 leading-tight"
             >
               Join the YUVA Organising Team
             </motion.h1>
@@ -162,7 +165,7 @@ const JoinOurTeam = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-lg md:text-xl text-muted-foreground leading-relaxed"
+              className="text-lg md:text-xl text-white/90 leading-relaxed"
             >
               Apply to contribute behind the scenes as a reporter, fellow, or creator 
               and help shape the Andhra Pradesh State Youth Festival.
