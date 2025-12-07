@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, Calendar, MapPin, Users } from "lucide-react";
 import heroDancer from "@/assets/hero-dancer.jpg";
 
-const targetDate = new Date("2025-12-12T00:00:00").getTime();
+// Set countdown timer target to December 18, 2025
+const targetDate = new Date("2025-12-18T00:00:00").getTime();
 
 const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -122,7 +123,7 @@ export const Hero = () => {
           >
             <span className="w-2 h-2 bg-festival-yellow rounded-full animate-pulse" />
             <span className="text-white/90 text-sm font-medium">
-              Andhra Pradesh State Youth Festival
+              Andhra Pradesh State Youth Festival 2025
             </span>
           </motion.div>
 
@@ -161,11 +162,11 @@ export const Hero = () => {
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-white/90 text-sm">
               <Calendar size={16} />
-              <span>December 12–14, 2025</span>
+              <span>18, 19, 20 December 2025</span>
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-white/90 text-sm">
               <MapPin size={16} />
-              <span>Vijayawada</span>
+              <span>K L University, Vijayawada</span>
             </div>
           </motion.div>
 

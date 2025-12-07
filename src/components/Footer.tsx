@@ -23,7 +23,7 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Instagram, href: "www.instagram.com/apyouthservices", label: "Instagram" },
   { icon: Linkedin, href: "#", label: "LinkedIn" },
   { icon: Youtube, href: "#", label: "YouTube" },
   { icon: Twitter, href: "#", label: "X/Twitter" },
@@ -133,10 +133,10 @@ export const Footer = () => {
               <li className="flex items-center gap-2">
                 <Mail size={16} className="flex-shrink-0" />
                 <a
-                  href="mailto:info@apyouthfest2025.gov.in"
+                  href="mailto:info@apyouthfestival.com"
                   className="hover:text-primary transition-colors"
                 >
-                  info@apyouthfest2025.gov.in
+                  info@apyouthfestival.com
                 </a>
               </li>
             </ul>
@@ -153,9 +153,6 @@ export const Footer = () => {
               <a href="#" className="hover:text-primary transition-colors">Accessibility</a>
             </div>
           </div>
-          <p className="text-center text-xs text-muted-foreground mt-4">
-            Organized by Department of Youth Services, Government of Andhra Pradesh
-          </p>
         </div>
       </div>
     </footer>

@@ -7,12 +7,15 @@ import { Gallery } from "@/components/Gallery";
 import { RegistrationForm } from "@/components/RegistrationForm";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
+import { OrganizedBy } from "@/components/OrganizedBy";
+
 
 const Index = () => {
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
       <Hero />
+      <OrganizedBy />
       <EventCategories />
       <WhyAttend />
       <Schedule />
@@ -20,6 +23,7 @@ const Index = () => {
       <RegistrationForm />
       <FAQ />
       <Footer />
+
     </main>
   );
 };

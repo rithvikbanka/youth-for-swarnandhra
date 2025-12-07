@@ -5,7 +5,7 @@ import { Quote, Star } from "lucide-react";
 const stats = [
   { value: 2000, suffix: "+", label: "Youth Participants from Across Andhra", color: "text-primary" },
   { value: 50, suffix: "+", label: "Events & Performances", color: "text-accent" },
-  { value: 13, suffix: "", label: "Districts Represented", color: "text-festival-gold" },
+  { value: 26, suffix: "", label: "Districts Represented", color: "text-festival-gold" },
 ];
 
 const CountUpNumber = ({ value, suffix, isInView }: { value: number; suffix: string; isInView: boolean }) => {
@@ -135,7 +135,7 @@ export const WhyAttend = () => {
           ))}
         </div>
 
-        {/* Trust Section */}
+        {/* COMMENTED OUT - Moved to separate OrganizedBy component
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isSectionInView ? { opacity: 1, y: 0 } : {}}
@@ -160,6 +160,7 @@ export const WhyAttend = () => {
             ))}
           </div>
         </motion.div>
+        */}
       </div>
     </section>
   );

@@ -12,55 +12,50 @@ import wellness from "@/assets/wellness.jpg";
 const categories = [
   {
     id: 1,
-    title: "Classical Dance Performances",
-    description: "Bharatanatyam, Kuchipudi, and mesmerizing folk traditions",
+    title: "Folk Dance Group",
+    description: "High-energy folk rhythms, colours and culture.",
     image: classicalDance,
-    icon: "🎭",
+    icon: "💃",
     color: "from-red-500/20 to-orange-500/20",
   },
   {
     id: 2,
-    title: "Youth Voice & Singing",
-    description: "Discover emerging singers and vocal talents from across Andhra",
+    title: "Folk Song Group",
+    description: "Soulful Andhra folk songs celebrating regional roots.",
     image: youthSinging,
-    icon: "🎤",
-    IconComponent: Mic2,
+    icon: "🎶",
     color: "from-orange-500/20 to-yellow-500/20",
   },
   {
     id: 3,
-    title: "Arts & Crafts Pavilion",
-    description: "Explore painting, drawing, traditional textiles, and handicrafts",
-    image: artsCrafts,
-    icon: "🎨",
-    IconComponent: Palette,
+    title: "Story Writing",
+    description: "Young storytellers bringing powerful tales alive.",
+    image: literary,
+    icon: "✍️",
     color: "from-yellow-500/20 to-green-500/20",
   },
   {
     id: 4,
-    title: "Literary & Spoken Word",
-    description: "Poetry, storytelling, and written expression from young authors",
-    image: literary,
-    icon: "📖",
-    IconComponent: BookOpen,
+    title: "Painting",
+    description: "Youthful imaginations exploding on vibrant canvases.",
+    image: artsCrafts,
+    icon: "🎨",
     color: "from-green-500/20 to-teal-500/20",
   },
   {
     id: 5,
-    title: "Startup & Innovation Hub",
-    description: "Ideas. Pitches. Mentorship. Building the future of Andhra",
+    title: "Declamation",
+    description: "Fierce speeches echoing youth's voice & Andhra's pride.",
     image: startup,
-    icon: "💡",
-    IconComponent: Lightbulb,
+    icon: "🎙️",
     color: "from-blue-500/20 to-purple-500/20",
   },
   {
     id: 6,
-    title: "Wellness & Sports Zone",
-    description: "Yoga, sports, and holistic wellness for youth",
+    title: "Poetry",
+    description: "Verses and poems expressing youth creativity.",
     image: wellness,
-    icon: "🧘",
-    IconComponent: Heart,
+    icon: "📝",
     color: "from-purple-500/20 to-pink-500/20",
   },
 ];
@@ -103,14 +98,14 @@ const EventCard = ({ category, index }: { category: typeof categories[0]; index:
         <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
           {category.description}
         </p>
-        <motion.a
+        {/* <motion.a
           href="#schedule"
           className="inline-flex items-center gap-1 text-accent font-semibold text-sm hover:text-primary transition-colors group/link"
           whileHover={{ x: 4 }}
         >
           See Schedule
           <ArrowRight size={16} className="transition-transform group-hover/link:translate-x-1" />
-        </motion.a>
+        </motion.a> */}
       </div>
     </motion.div>
   );
@@ -141,7 +136,7 @@ export const EventCategories = () => {
           </motion.span>
           <h2 className="section-title">Celebrate with Us</h2>
           <p className="section-subtitle mx-auto">
-            Explore six categories of extraordinary performances and experiences
+            Discover six high-voltage competitions from Winners of all 26 Districts.
           </p>
         </motion.div>
 

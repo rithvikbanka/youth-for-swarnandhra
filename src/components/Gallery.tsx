@@ -1,29 +1,55 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { X, Play, Eye } from "lucide-react";
-import classicalDance from "@/assets/classical-dance.jpg";
-import youthSinging from "@/assets/youth-singing.jpg";
-import artsCrafts from "@/assets/arts-crafts.jpg";
-import literary from "@/assets/literary.jpg";
-import startup from "@/assets/startup.jpg";
-import wellness from "@/assets/wellness.jpg";
-import heroDancer from "@/assets/hero-dancer.jpg";
+
+// Gallery images
+import gallery1 from "@/assets/gallery1.jpg";
+import gallery2 from "@/assets/gallery2.jpg";
+import gallery3 from "@/assets/gallery3.jpg";
+import gallery4 from "@/assets/gallery4.jpg";
+import gallery5 from "@/assets/gallery5.jpg";
+import gallery6 from "@/assets/gallery6.jpg";
+import gallery7 from "@/assets/gallery7.jpg";
+import gallery8 from "@/assets/gallery8.jpg";
+
+// Video thumbnails
+import video1 from "@/assets/video1.jpg";
+import video2 from "@/assets/video2.jpg";
+import video3 from "@/assets/video3.jpg";
 
 const galleryImages = [
-  { src: heroDancer, alt: "Classical Bharatanatyam performance", size: "large" },
-  { src: classicalDance, alt: "Kuchipudi dancer in motion", size: "normal" },
-  { src: youthSinging, alt: "Young vocalist performing", size: "normal" },
-  { src: artsCrafts, alt: "Traditional art workshop", size: "large" },
-  { src: literary, alt: "Poetry recitation event", size: "normal" },
-  { src: startup, alt: "Youth innovation hub", size: "normal" },
-  { src: wellness, alt: "Morning yoga session", size: "normal" },
-  { src: classicalDance, alt: "Folk dance ensemble", size: "large" },
+  { src: gallery1, alt: "Classical Bharatanatyam performance", size: "large" },
+  { src: gallery2, alt: "Kuchipudi dancer in motion", size: "normal" },
+  { src: gallery3, alt: "Young vocalist performing", size: "normal" },
+  { src: gallery4, alt: "Traditional art workshop", size: "large" },
+  { src: gallery5, alt: "Poetry recitation event", size: "normal" },
+  { src: gallery6, alt: "Youth innovation hub", size: "normal" },
+  { src: gallery7, alt: "Morning yoga session", size: "normal" },
+  { src: gallery8, alt: "Folk dance ensemble", size: "large" },
 ];
 
 const videos = [
-  { id: 1, title: "2025 Festival Promo", thumbnail: heroDancer, views: "1.2K" },
-  { id: 2, title: "Youth Talents Showcase", thumbnail: youthSinging, views: "856" },
-  { id: 3, title: "Behind the Scenes", thumbnail: artsCrafts, views: "543" },
+  {
+    id: 1,
+    title: "Spirit of Andhra Pradesh at Yuva 2025",
+    thumbnail: video1,
+    views: "1.2K",
+    url: "https://www.instagram.com/apyouthservices/reel/DRwYylwkayW/"
+  },
+  {
+    id: 2,
+    title: "Youth Minister's Call to YUVA",
+    thumbnail: video2,
+    views: "856",
+    url: "https://www.instagram.com/apyouthservices/reel/DRuX-i2E7k6/"
+  },
+  {
+    id: 3,
+    title: "Commissioner Invites You to YUVA",
+    thumbnail: video3,
+    views: "543",
+    url: "https://www.instagram.com/apyouthservices/reel/DRsf13jExKf/"
+  },
 ];
 
 export const Gallery = () => {
@@ -92,7 +118,7 @@ export const Gallery = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground text-center mb-8">
-            2025 Festival Promo Videos
+          2025 Festival Videos
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {videos.map((video, index) => (
@@ -101,29 +127,35 @@ export const Gallery = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                className="group cursor-pointer"
               >
-                <div className="relative overflow-hidden rounded-xl aspect-video mb-3">
-                  <img
-                    src={video.thumbnail}
-                    alt={video.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  {/* Play Button */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
-                    <motion.div
-                      className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg"
-                      whileHover={{ scale: 1.15 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Play className="w-7 h-7 text-white ml-1" fill="white" />
-                    </motion.div>
+                <a
+                  href={video.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group cursor-pointer block"
+                >
+                  <div className="relative overflow-hidden rounded-xl aspect-video mb-3">
+                    <img
+                      src={video.thumbnail}
+                      alt={video.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    {/* Play Button */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+                      <motion.div
+                        className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg"
+                        whileHover={{ scale: 1.15 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Play className="w-7 h-7 text-white ml-1" fill="white" />
+                      </motion.div>
+                    </div>
                   </div>
-                </div>
-                <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                  {video.title}
-                </h4>
-                <p className="text-sm text-muted-foreground">{video.views} views</p>
+                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                    {video.title}
+                  </h4>
+                  <p className="text-sm text-muted-foreground">{video.views} views</p>
+                </a>
               </motion.div>
             ))}
           </div>

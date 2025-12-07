@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     question: "What if I need accommodations or special access?",
-    answer: "We're committed to making this festival accessible to everyone. Please email us at accessibility@apyouthfest2025.gov.in and we'll help with your specific needs, including wheelchair access, sign language interpretation, or other accommodations.",
+    answer: "We're committed to making this festival accessible to everyone. Please email us at accessibility@apyouthfestival.com and we'll help with your specific needs, including wheelchair access, sign language interpretation, or other accommodations.",
   },
 ];
 
@@ -120,11 +120,11 @@ export const FAQ = () => {
         >
           <p className="text-muted-foreground mb-2">Still have questions?</p>
           <a
-            href="mailto:hello@apyouthfest2025.gov.in"
+            href="mailto:hello@apyouthfestival.com"
             className="inline-flex items-center gap-2 text-primary font-semibold hover:underline"
           >
             <Mail size={18} />
-            Contact us at hello@apyouthfest2025.gov.in
+            Contact us at hello@apyouthfestival.com
           </a>
         </motion.div>
       </div>
