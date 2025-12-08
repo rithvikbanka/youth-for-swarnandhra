@@ -166,7 +166,7 @@ export const Hero = () => {
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-white/90 text-sm">
               <MapPin size={16} />
-              <span>K L University, Vijayawada</span>
+              <span>Amaravati,Vijayawada</span>
             </div>
           </motion.div>
 
