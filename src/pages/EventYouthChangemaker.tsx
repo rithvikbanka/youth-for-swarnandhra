@@ -1,10 +1,11 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { MapPin, Clock, X, Mic } from "lucide-react";
+import { useRef } from "react";
+import { MapPin, Clock, Mic } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { EventHero } from "@/components/EventHero";
 import { getSessionsByTagOnly } from "@/data/schedule";
+import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
 
 // Derive schedule data from shared source
 const talksSchedule = getSessionsByTagOnly("Youth Changemaker Talks");
@@ -50,16 +51,11 @@ const moderators = [
   }
 ];
 
-const roles = [
-  "Participant",
-  "Junior Reporter",
-  "Creator Squad",
-  "Utsaahee Fellow",
-  "Organizing Team"
-];
+const openRegistrationForm = () => {
+  window.open(PARTICIPANT_FORM_VIEW_URL, "_blank");
+};
 
 const EventYouthChangemaker = () => {
-  const [showModal, setShowModal] = useState(false);
   const scheduleRef = useRef(null);
   const speakersRef = useRef(null);
   const moderatorsRef = useRef(null);
@@ -156,7 +152,7 @@ const EventYouthChangemaker = () => {
             className="text-center"
           >
             <motion.button
-              onClick={() => setShowModal(true)}
+              onClick={openRegistrationForm}
               className="btn-primary text-lg md:text-xl px-10 py-4 bg-gradient-to-r from-festival-red-light to-festival-red text-white rounded-full shadow-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -255,54 +251,7 @@ const EventYouthChangemaker = () => {
 
       <Footer />
 
-      {/* Registration Modal */}
-      {showModal && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          onClick={() => setShowModal(false)}
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="bg-white rounded-2xl p-6 md:p-8 max-w-md w-full shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex justify-between items-center mb-6">
-              <h3 className="text-xl font-heading font-bold text-foreground">
-                Select Your Role
-              </h3>
-              <button
-                onClick={() => setShowModal(false)}
-                className="p-2 hover:bg-muted rounded-full transition-colors"
-              >
-                <X size={20} />
-              </button>
-            </div>
-            
-            <div className="space-y-3">
-              {roles.map((role, index) => (
-                <motion.button
-                  key={role}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  className="w-full p-4 text-left bg-festival-offwhite hover:bg-festival-gold-light rounded-xl font-medium transition-colors duration-200"
-                  onClick={() => {
-                    alert(`You selected: ${role}`);
-                    setShowModal(false);
-                  }}
-                >
-                  {role}
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
+      {/* NOTE: Registration modal disabled - now using direct Google Form link */}
     </main>
   );
 };

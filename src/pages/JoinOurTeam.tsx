@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { RoleSection, type RoleKey } from "@/components/RoleSection";
-import { ApplicationModal } from "@/components/ApplicationModal";
+import { ORG_TEAM_FORM_VIEW_URL } from "@/lib/googleForms";
 
 const rolesData = [
   {
@@ -160,18 +159,17 @@ const rolesData = [
   },
 ];
 
+/**
+ * Opens the official Organising Team Google Form in a new tab
+ */
+const openOrgTeamForm = () => {
+  window.open(ORG_TEAM_FORM_VIEW_URL, "_blank");
+};
+
 const JoinOurTeam = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedRole, setSelectedRole] = useState<RoleKey | undefined>(undefined);
-
-  const handleApplyClick = (roleKey: RoleKey, _roleLabel: string) => {
-    setSelectedRole(roleKey);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedRole(undefined);
+  // Handler for "Apply Now" button on role cards - opens Google Form
+  const handleApplyClick = (_roleKey: RoleKey, _roleLabel: string) => {
+    openOrgTeamForm();
   };
 
   return (
@@ -277,10 +275,7 @@ const JoinOurTeam = () => {
               Applications are open for a limited time.
             </p>
             <motion.button
-              onClick={() => {
-                setSelectedRole(undefined);
-                setIsModalOpen(true);
-              }}
+              onClick={openOrgTeamForm}
               className="btn-primary text-lg px-8 py-4 bg-gradient-to-r from-festival-red-light to-festival-red text-white rounded-full shadow-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -293,15 +288,9 @@ const JoinOurTeam = () => {
 
       <Footer />
 
-      {/* Application Modal */}
-      <ApplicationModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        preselectedRole={selectedRole}
-      />
+      {/* NOTE: ApplicationModal disabled - now using direct Google Form link */}
     </main>
   );
 };
 
 export default JoinOurTeam;
-

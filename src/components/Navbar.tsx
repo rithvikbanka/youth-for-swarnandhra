@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
+import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
 
 const navLinksNoHome = [
   // Home will be rendered first, not included here
@@ -155,10 +156,11 @@ export const Navbar = () => {
   };
 
   /** 
-   * Register button: home-page scroll, or route then scroll after navigation 
+   * Register button: opens the official Google Form in a new tab 
    */
-  const goToRegister = () => {
-    goToSection("register");
+  const openRegistrationForm = () => {
+    window.open(PARTICIPANT_FORM_VIEW_URL, "_blank");
+    setIsMobileOpen(false);
   };
 
   /** 
@@ -387,18 +389,14 @@ export const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-            <motion.a
-              href="#register"
-              onClick={(e) => {
-                e.preventDefault();
-                goToRegister();
-              }}
+            <motion.button
+              onClick={openRegistrationForm}
               className={ctaButtonText}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Register Now
-            </motion.a>
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -546,23 +544,21 @@ export const Navbar = () => {
                   {link.label}
                 </motion.a>
               ))}
-              <motion.a
-                href="#register"
-                onClick={(e) => {
-                  e.preventDefault();
-                  goToRegister();
-                }}
+              <motion.button
+                onClick={openRegistrationForm}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: (navLinksNoHome.length + 2) * 0.05 }}
-                className={`btn-primary text-center mt-2 ${isAtTop ? "bg-gradient-to-r from-festival-red-light to-festival-red text-white" : ""} transition-colors duration-300`}
+                className={`btn-primary text-center mt-2 w-full ${isAtTop ? "bg-gradient-to-r from-festival-red-light to-festival-red text-white" : ""} transition-colors duration-300`}
               >
                 Register Now
-              </motion.a>
+              </motion.button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* NOTE: ParticipantRegistrationModal disabled - now using direct Google Form link */}
     </motion.header>
   );
 };

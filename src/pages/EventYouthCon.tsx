@@ -1,10 +1,11 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useState, useMemo } from "react";
-import { MapPin, Clock, X, Users, Handshake, Coffee } from "lucide-react";
+import { useRef, useMemo } from "react";
+import { MapPin, Clock, Users, Handshake, Coffee } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { EventHero } from "@/components/EventHero";
 import { scheduleByDay, type ScheduleSession } from "@/data/schedule";
+import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
 
 // Helper to get date string from day label
 const getDayWithDate = (dayLabel: string, date: string) => {
@@ -14,16 +15,11 @@ const getDayWithDate = (dayLabel: string, date: string) => {
 // Type for session with day info
 type SessionWithDay = ScheduleSession & { dayLabel: string; date: string };
 
-const roles = [
-  "Participant",
-  "Junior Reporter",
-  "Creator Squad",
-  "Utsaahee Fellow",
-  "Organizing Team"
-];
+const openRegistrationForm = () => {
+  window.open(PARTICIPANT_FORM_VIEW_URL, "_blank");
+};
 
 const EventYouthCon = () => {
-  const [showModal, setShowModal] = useState(false);
   const contentRef = useRef(null);
   const isContentInView = useInView(contentRef, { once: true, margin: "-100px" });
 
@@ -109,7 +105,7 @@ const EventYouthCon = () => {
                 </h3>
               </div>
               <motion.button
-                onClick={() => setShowModal(true)}
+                onClick={openRegistrationForm}
                 className="btn-primary px-6 py-2.5 bg-gradient-to-r from-festival-red-light to-festival-red text-white rounded-full shadow-md text-sm font-semibold w-fit"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -175,7 +171,7 @@ const EventYouthCon = () => {
                 </h3>
               </div>
               <motion.button
-                onClick={() => setShowModal(true)}
+                onClick={openRegistrationForm}
                 className="btn-primary px-6 py-2.5 bg-gradient-to-r from-festival-red-light to-festival-red text-white rounded-full shadow-md text-sm font-semibold w-fit"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -241,7 +237,7 @@ const EventYouthCon = () => {
                 </h3>
               </div>
               <motion.button
-                onClick={() => setShowModal(true)}
+                onClick={openRegistrationForm}
                 className="btn-primary px-6 py-2.5 bg-gradient-to-r from-festival-red-light to-festival-red text-white rounded-full shadow-md text-sm font-semibold w-fit"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -294,54 +290,7 @@ const EventYouthCon = () => {
 
       <Footer />
 
-      {/* Registration Modal */}
-      {showModal && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          onClick={() => setShowModal(false)}
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="bg-white rounded-2xl p-6 md:p-8 max-w-md w-full shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex justify-between items-center mb-6">
-              <h3 className="text-xl font-heading font-bold text-foreground">
-                Select Your Role
-              </h3>
-              <button
-                onClick={() => setShowModal(false)}
-                className="p-2 hover:bg-muted rounded-full transition-colors"
-              >
-                <X size={20} />
-              </button>
-            </div>
-            
-            <div className="space-y-3">
-              {roles.map((role, index) => (
-                <motion.button
-                  key={role}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
-                  className="w-full p-4 text-left bg-festival-offwhite hover:bg-festival-gold-light rounded-xl font-medium transition-colors duration-200"
-                  onClick={() => {
-                    alert(`You selected: ${role}`);
-                    setShowModal(false);
-                  }}
-                >
-                  {role}
-                </motion.button>
-              ))}
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
+      {/* NOTE: Registration modal disabled - now using direct Google Form link */}
     </main>
   );
 };

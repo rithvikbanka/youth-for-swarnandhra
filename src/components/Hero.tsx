@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, MapPin, Users } from "lucide-react";
 import heroDancer from "@/assets/hero-dancer.jpg";
+import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
 
 // Set countdown timer target to December 18, 2025
 const targetDate = new Date("2025-12-18T00:00:00").getTime();
@@ -61,11 +62,8 @@ const CountdownTimer = () => {
 };
 
 export const Hero = () => {
-  const scrollToRegister = () => {
-    const element = document.getElementById("register");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const openRegistrationForm = () => {
+    window.open(PARTICIPANT_FORM_VIEW_URL, "_blank");
   };
 
   const scrollToEvents = () => {
@@ -166,7 +164,7 @@ export const Hero = () => {
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-white/90 text-sm">
               <MapPin size={16} />
-              <span>Amaravati,Vijayawada</span>
+              <span>Amaravati, Vijayawada</span>
             </div>
           </motion.div>
 
@@ -178,7 +176,7 @@ export const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 mb-12"
           >
             <motion.button
-              onClick={scrollToRegister}
+              onClick={openRegistrationForm}
               className="btn-hero group"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
