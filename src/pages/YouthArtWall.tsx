@@ -89,8 +89,7 @@ const YouthArtWall = () => {
         eyebrowIcon={Palette}
         title="Youth Art Wall"
         description="A giant collaborative space where youth express their dreams, hopes, and imaginations through painting, sketching, doodling, graffiti, and visual storytelling."
-        decorativeIcon={Palette}
-        decorativeIcon2={Brush}
+        themeKey="youth-art-wall"
       />
 
       {/* Art Forms Section */}

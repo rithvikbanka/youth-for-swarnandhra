@@ -94,8 +94,7 @@ const YouthTalentCarnival = () => {
         eyebrowIcon={Mic}
         title="Youth Talent Carnival"
         description="The most energetic stage of the festival—an open mic arena where you perform music, poetry, dance, stand-up, storytelling, beatboxing, monologues, or anything that reflects your creative spark."
-        decorativeIcon={Mic}
-        decorativeIcon2={Music}
+        themeKey="talent-carnival"
       />
 
       {/* What You'll Experience */}

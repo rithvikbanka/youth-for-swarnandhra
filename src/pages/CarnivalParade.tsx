@@ -101,8 +101,7 @@ const CarnivalParade = () => {
         eyebrowIcon={Flag}
         title="Carnival Parade"
         description="The grand opening of YUVA 2025—a colourful explosion of music, movement, identity, and youth pride as 26 district contingents march through the festival arena."
-        decorativeIcon={Flag}
-        decorativeIcon2={Music}
+        themeKey="carnival-parade"
       />
 
       {/* What You'll Experience */}

@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { MapPin, Clock, Mic } from "lucide-react";
+import { MapPin, Clock, Mic, Linkedin, FileText } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { EventHero } from "@/components/EventHero";
@@ -10,31 +10,39 @@ import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
 // Derive schedule data from shared source
 const talksSchedule = getSessionsByTagOnly("Youth Changemaker Talks");
 
+// Event PDF resource
+const EVENT_PDF_URL = "https://drive.google.com/file/d/1XXjw1BD7tiFGLwypRJn3HgowKHKkNykF/view?usp=drive_link";
+
 const speakers = [
   {
     name: "Sudhanshu Kaushik",
     designation: "President & CEO, Centre for Youth Policy",
-    image: "/speakers/s1.png"
+    image: "/speakers/s1.png",
+    linkedinUrl: "https://www.linkedin.com/in/sudhanshukaushik/"
   },
   {
     name: "Yash Agarwal",
     designation: "Founder, Public Policy India & Proficy",
-    image: "/speakers/s2.png"
+    image: "/speakers/s2.png",
+    linkedinUrl: "https://www.linkedin.com/in/yashagarwalm/"
   },
   {
     name: "Malika Pandey",
     designation: "Assistant Private Secretary to Union Minister of Women and Child Development",
-    image: "/speakers/s3.png"
+    image: "/speakers/s3.png",
+    linkedinUrl: "https://www.linkedin.com/in/malika-pandey-035783182/"
   },
   {
     name: "Devansh S.",
     designation: "Policy Consultant to Government of India (GoI)",
-    image: "/speakers/s4.png"
+    image: "/speakers/s4.png",
+    linkedinUrl: "https://www.linkedin.com/in/devanshshah10/"
   },
   {
     name: "Anudeep Muttavarapu",
     designation: "Senior Director @ Motorola Solutions | Global Cloud, Data & AI Leader",
-    image: "/speakers/s5.png"
+    image: "/speakers/s5.png",
+    linkedinUrl: "https://www.linkedin.com/in/amuttavarapu/"
   }
 ];
 
@@ -42,12 +50,14 @@ const moderators = [
   {
     name: "Keshav Kaviti",
     designation: "Cloud FinOps Manager, Motorola Solutions",
-    image: "/moderators/m2.png"
+    image: "/moderators/m2.png",
+    linkedinUrl: "https://www.linkedin.com/in/keshav-kaviti-700358249/"
   },
   {
     name: "Rakesh Pendyala",
     designation: "MBA Gold Medalist, Business Leadership @ IIM Kozhikode",
-    image: "/moderators/m1.png"
+    image: "/moderators/m1.png",
+    linkedinUrl: "https://www.linkedin.com/in/rakesh-pendyala/"
   }
 ];
 
@@ -72,7 +82,7 @@ const EventYouthChangemaker = () => {
         eyebrowIcon={Mic}
         title="Youth Changemaker Talks"
         description="Focused on empowering young people to become active agents of positive change, highlighting their innovative solutions, leadership, and passion for tackling social and economic issues, moving beyond 'future leaders' to 'present-day doers'."
-        decorativeIcon={Mic}
+        themeKey="youth-changemaker-talks"
       />
 
       {/* Combined Section: Header + Schedule + Register Button */}
@@ -93,6 +103,19 @@ const EventYouthChangemaker = () => {
               Connect with visionary speakers, industry experts, and social entrepreneurs 
               driving innovation and impact across the nation.
             </p>
+            
+            {/* Event PDF Button */}
+            <div className="mt-6">
+              <a
+                href={EVENT_PDF_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary/10 border border-primary/30 text-primary hover:bg-primary/20 transition-colors text-sm font-semibold"
+              >
+                <FileText className="w-4 h-4" />
+                View Event Details PDF
+              </a>
+            </div>
           </motion.div>
 
           {/* Schedule Cards */}
@@ -197,9 +220,20 @@ const EventYouthChangemaker = () => {
                 <h3 className="font-bold text-lg text-foreground mb-1">
                   {speaker.name}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
                   {speaker.designation}
                 </p>
+                {speaker.linkedinUrl && (
+                  <a
+                    href={speaker.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-primary hover:text-primary/80 transition-colors text-sm font-semibold"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                    <span>LinkedIn</span>
+                  </a>
+                )}
               </motion.div>
             ))}
           </div>
@@ -240,9 +274,20 @@ const EventYouthChangemaker = () => {
                 <h3 className="font-bold text-lg text-foreground mb-1">
                   {moderator.name}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
                   {moderator.designation}
                 </p>
+                {moderator.linkedinUrl && (
+                  <a
+                    href={moderator.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-primary hover:text-primary/80 transition-colors text-sm font-semibold"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                    <span>LinkedIn</span>
+                  </a>
+                )}
               </motion.div>
             ))}
           </div>

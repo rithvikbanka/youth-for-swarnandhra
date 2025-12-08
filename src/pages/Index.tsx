@@ -8,6 +8,7 @@ import { RegistrationForm } from "@/components/RegistrationForm";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { OrganizedBy } from "@/components/OrganizedBy";
+import { TransformSection } from "@/components/TransformSection";
 
 
 const Index = () => {
@@ -16,6 +17,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <OrganizedBy />
+      <TransformSection />
       <EventCategories />
       <WhyAttend />
       <Schedule />

@@ -3,7 +3,7 @@ export type ScheduleSession = {
   topic: string;
   description: string;
   location: string;
-  tag?: string; // e.g. "Youth Changemaker Talks" | "Youth Con" | "Youth Impact Labs" | "All Events"
+  tag?: string; // e.g. "Youth Changemaker Talks" | "Youth Con" | "Youth Impact Labs" | "All Events" | "Yuvasrishti" | "Youth Art Wall" | "Talent Carnival" | "Carnival Parade"
 };
 
 export type DaySchedule = {
@@ -44,6 +44,34 @@ export const scheduleByDay: DaySchedule[] = [
         description: "One-on-one quick mentoring opportunities with industry experts.",
         location: "Vijayawada",
         tag: "Youth Con"
+      },
+      {
+        time: "11:00 AM - 01:00 PM",
+        topic: "Carnival Parade",
+        description: "Traditional and costume parade showcasing cultural diversity.",
+        location: "Vijayawada",
+        tag: "Carnival Parade"
+      },
+      {
+        time: "11:00 AM onwards",
+        topic: "Youth Talent Carnival",
+        description: "Dance, Acting, Singing, Poetry & More performances.",
+        location: "Vijayawada",
+        tag: "Talent Carnival"
+      },
+      {
+        time: "Full Day",
+        topic: "Yuvasrishti",
+        description: "Ongoing initiatives and participation throughout the festival.",
+        location: "Vijayawada",
+        tag: "Yuvasrishti"
+      },
+      {
+        time: "Full Day",
+        topic: "Youth Art Wall",
+        description: "2D, 3D, Multimedia Artwork Display and exhibition.",
+        location: "Vijayawada",
+        tag: "Youth Art Wall"
       }
     ]
   },
@@ -113,6 +141,27 @@ export const scheduleByDay: DaySchedule[] = [
         description: "Evening meetup session for group discussions and bonding.",
         location: "Vijayawada",
         tag: "Youth Con"
+      },
+      {
+        time: "11:00 AM onwards",
+        topic: "Youth Talent Carnival",
+        description: "Dance, Acting, Singing, Poetry & More performances.",
+        location: "Vijayawada",
+        tag: "Talent Carnival"
+      },
+      {
+        time: "Full Day",
+        topic: "Yuvasrishti",
+        description: "Ongoing initiatives and participation throughout the festival.",
+        location: "Vijayawada",
+        tag: "Yuvasrishti"
+      },
+      {
+        time: "Full Day",
+        topic: "Youth Art Wall",
+        description: "2D, 3D, Multimedia Artwork Display and exhibition.",
+        location: "Vijayawada",
+        tag: "Youth Art Wall"
       }
     ]
   },
@@ -147,6 +196,27 @@ export const scheduleByDay: DaySchedule[] = [
         description: "Closing ceremony, awards, and final address of the festival.",
         location: "Vijayawada",
         tag: "All Events"
+      },
+      {
+        time: "11:00 AM onwards",
+        topic: "Youth Talent Carnival",
+        description: "Dance, Acting, Singing, Poetry & More performances.",
+        location: "Vijayawada",
+        tag: "Talent Carnival"
+      },
+      {
+        time: "Full Day",
+        topic: "Yuvasrishti",
+        description: "Ongoing initiatives and participation throughout the festival.",
+        location: "Vijayawada",
+        tag: "Yuvasrishti"
+      },
+      {
+        time: "Full Day",
+        topic: "Youth Art Wall",
+        description: "2D, 3D, Multimedia Artwork Display and exhibition.",
+        location: "Vijayawada",
+        tag: "Youth Art Wall"
       }
     ]
   }

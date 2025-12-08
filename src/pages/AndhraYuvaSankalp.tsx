@@ -3,7 +3,6 @@ import { useRef } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { EventHero } from "@/components/EventHero";
-import { SocialMediaPreview } from "@/components/SocialMediaPreview";
 import { 
   Smartphone, 
   TrendingUp, 
@@ -13,7 +12,9 @@ import {
   Target,
   Users,
   Award,
-  CheckCircle
+  CheckCircle,
+  Instagram,
+  ExternalLink
 } from "lucide-react";
 
 const themes = [
@@ -56,21 +57,58 @@ const marathonFeatures = [
   "Network with industry professionals"
 ];
 
-// Sample social media post URLs (can be updated later)
+// Social media posts for the carousel - now with actual images
 const socialPosts = [
-  "https://www.instagram.com/apyouthservices/",
-  "https://www.instagram.com/apyouthservices/",
-  "https://www.instagram.com/apyouthservices/"
+  {
+    id: "ays-1",
+    type: "instagram" as const,
+    url: "https://x.com/naralokesh/status/1955123971164344469",
+    title: "Event Announcement",
+    description: "Latest updates from Hon'ble Minister",
+    image: "/ays/a1.png"
+  },
+  {
+    id: "ays-2",
+    type: "instagram" as const,
+    url: "https://www.instagram.com/p/DNPeH4JTuJ0/",
+    title: "Event Highlight",
+    description: "Moments from YUVA community",
+    image: "/ays/a2.png"
+  },
+  {
+    id: "ays-3",
+    type: "instagram" as const,
+    url: "https://www.instagram.com/reel/DP1yDDKkuvC/",
+    title: "Behind the Scenes",
+    description: "Exclusive backstage moments",
+    image: "/ays/a3.png"
+  },
+  {
+    id: "ays-4",
+    type: "instagram" as const,
+    url: "https://www.instagram.com/reel/DP1slFKEruB/",
+    title: "Event Coverage",
+    description: "Festival highlights",
+    image: "/ays/a4.png"
+  },
+  {
+    id: "ays-5",
+    type: "instagram" as const,
+    url: "https://www.instagram.com/reel/DPok_5Bk6NF/",
+    title: "Live Moments",
+    description: "Capturing the energy",
+    image: "/ays/a5.png"
+  },
 ];
 
 const AndhraYuvaSankalp = () => {
   const themesRef = useRef(null);
   const marathonRef = useRef(null);
-  const postsRef = useRef(null);
+  const socialRef = useRef(null);
   
   const isThemesInView = useInView(themesRef, { once: true, margin: "-100px" });
   const isMarathonInView = useInView(marathonRef, { once: true, margin: "-100px" });
-  const isPostsInView = useInView(postsRef, { once: true, margin: "-100px" });
+  const isSocialInView = useInView(socialRef, { once: true, margin: "-100px" });
 
   return (
     <main className="min-h-screen bg-background">
@@ -81,11 +119,10 @@ const AndhraYuvaSankalp = () => {
         eyebrowIcon={Smartphone}
         title="Andhra Yuva Sankalp"
         description="A digital marathon on the themes of Youth Empowerment, AI, Fitness & Social Impact. Unleashing the talent and creativity of youth through content creation for social awareness."
-        decorativeIcon={Smartphone}
-        decorativeIcon2={TrendingUp}
+        themeKey="andhra-yuva-sankalp"
       />
 
-      {/* Themes Section */}
+      {/* Themes Section
       <section ref={themesRef} className="section-padding bg-festival-offwhite">
         <div className="container mx-auto">
           <motion.div
@@ -125,9 +162,9 @@ const AndhraYuvaSankalp = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Digital Marathon Section */}
+      {/* Digital Marathon Section
       <section ref={marathonRef} className="section-padding bg-background">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -204,27 +241,97 @@ const AndhraYuvaSankalp = () => {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Social Media Posts Section */}
-      <section ref={postsRef} className="section-padding bg-festival-offwhite">
+      {/* Social Media Highlights Section */}
+      <section ref={socialRef} className="section-padding bg-gradient-to-b from-festival-offwhite to-primary/5">
         <div className="container mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isPostsInView ? { opacity: 1, y: 0 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isSocialInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12 md:mb-16"
+            className="text-center mb-12"
           >
-            <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
-              Featured Content
-            </span>
-            <h2 className="section-title">From Our Creators</h2>
+            <p className="text-sm font-semibold tracking-widest uppercase text-accent mb-4">
+              Social Highlights
+            </p>
+            <h2 className="section-title">Follow the Buzz</h2>
             <p className="section-subtitle mx-auto">
-              Check out the latest content from Andhra Yuva Sankalp participants.
+              Real moments from YUVA community across social platforms
             </p>
           </motion.div>
 
-          <SocialMediaPreview urls={socialPosts} />
+          {/* Horizontal Scrollable Container on mobile, Grid on desktop */}
+          <div className="overflow-x-auto pb-4 md:pb-0 -mx-4 px-4">
+            <div className="flex gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 md:gap-6 min-w-max md:min-w-full">
+              {socialPosts.map((post, index) => (
+                <motion.a
+                  key={post.id}
+                  href={post.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={isSocialInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ delay: index * 0.1 }}
+                  className="block flex-shrink-0 w-64 md:w-full group"
+                >
+                  <div className="relative aspect-square rounded-xl overflow-hidden border-2 border-primary/20 hover:border-primary/50 transition-all duration-300 hover:shadow-lg">
+                    {/* Actual Image */}
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                    
+                    {/* Content Overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Instagram className="w-4 h-4 text-white" />
+                        <span className="text-xs text-white/80 font-medium">
+                          @andhrayuvasankalp2k25
+                        </span>
+                      </div>
+                      <p className="text-sm font-semibold text-white mb-0.5">
+                        {post.title}
+                      </p>
+                      <p className="text-xs text-white/70">
+                        {post.description}
+                      </p>
+                    </div>
+
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                      <span className="flex items-center gap-2 text-white font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/30">
+                        <ExternalLink className="w-4 h-4" />
+                        View Post
+                      </span>
+                    </div>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA to Instagram */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isSocialInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.5 }}
+            className="text-center mt-12"
+          >
+            <a
+              href="https://www.instagram.com/andhrayuvasankalp2k25"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-accent text-white hover:shadow-lg transition-all font-semibold"
+            >
+              <Instagram className="w-5 h-5" />
+              Follow @andhrayuvasankalp2k25
+            </a>
+          </motion.div>
         </div>
       </section>
 

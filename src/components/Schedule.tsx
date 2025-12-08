@@ -8,6 +8,9 @@ const categories = [
   { id: "changemaker", label: "Youth Changemaker Talks", tag: "Youth Changemaker Talks" },
   { id: "con", label: "Youth Con", tag: "Youth Con" },
   { id: "impact", label: "Youth Impact Labs", tag: "Youth Impact Labs" },
+  { id: "talent", label: "Talent Carnival", tag: "Talent Carnival" },
+  { id: "artwall", label: "Youth Art Wall", tag: "Youth Art Wall" },
+  { id: "yuvasrishti", label: "Yuvasrishti", tag: "Yuvasrishti" },
 ];
 
 const categoryColors: Record<string, string> = {
@@ -15,6 +18,10 @@ const categoryColors: Record<string, string> = {
   "Youth Changemaker Talks": "bg-primary text-primary-foreground",
   "Youth Con": "bg-accent text-accent-foreground",
   "Youth Impact Labs": "bg-festival-gold text-white",
+  "Talent Carnival": "bg-pink-500 text-white",
+  "Youth Art Wall": "bg-blue-500 text-white",
+  "Yuvasrishti": "bg-purple-500 text-white",
+  "Carnival Parade": "bg-orange-500 text-white",
 };
 
 export const Schedule = () => {

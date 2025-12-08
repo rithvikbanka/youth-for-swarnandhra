@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { MapPin, Clock, Lightbulb, Rocket, Globe, CheckCircle } from "lucide-react";
+import { MapPin, Clock, Lightbulb, Rocket, Globe, CheckCircle, FileText } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { EventHero } from "@/components/EventHero";
@@ -9,6 +9,9 @@ import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
 
 // Derive schedule data from shared source
 const impactLabsSchedule = getSessionsByTagOnly("Youth Impact Labs");
+
+// Event PDF resource
+const EVENT_PDF_URL = "https://drive.google.com/file/d/1RsL33qCBjeER1yPUELxlhQD_59uoIGLk/view?usp=drive_link";
 
 const hackathonPoints = [
   {
@@ -52,8 +55,7 @@ const EventYouthImpactLabs = () => {
         eyebrowIcon={Rocket}
         title="Youth Impact Labs"
         description="For those who want to change the World - Social Hackathon & Discussions on Social Entrepreneurship"
-        decorativeIcon={Lightbulb}
-        decorativeIcon2={Globe}
+        themeKey="youth-impact-labs"
       />
 
       {/* Combined Section: Header + Schedule Cards + Register Button */}
@@ -74,6 +76,19 @@ const EventYouthImpactLabs = () => {
               Collaborate with changemakers and innovators to solve real-world problems 
               through social entrepreneurship and hackathon challenges.
             </p>
+            
+            {/* Event PDF Button */}
+            <div className="mt-6">
+              <a
+                href={EVENT_PDF_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary/10 border border-primary/30 text-primary hover:bg-primary/20 transition-colors text-sm font-semibold"
+              >
+                <FileText className="w-4 h-4" />
+                View Event Details PDF
+              </a>
+            </div>
           </motion.div>
 
           {/* Schedule Cards - Matching Talks Style */}

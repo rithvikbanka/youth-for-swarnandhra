@@ -99,8 +99,7 @@ const Yuvasrishti = () => {
         eyebrowIcon={Gem}
         title="Yuvasrishti"
         description="The heritage heartbeat of YUVA 2025. Step into a vibrant pavilion where Andhra Pradesh's crafts, handlooms, and creative industries come alive through interactive stalls, artisan stories, and youth-led experience zones."
-        decorativeIcon={Gem}
-        decorativeIcon2={Palette}
+        themeKey="yuvasrishti"
       />
 
       {/* You'll See Section */}

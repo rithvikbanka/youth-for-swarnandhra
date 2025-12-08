@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useMemo } from "react";
-import { MapPin, Clock, Users, Handshake, Coffee } from "lucide-react";
+import { MapPin, Clock, Users, Handshake, Coffee, FileText } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { EventHero } from "@/components/EventHero";
@@ -11,6 +11,9 @@ import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
 const getDayWithDate = (dayLabel: string, date: string) => {
   return `${dayLabel} · ${date}`;
 };
+
+// Event PDF resource
+const EVENT_PDF_URL = "https://drive.google.com/file/d/19BP0stjo-y0L682P-waEc2ckK-lIM3FX/view?usp=drive_link";
 
 // Type for session with day info
 type SessionWithDay = ScheduleSession & { dayLabel: string; date: string };
@@ -65,8 +68,7 @@ const EventYouthCon = () => {
         eyebrowIcon={Users}
         title="Youth Con"
         description="Connecting the Strangers - A unique platform for meaningful conversations, networking, and mentoring between youth and industry leaders."
-        decorativeIcon={Handshake}
-        decorativeIcon2={Users}
+        themeKey="youth-con"
       />
 
       {/* Unified Content Section */}
@@ -86,6 +88,19 @@ const EventYouthCon = () => {
             <p className="section-subtitle mx-auto">
               Build relationships with industry leaders, entrepreneurs, and peers from across India.
             </p>
+            
+            {/* Event PDF Button */}
+            <div className="mt-6">
+              <a
+                href={EVENT_PDF_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary/10 border border-primary/30 text-primary hover:bg-primary/20 transition-colors text-sm font-semibold"
+              >
+                <FileText className="w-4 h-4" />
+                View Event Details PDF
+              </a>
+            </div>
           </motion.div>
 
           {/* Speed Mentoring Block */}
