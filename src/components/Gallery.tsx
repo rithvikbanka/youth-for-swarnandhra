@@ -33,21 +33,21 @@ const videos = [
     id: 1,
     title: "Spirit of Andhra Pradesh at Yuva 2025",
     thumbnail: video1,
-    views: "1.2K",
+    views: "2K+",
     url: "https://www.instagram.com/apyouthservices/reel/DRwYylwkayW/"
   },
   {
     id: 2,
     title: "Youth Minister's Call to YUVA",
     thumbnail: video2,
-    views: "856",
+    views: "30K+",
     url: "https://www.instagram.com/apyouthservices/reel/DRuX-i2E7k6/"
   },
   {
     id: 3,
     title: "Commissioner Invites You to YUVA",
     thumbnail: video3,
-    views: "543",
+    views: "18K+",
     url: "https://www.instagram.com/apyouthservices/reel/DRsf13jExKf/"
   },
 ];

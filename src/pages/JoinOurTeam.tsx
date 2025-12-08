@@ -111,6 +111,53 @@ const rolesData = [
       "Potential collaboration for future government events",
     ],
   },
+  {
+    roleKey: "organiser" as RoleKey,
+    title: "YUVA Organisers",
+    tagline: "Be the backbone of YUVA 2025",
+    intro:
+      "The Andhra Pradesh State Youth Festival (YUVA 2025) invites dynamic youth to join the Organising Team, the group that works closely with the management team to run the festival smoothly and professionally. This is the perfect opportunity for students who want real event experience, enjoy teamwork, love leadership roles, and want to be part of a state-level movement.",
+    responsibilities: [
+      "Festival Operations & Coordination",
+      "Registration & Help Desk",
+      "Youth Con Support",
+      "Youth Impact Labs Support",
+      "Cultural & Talent Zones Assistance",
+      "Creatives & Media Support",
+      "Logistics Support",
+      "Communication & Announcements",
+      "VIP & Speaker Handling",
+      "General Festival Operations",
+      "Supporting ANY task that ensures the event's success",
+    ],
+    whoShouldApply: [
+      "Students with leadership, initiative, and teamwork spirit",
+      "Youth interested in event management, operations, public administration, and project coordination",
+      "Active, energetic youth passionate about organising real events",
+      "Those who love being on-ground, interacting with people, and solving challenges",
+      "Youth who want to contribute to Swarnandhra's youth movement",
+      "Mandatory: Must be available 15–20 December (full-time)",
+      "Mandatory: Must be responsible, disciplined, and punctual",
+      "Mandatory: Must be good at communication and people-handling",
+    ],
+    incentives: [
+      "Government of Andhra Pradesh Certificate",
+      "Backstage Access & Networking",
+      "Real Event Management Experience",
+      "Valuable Experience for Resume & Job Interviews",
+      "Recognition on Official Pages",
+      "Priority for Future Youth Programs",
+      "Pathway to Become Future Youth Leaders",
+    ],
+    outcomes: [
+      "Leadership roles in youth events",
+      "Professional event management",
+      "Public policy exposure",
+      "Entrepreneurship & creative leadership",
+      "Building a strong network of mentors & achievers",
+      "Being part of the Organising Team can open doors to a career in youth leadership and event management. This is more than a volunteer role — it is an entry point into Andhra's youth leadership ecosystem.",
+    ],
+  },
 ];
 
 const JoinOurTeam = () => {
@@ -189,7 +236,7 @@ const JoinOurTeam = () => {
             </span>
             <h2 className="section-title">Choose Your Role</h2>
             <p className="section-subtitle mx-auto">
-              We're looking for passionate young people to join our team in three exciting roles.
+              We're looking for passionate young people to join our team in four exciting roles.
             </p>
           </motion.div>
 

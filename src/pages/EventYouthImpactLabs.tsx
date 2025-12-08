@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { MapPin, Clock, X, Lightbulb, Rocket, Globe, CheckCircle } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { EventHero } from "@/components/EventHero";
 import { getSessionsByTagOnly } from "@/data/schedule";
 
 // Derive schedule data from shared source
@@ -50,54 +51,14 @@ const EventYouthImpactLabs = () => {
     <main className="min-h-screen bg-background">
       <Navbar />
       
-      {/* Hero Section - Matching Youth Con Style */}
-      <section className="relative min-h-[55vh] flex items-center overflow-hidden">
-        {/* Gradient Background */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to right, #BF8315 0%, #B22418 55%, rgba(34, 197, 94, 0.02) 100%)"
-          }}
-        />
-
-        {/* Content */}
-        <div className="container mx-auto px-4 md:px-6 relative z-10 py-16 md:py-24">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl"
-          >
-            <motion.span
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="inline-block px-4 py-2 bg-accent text-accent-foreground text-sm font-semibold rounded-full mb-6"
-            >
-              Special Events
-            </motion.span>
-            
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6 leading-tight"
-            >
-              Youth Impact Labs
-            </motion.h1>
-            
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="text-lg md:text-xl text-white/90 leading-relaxed"
-            >
-              For those who want to change the World - Social Hackathon & Discussions 
-              on Social Entrepreneurship
-            </motion.p>
-          </motion.div>
-        </div>
-      </section>
+      <EventHero
+        eyebrow="Special Events"
+        eyebrowIcon={Rocket}
+        title="Youth Impact Labs"
+        description="For those who want to change the World - Social Hackathon & Discussions on Social Entrepreneurship"
+        decorativeIcon={Lightbulb}
+        decorativeIcon2={Globe}
+      />
 
       {/* Combined Section: Header + Schedule Cards + Register Button */}
       <section ref={scheduleRef} className="section-padding bg-festival-offwhite">

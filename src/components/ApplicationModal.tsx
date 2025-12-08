@@ -44,12 +44,13 @@ const roleOptions = [
   { value: "reporter", label: "YUVA Reporters" },
   { value: "fellow", label: "Yuvasrishti Fellows" },
   { value: "creator", label: "YUVA Creators Squad" },
+  { value: "organiser", label: "YUVA Organisers" },
 ];
 
 interface ApplicationModalProps {
   isOpen: boolean;
   onClose: () => void;
-  preselectedRole?: "reporter" | "fellow" | "creator";
+  preselectedRole?: "reporter" | "fellow" | "creator" | "organiser";
 }
 
 const InputField = ({

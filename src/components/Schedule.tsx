@@ -134,7 +134,7 @@ export const Schedule = () => {
                     {session.tag && (
                       <span className={`inline-block mt-3 px-2 py-1 rounded-full text-xs font-medium ${categoryColors[session.tag] || "bg-gray-200 text-gray-700"}`}>
                         {session.tag}
-                      </span>
+                    </span>
                     )}
                   </motion.div>
                 ))}

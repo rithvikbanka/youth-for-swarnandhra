@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Briefcase, Users, Gift, TrendingUp } from "lucide-react";
 
-export type RoleKey = "reporter" | "fellow" | "creator";
+export type RoleKey = "reporter" | "fellow" | "creator" | "organiser";
 
 export interface RoleSectionProps {
   roleKey: RoleKey;

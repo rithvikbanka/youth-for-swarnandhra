@@ -24,10 +24,11 @@ const eventDropdown = [
   {
     label: "Other Events",
     items: [
-      { label: "Yuvasrishti", section: "yuvasrishti", route: "/" },
-      { label: "Youth Talent Carnival", section: "youth-talent-carnival", route: "/" },
-      { label: "Youth Art Wall", section: "youth-art-wall", route: "/" },
-      { label: "Carnival Parade", section: "carnival-parade", route: "/" },
+      { label: "Andhra Yuva Sankalp", section: "andhra-yuva-sankalp", route: "/other-events/andhra-yuva-sankalp" },
+      { label: "Youth Talent Carnival", section: "youth-talent-carnival", route: "/other-events/youth-talent-carnival" },
+      { label: "Youth Art Wall", section: "youth-art-wall", route: "/other-events/youth-art-wall" },
+      { label: "Carnival Parade", section: "carnival-parade", route: "/other-events/carnival-parade" },
+      { label: "Yuvasrishti", section: "yuvasrishti", route: "/other-events/yuvasrishti" },
     ],
   },
 ];
@@ -73,7 +74,7 @@ export const Navbar = () => {
 
   // Active state logic only uses router pathname (not scrolling positions)
   const isHomeActive = location.pathname === "/";
-  const isEventsActive = location.pathname.startsWith("/event");
+  const isEventsActive = location.pathname.startsWith("/event") || location.pathname.startsWith("/other-events");
   const isJoinUsActive = location.pathname.startsWith("/join-our-team");
 
   // Listen to scroll for nav color and (if on home page) for section highlight
@@ -165,15 +166,14 @@ export const Navbar = () => {
    * For Other Events: go home and scroll to section.
    */
   const handleEventDropdownClick = (item: { section: string, route?: string }) => {
-    // Special Events: must navigate to dedicated route (no scrolling!)
-    const isSpecial = !!eventDropdown[0].items.find(i => i.section === item.section && i.route && i.route.startsWith("/event/"));
-    if (isSpecial && item.route) {
+    // If item has a route, navigate to it (works for both Special and Other Events)
+    if (item.route && (item.route.startsWith("/event/") || item.route.startsWith("/other-events/"))) {
       navigate(item.route, { replace: false });
       setShowEventsDropdown(false);
       setIsMobileOpen(false);
       return;
     }
-    // Other Events: go home and scroll to section
+    // Fallback: go home and scroll to section (for items without routes)
     goToSection(item.section);
   };
 
@@ -329,11 +329,7 @@ export const Navbar = () => {
                         {group.items.map((item) => (
                           <motion.a
                             key={item.section}
-                            href={
-                              group.label === "Special Events" && item.route
-                                ? item.route
-                                : `#${item.section}`
-                            }
+                            href={item.route || `#${item.section}`}
                             onClick={e => {
                               e.preventDefault();
                               handleEventDropdownClick(item);
@@ -369,22 +365,22 @@ export const Navbar = () => {
                 : (isHomeActive && activeSection === link.section);
               
               return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
                     if (link.isRoute) {
                       navigate(link.href);
                       setIsMobileOpen(false);
                     } else {
                       goToSection(link.section);
                     }
-                  }}
+                }}
                   className={getNavLinkClasses(linkIsActive)}
-                >
-                  {link.label}
-                </a>
+              >
+                {link.label}
+              </a>
               );
             })}
           </div>

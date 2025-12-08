@@ -120,11 +120,11 @@ export const FAQ = () => {
         >
           <p className="text-muted-foreground mb-2">Still have questions?</p>
           <a
-            href="mailto:hello@apyouthfestival.com"
+            href="mailto:apstateyouthfestival@gmail.com"
             className="inline-flex items-center gap-2 text-primary font-semibold hover:underline"
           >
             <Mail size={18} />
-            Contact us at hello@apyouthfestival.com
+            Contact us at apstateyouthfestival@gmail.com
           </a>
         </motion.div>
       </div>
