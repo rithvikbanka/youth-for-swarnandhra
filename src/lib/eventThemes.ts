@@ -1,96 +1,54 @@
-// Event theme configurations for each event page
-// Provides consistent styling with unique visual identity per event
+import { texturePatterns } from './texturePatterns';
 
 export const eventThemes = {
   "youth-changemaker-talks": {
-    bg: "radial-gradient(circle at top, #ffe3dd 0%, #fff7f2 100%)",
-    accent: "from-[#ff7a6c] to-[#ffb199]",
-    accentColor: "#ff7a6c",
-    image: "/eventpages/youthchangemakertalks.png",
-    schedule: {
-      date: "18–20 December 2025",
-      time: "Different sessions across all three days",
-      location: "Vijayawada, Andhra Pradesh"
-    }
+    bannerGradient: "from-[#c73e1d]/90 via-[#8b2e0f]/85 to-[#d97706]/80",
+    bannerBackground: "/backgrounds/b1.jpg",
+    texture: texturePatterns.dharmavaram,
+    showMeta: false, // HIDE schedule chips for special events
   },
   "youth-con": {
-    bg: "radial-gradient(circle at top, #e4ddff 0%, #f7f4ff 100%)",
-    accent: "from-[#7b5cff] to-[#b39dff]",
-    accentColor: "#7b5cff",
-    image: "/eventpages/youthcon.png",
-    schedule: {
-      date: "18–20 December 2025",
-      time: "Afternoons and evenings",
-      location: "Vijayawada, Andhra Pradesh"
-    }
+    bannerGradient: "from-[#6b3fa5]/90 via-[#4a2870]/85 to-[#c97a2c]/80",
+    bannerBackground: "/backgrounds/b2.jpg",
+    texture: texturePatterns.ikat,
+    showMeta: false, // HIDE schedule chips for special events
   },
   "youth-impact-labs": {
-    bg: "radial-gradient(circle at top, #dcf7e8 0%, #f2fff7 100%)",
-    accent: "from-[#36b87c] to-[#7de0aa]",
-    accentColor: "#36b87c",
-    image: "/eventpages/youthimpactlabs.png",
-    schedule: {
-      date: "19 & 20 December 2025",
-      time: "10:00 AM – 2:00 PM",
-      location: "Vijayawada, Andhra Pradesh"
-    }
+    bannerGradient: "from-[#b84e1a]/90 via-[#7a3410]/85 to-[#d97706]/80",
+    bannerBackground: "/backgrounds/b3.jpg",
+    texture: texturePatterns.kalamkari,
+    showMeta: false, // HIDE schedule chips for special events
   },
   "youth-art-wall": {
-    bg: "radial-gradient(circle at top, #ffe4f1 0%, #fff5fb 100%)",
-    accent: "from-[#ff66b3] to-[#ff9fd2]",
-    accentColor: "#ff66b3",
-    image: "/eventpages/youthartwall.png",
-    schedule: {
-      date: "18–20 December 2025",
-      time: "Full Day",
-      location: "Vijayawada, Andhra Pradesh"
-    }
+    bannerGradient: "from-[#d84a5c]/90 via-[#a23242]/85 to-[#d97706]/80",
+    bannerBackground: "/backgrounds/b4.jpg",
+    texture: texturePatterns.uppada,
+    showMeta: true, // SHOW schedule chips
   },
   "talent-carnival": {
-    bg: "radial-gradient(circle at top, #fff0cc 0%, #fff9ea 100%)",
-    accent: "from-[#ffb347] to-[#ffd26f]",
-    accentColor: "#ffb347",
-    image: "/eventpages/talentcarnival.png",
-    schedule: {
-      date: "18–20 December 2025",
-      time: "11:00 AM onwards",
-      location: "Vijayawada, Andhra Pradesh"
-    }
+    bannerGradient: "from-[#c85a2c]/90 via-[#8b3f1f]/85 to-[#d97706]/80",
+    bannerBackground: "/backgrounds/b1.jpg",
+    texture: texturePatterns.gadwal,
+    showMeta: true, // SHOW schedule chips
   },
   "yuvasrishti": {
-    bg: "radial-gradient(circle at top, #e0f4ff 0%, #f4fbff 100%)",
-    accent: "from-[#36a3ff] to-[#7fd1ff]",
-    accentColor: "#36a3ff",
-    image: "/eventpages/yuvasrishti.png",
-    schedule: {
-      date: "18–20 December 2025",
-      time: "Full Day",
-      location: "Vijayawada, Andhra Pradesh"
-    }
-  },
-  "andhra-yuva-sankalp": {
-    bg: "radial-gradient(circle at top, #fff0c7 0%, #fff7e1 100%)",
-    accent: "from-[#ffb347] to-[#ff5f5f]",
-    accentColor: "#ffb347",
-    image: "/eventpages/andhrayuva.png",
-    schedule: {
-      date: "December 2025",
-      time: "Online Digital Marathon",
-      location: "Across Andhra Pradesh"
-    }
+    bannerGradient: "from-[#d4651b]/90 via-[#9a4810]/85 to-[#d97706]/80",
+    bannerBackground: "/backgrounds/b2.jpg",
+    texture: texturePatterns.venkatagiri,
+    showMeta: true, // SHOW schedule chips
   },
   "carnival-parade": {
-    bg: "radial-gradient(circle at top, #ffe8d6 0%, #fff5ee 100%)",
-    accent: "from-[#ff8c42] to-[#ffb380]",
-    accentColor: "#ff8c42",
-    image: "/eventpages/carnivalparade.png",
-    schedule: {
-      date: "18 December 2025",
-      time: "11:00 AM – 1:00 PM",
-      location: "Vijayawada, Andhra Pradesh"
-    }
-  }
+    bannerGradient: "from-[#d4651b]/90 via-[#a84515]/85 to-[#d97706]/80",
+    bannerBackground: "/backgrounds/b3.jpg",
+    texture: texturePatterns.mangalagiri,
+    showMeta: true, // SHOW schedule chips
+  },
+  "andhra-yuva-sankalp": {
+    bannerGradient: "from-[#fe8c00]/90 via-[#fb5f1f]/85 to-[#f83600]/80",
+    bannerBackground: "/backgrounds/b4.jpg",
+    texture: texturePatterns.chirala,
+    showMeta: false, // HIDE schedule chips
+  },
 } as const;
 
 export type EventThemeKey = keyof typeof eventThemes;
-

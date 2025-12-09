@@ -1,11 +1,13 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { MapPin, Clock, Mic, Linkedin, FileText } from "lucide-react";
+import { MapPin, Clock, FileText } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { EventHero } from "@/components/EventHero";
+import { SocialIcon } from "@/components/icons/SocialIcon";
 import { getSessionsByTagOnly } from "@/data/schedule";
 import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 // Derive schedule data from shared source
 const talksSchedule = getSessionsByTagOnly("Youth Changemaker Talks");
@@ -72,17 +74,48 @@ const EventYouthChangemaker = () => {
   const isScheduleInView = useInView(scheduleRef, { once: true, margin: "-100px" });
   const isSpeakersInView = useInView(speakersRef, { once: true, margin: "-100px" });
   const isModeratorsInView = useInView(moderatorsRef, { once: true, margin: "-100px" });
+  const { t, locale } = useLanguage();
+
+  const content = locale === 'te' ? {
+    title: "యువ చేంజ్‌మేకర్ చర్చలు",
+    subtitle: "సానుకూల మార్పు యొక్క క్రియాశీల ఏజెంట్‌లుగా మారడానికి యువతను సశక్తం చేయడంపై దృష్టి, వారి వినూత్న పరిష్కారాలు, నాయకత్వం మరియు సామాజిక మరియు ఆర్థిక సమస్యలను పరిష్కరించాలనే ఆకాంక్షను హైలైట్ చేయడం.",
+    date: "18-20 డిసెంబర్ 2025",
+    time: "మూడు రోజులలో సెషన్లు",
+    location: "విజయవాడ, ఆంధ్ర ప్రదేశ్",
+    sectionEyebrow: "పరివర్తన చర్చలు & ఇంటరాక్షన్లు",
+    sectionTitle: "భారతదేశ చేంజ్‌మేకర్లను కలవండి",
+    sectionSubtitle: "దేశవ్యాప్తంగా ఆవిష్కరణ మరియు ప్రభావాన్ని నడిపిస్తున్న దార్శనిక స్పీకర్లు, పరిశ్రమ నిపుణులు మరియు సామాజిక వ్యవస్థాపకులతో కనెక్ట్ అవ్వండి.",
+    viewPDF: "ఈవెంట్ వివరాలు PDF చూడండి",
+    registerNow: "🎉 ఇప్పుడు నమోదు చేయండి",
+    meetSpeakers: "స్పీకర్లను కలవండి",
+    meetModerators: "మోడరేటర్లను కలవండి"
+  } : {
+    title: "Youth Changemaker Talks",
+    subtitle: "A space for young minds who want to do more than dream — here you get to share ideas, propose solutions, and show how you can make real change. Whether you care about social issues, tech innovations, or community upliftment, this talk brings together energy, ideas and action. If you've got passion and purpose, this is where you get heard.",
+    date: "18-20 December 2025",
+    time: "Sessions across all three days",
+    location: "Vijayawada, Andhra Pradesh",
+    sectionEyebrow: "Transformative Talks & Interactions",
+    sectionTitle: "Meet India's Changemakers",
+    sectionSubtitle: "Connect with visionary speakers, industry experts, and social entrepreneurs driving innovation and impact across the nation.",
+    viewPDF: "View Event Details PDF",
+    registerNow: "🎉 Register Now",
+    meetSpeakers: "Meet the Speakers",
+    meetModerators: "Meet the Moderators"
+  };
 
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
       
       <EventHero
-        eyebrow="Special Events"
-        eyebrowIcon={Mic}
-        title="Youth Changemaker Talks"
-        description="Focused on empowering young people to become active agents of positive change, highlighting their innovative solutions, leadership, and passion for tackling social and economic issues, moving beyond 'future leaders' to 'present-day doers'."
-        themeKey="youth-changemaker-talks"
+        slug="youth-changemaker-talks"
+        title={content.title}
+        subtitle={content.subtitle}
+        imageUrl="/eventpages/youthchangemakertalks.png"
+        date={content.date}
+        time={content.time}
+        location={content.location}
       />
 
       {/* Combined Section: Header + Schedule + Register Button */}
@@ -96,12 +129,11 @@ const EventYouthChangemaker = () => {
             className="text-center mb-12 md:mb-16"
           >
             <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
-              Transformative Talks & Interactions
+              {content.sectionEyebrow}
             </span>
-            <h2 className="section-title">Meet India's Changemakers</h2>
+            <h2 className="section-title">{content.sectionTitle}</h2>
             <p className="section-subtitle mx-auto">
-              Connect with visionary speakers, industry experts, and social entrepreneurs 
-              driving innovation and impact across the nation.
+              {content.sectionSubtitle}
             </p>
             
             {/* Event PDF Button */}
@@ -113,7 +145,7 @@ const EventYouthChangemaker = () => {
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary/10 border border-primary/30 text-primary hover:bg-primary/20 transition-colors text-sm font-semibold"
               >
                 <FileText className="w-4 h-4" />
-                View Event Details PDF
+                {content.viewPDF}
               </a>
             </div>
           </motion.div>
@@ -180,7 +212,7 @@ const EventYouthChangemaker = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              🎉 Register Now
+              {content.registerNow}
             </motion.button>
           </motion.div>
         </div>
@@ -195,7 +227,7 @@ const EventYouthChangemaker = () => {
             transition={{ duration: 0.6 }}
             className="text-2xl md:text-3xl font-heading font-bold text-center mb-10"
           >
-            Meet the Speakers
+            {content.meetSpeakers}
           </motion.h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8">
@@ -205,10 +237,11 @@ const EventYouthChangemaker = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isSpeakersInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-6 text-center shadow-card hover:shadow-lg transition-shadow duration-300"
+                className="bg-white rounded-2xl p-6 shadow-card hover:shadow-lg transition-shadow duration-300 flex flex-col h-full"
               >
+                {/* Image */}
                 <motion.div
-                  className="w-[200px] h-[200px] mx-auto mb-4 overflow-hidden rounded-xl bg-muted"
+                  className="w-[180px] h-[180px] mx-auto mb-4 overflow-hidden rounded-xl bg-muted"
                   whileHover={{ scale: 1.02 }}
                 >
                   <img
@@ -217,22 +250,24 @@ const EventYouthChangemaker = () => {
                     className="w-full h-full object-cover"
                   />
                 </motion.div>
-                <h3 className="font-bold text-lg text-foreground mb-1">
+                
+                {/* Name & Designation */}
+                <h3 className="font-bold text-lg text-foreground mb-1 text-center">
                   {speaker.name}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                <p className="text-sm text-muted-foreground leading-relaxed text-center flex-grow">
                   {speaker.designation}
                 </p>
+                
+                {/* Social Icon - Bottom Center */}
                 {speaker.linkedinUrl && (
-                  <a
-                    href={speaker.linkedinUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-primary hover:text-primary/80 transition-colors text-sm font-semibold"
-                  >
-                    <Linkedin className="w-4 h-4" />
-                    <span>LinkedIn</span>
-                  </a>
+                  <div className="flex justify-center pt-4 mt-4 border-t border-border">
+                    <SocialIcon
+                      href={speaker.linkedinUrl}
+                      platform="linkedin"
+                      ariaLabel={`${speaker.name} on LinkedIn`}
+                    />
+                  </div>
                 )}
               </motion.div>
             ))}
@@ -249,7 +284,7 @@ const EventYouthChangemaker = () => {
             transition={{ duration: 0.6 }}
             className="text-2xl md:text-3xl font-heading font-bold text-center mb-10"
           >
-            Meet the Moderators
+            {content.meetModerators}
           </motion.h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-2xl mx-auto">
@@ -259,10 +294,11 @@ const EventYouthChangemaker = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isModeratorsInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-6 text-center shadow-card hover:shadow-lg transition-shadow duration-300"
+                className="bg-white rounded-2xl p-6 shadow-card hover:shadow-lg transition-shadow duration-300 flex flex-col h-full"
               >
+                {/* Image */}
                 <motion.div
-                  className="w-[200px] h-[200px] mx-auto mb-4 overflow-hidden rounded-xl bg-muted"
+                  className="w-[180px] h-[180px] mx-auto mb-4 overflow-hidden rounded-xl bg-muted"
                   whileHover={{ scale: 1.02 }}
                 >
                   <img
@@ -271,22 +307,24 @@ const EventYouthChangemaker = () => {
                     className="w-full h-full object-cover"
                   />
                 </motion.div>
-                <h3 className="font-bold text-lg text-foreground mb-1">
+                
+                {/* Name & Designation */}
+                <h3 className="font-bold text-lg text-foreground mb-1 text-center">
                   {moderator.name}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                <p className="text-sm text-muted-foreground leading-relaxed text-center flex-grow">
                   {moderator.designation}
                 </p>
+                
+                {/* Social Icon - Bottom Center */}
                 {moderator.linkedinUrl && (
-                  <a
-                    href={moderator.linkedinUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-primary hover:text-primary/80 transition-colors text-sm font-semibold"
-                  >
-                    <Linkedin className="w-4 h-4" />
-                    <span>LinkedIn</span>
-                  </a>
+                  <div className="flex justify-center pt-4 mt-4 border-t border-border">
+                    <SocialIcon
+                      href={moderator.linkedinUrl}
+                      platform="linkedin"
+                      ariaLabel={`${moderator.name} on LinkedIn`}
+                    />
+                  </div>
                 )}
               </motion.div>
             ))}

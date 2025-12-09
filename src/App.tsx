@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 import Index from "./pages/Index";
 import EventYouthChangemaker from "./pages/EventYouthChangemaker";
 import EventYouthCon from "./pages/EventYouthCon";
@@ -20,30 +21,32 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* Special Events */}
-          <Route path="/event/youth-changemaker-talks" element={<EventYouthChangemaker />} />
-          <Route path="/event/youth-con" element={<EventYouthCon />} />
-          <Route path="/event/youth-impact-labs" element={<EventYouthImpactLabs />} />
-          {/* Other Events */}
-          <Route path="/other-events/andhra-yuva-sankalp" element={<AndhraYuvaSankalp />} />
-          <Route path="/other-events/youth-talent-carnival" element={<YouthTalentCarnival />} />
-          <Route path="/other-events/youth-art-wall" element={<YouthArtWall />} />
-          <Route path="/other-events/carnival-parade" element={<CarnivalParade />} />
-          <Route path="/other-events/yuvasrishti" element={<Yuvasrishti />} />
-          {/* Join Us */}
-          <Route path="/join-our-team" element={<JoinOurTeam />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <LanguageProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            {/* Special Events */}
+            <Route path="/event/youth-changemaker-talks" element={<EventYouthChangemaker />} />
+            <Route path="/event/youth-con" element={<EventYouthCon />} />
+            <Route path="/event/youth-impact-labs" element={<EventYouthImpactLabs />} />
+            {/* Other Events */}
+            <Route path="/other-events/andhra-yuva-sankalp" element={<AndhraYuvaSankalp />} />
+            <Route path="/other-events/youth-talent-carnival" element={<YouthTalentCarnival />} />
+            <Route path="/other-events/youth-art-wall" element={<YouthArtWall />} />
+            <Route path="/other-events/carnival-parade" element={<CarnivalParade />} />
+            <Route path="/other-events/yuvasrishti" element={<Yuvasrishti />} />
+            {/* Join Us */}
+            <Route path="/join-our-team" element={<JoinOurTeam />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </LanguageProvider>
   </QueryClientProvider>
 );
 

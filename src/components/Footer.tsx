@@ -1,32 +1,30 @@
 import { motion } from "framer-motion";
-import { Instagram, Linkedin, Youtube, Twitter, MapPin, Phone, Mail } from "lucide-react";
+import { Instagram, MapPin, Phone, Mail } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-
-const footerNavLinks = [
-  { label: "Events", href: "/", isRoute: true, section: "events" },
-  { label: "Schedule", href: "/", isRoute: true, section: "schedule" },
-  { label: "Gallery", href: "/", isRoute: true, section: "gallery" },
-  { label: "Join Us", href: "/join-our-team", isRoute: true, section: null },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 // Use https and trailing slash for robust hyperlinking
 const INSTAGRAM_URL = "https://www.instagram.com/apyouthservices/";
 
 const socialLinks = [
   { icon: Instagram, href: INSTAGRAM_URL, label: "Instagram" },
-  // { icon: Linkedin, href: "#", label: "LinkedIn" },
-  // { icon: Youtube, href: "#", label: "YouTube" },
-  // { icon: Twitter, href: "#", label: "X/Twitter" },
 ];
 
 export const Footer = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
+
+  const footerNavLinks = [
+    { label: t('nav.events', 'Events'), href: "/", isRoute: true, section: "transform-section" },
+    { label: t('nav.schedule', 'Schedule'), href: "/", isRoute: true, section: "schedule" },
+    { label: t('nav.gallery', 'Gallery'), href: "/", isRoute: true, section: "gallery" },
+    { label: t('nav.joinUs', 'Join Us'), href: "/join-our-team", isRoute: true, section: null },
+  ];
 
   const handleNavClick = (link: typeof footerNavLinks[0]) => {
     if (link.href === "/join-our-team") {
       navigate("/join-our-team");
     } else if (link.section) {
-      // Navigate to home and scroll to section
       navigate("/");
       setTimeout(() => {
         const element = document.getElementById(link.section!);
@@ -49,7 +47,7 @@ export const Footer = () => {
           {/* Swarnandhra 2047 - Navigation Links */}
           <div>
             <h3 className="text-lg font-heading font-bold text-foreground mb-4">
-              Swarnandhra 2047
+              {t('footer.swarnandhra', 'Swarnandhra 2047')}
             </h3>
             <ul className="space-y-3">
               {footerNavLinks.map((link) => (
@@ -81,35 +79,22 @@ export const Footer = () => {
           {/* Social Media */}
           <div>
             <h3 className="text-lg font-heading font-bold text-foreground mb-4">
-              Follow Us
+              {t('footer.followUs', 'Follow Us')}
             </h3>
             <div className="flex items-center gap-3 flex-wrap">
               {socialLinks.map((social) => (
-                social.label === "Instagram" ? (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-muted-foreground hover:bg-festival-gold-light hover:text-primary transition-all duration-200"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <social.icon size={20} />
-                  </motion.a>
-                ) : (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-muted-foreground hover:bg-festival-gold-light hover:text-primary transition-all duration-200"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <social.icon size={20} />
-                  </motion.a>
-                )
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  aria-label={social.label}
+                  className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center text-muted-foreground hover:bg-festival-gold-light hover:text-primary transition-all duration-200"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <social.icon size={20} />
+                </motion.a>
               ))}
               <a
                 href={INSTAGRAM_URL}
@@ -126,7 +111,7 @@ export const Footer = () => {
           {/* Official Info */}
           <div>
             <h3 className="text-lg font-heading font-bold text-foreground mb-4">
-              Department of Youth Services
+              {t('footer.department', 'Department of Youth Services')}
             </h3>
             <ul className="space-y-3 text-muted-foreground text-sm">
               <li className="flex items-start gap-2">
@@ -165,11 +150,11 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© Andhra Pradesh State Youth Festival 2025. All rights reserved.</p>
+            <p>{t('footer.copyright', '© Andhra Pradesh State Youth Festival 2025. All rights reserved.')}</p>
             <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-              <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-primary transition-colors">Accessibility</a>
+              <a href="#" className="hover:text-primary transition-colors">{t('footer.privacy', 'Privacy Policy')}</a>
+              <a href="#" className="hover:text-primary transition-colors">{t('footer.terms', 'Terms of Service')}</a>
+              <a href="#" className="hover:text-primary transition-colors">{t('footer.accessibility', 'Accessibility')}</a>
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { EventHero } from "@/components/EventHero";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { 
   Palette, 
   Brush, 
@@ -15,63 +16,8 @@ import {
   Eye
 } from "lucide-react";
 
-const artForms = [
-  {
-    icon: Brush,
-    title: "Painting",
-    description: "Express your vision through vibrant colors and bold strokes on the giant collaborative canvas."
-  },
-  {
-    icon: PenTool,
-    title: "Sketching",
-    description: "Quick sketches, detailed portraits, or abstract lines—every mark tells a story."
-  },
-  {
-    icon: Sparkles,
-    title: "Doodling",
-    description: "Let your imagination run wild with playful doodles that bring joy and creativity."
-  },
-  {
-    icon: Layers,
-    title: "Graffiti Art",
-    description: "Street art meets festival spirit—create bold statements that capture youth energy."
-  },
-  {
-    icon: Eye,
-    title: "Visual Storytelling",
-    description: "Use art to narrate stories of hope, dreams, and the future you envision."
-  },
-  {
-    icon: Heart,
-    title: "Collaborative Art",
-    description: "Join hands with fellow artists to create something bigger than yourself."
-  }
-];
-
-const howToParticipate = [
-  {
-    step: "01",
-    title: "Show Up",
-    description: "Visit the Youth Art Wall zone during the festival. No prior registration needed!"
-  },
-  {
-    step: "02",
-    title: "Pick Your Spot",
-    description: "Choose an empty section of the wall or join an ongoing collaborative piece."
-  },
-  {
-    step: "03",
-    title: "Create",
-    description: "Express yourself freely. All art supplies are provided—just bring your creativity!"
-  },
-  {
-    step: "04",
-    title: "Sign & Share",
-    description: "Sign your artwork and share it on social media with #YUVAArtWall."
-  }
-];
-
 const YouthArtWall = () => {
+  const { t } = useLanguage();
   const artRef = useRef(null);
   const howRef = useRef(null);
   const galleryRef = useRef(null);
@@ -80,16 +26,74 @@ const YouthArtWall = () => {
   const isHowInView = useInView(howRef, { once: true, margin: "-100px" });
   const isGalleryInView = useInView(galleryRef, { once: true, margin: "-100px" });
 
+  const artForms = [
+    {
+      icon: Brush,
+      title: t('events.youthArtWall.painting', "Painting"),
+      description: t('events.youthArtWall.paintingDesc', "Express your vision through vibrant colors and bold strokes on the giant collaborative canvas.")
+    },
+    {
+      icon: PenTool,
+      title: t('events.youthArtWall.sketching', "Sketching"),
+      description: t('events.youthArtWall.sketchingDesc', "Quick sketches, detailed portraits, or abstract lines—every mark tells a story.")
+    },
+    {
+      icon: Sparkles,
+      title: t('events.youthArtWall.doodling', "Doodling"),
+      description: t('events.youthArtWall.doodlingDesc', "Let your imagination run wild with playful doodles that bring joy and creativity.")
+    },
+    {
+      icon: Layers,
+      title: t('events.youthArtWall.graffitiArt', "Graffiti Art"),
+      description: t('events.youthArtWall.graffitiArtDesc', "Street art meets festival spirit—create bold statements that capture youth energy.")
+    },
+    {
+      icon: Eye,
+      title: t('events.youthArtWall.visualStorytelling', "Visual Storytelling"),
+      description: t('events.youthArtWall.visualStorytellingDesc', "Use art to narrate stories of hope, dreams, and the future you envision.")
+    },
+    {
+      icon: Heart,
+      title: t('events.youthArtWall.collaborativeArt', "Collaborative Art"),
+      description: t('events.youthArtWall.collaborativeArtDesc', "Join hands with fellow artists to create something bigger than yourself.")
+    }
+  ];
+
+  const howToParticipate = [
+    {
+      step: "01",
+      title: t('events.youthArtWall.showUp', "Show Up"),
+      description: t('events.youthArtWall.showUpDesc', "Visit the Youth Art Wall zone during the festival. No prior registration needed!")
+    },
+    {
+      step: "02",
+      title: t('events.youthArtWall.pickYourSpot', "Pick Your Spot"),
+      description: t('events.youthArtWall.pickYourSpotDesc', "Choose an empty section of the wall or join an ongoing collaborative piece.")
+    },
+    {
+      step: "03",
+      title: t('events.youthArtWall.create', "Create"),
+      description: t('events.youthArtWall.createDesc', "Express yourself freely. All art supplies are provided—just bring your creativity!")
+    },
+    {
+      step: "04",
+      title: t('events.youthArtWall.signShare', "Sign & Share"),
+      description: t('events.youthArtWall.signShareDesc', "Sign your artwork and share it on social media with #YUVAArtWall.")
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
       
       <EventHero
-        eyebrow="Your ideas become art. Your art becomes impact."
-        eyebrowIcon={Palette}
-        title="Youth Art Wall"
-        description="A giant collaborative space where youth express their dreams, hopes, and imaginations through painting, sketching, doodling, graffiti, and visual storytelling."
-        themeKey="youth-art-wall"
+        slug="youth-art-wall"
+        title={t('events.youthArtWall.title', "Youth Art Wall")}
+        subtitle={t('events.youthArtWall.subtitle', "Your imagination, your canvas. Paint, sketch, doodle, draw or tell stories — let your art speak for your dreams, hopes, angst or joy. This isn't just a wall, it's where your voice becomes visible.")}
+        imageUrl="/eventpages/youthartwall.png"
+        date={t('events.youthArtWall.date', "18-20 December 2025")}
+        time={t('events.youthArtWall.time', "Full Day")}
+        location={t('events.youthArtWall.location', "Vijayawada, Andhra Pradesh")}
       />
 
       {/* Art Forms Section */}
@@ -102,12 +106,11 @@ const YouthArtWall = () => {
             className="text-center mb-12 md:mb-16"
           >
             <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
-              Express Yourself
+              {t('events.youthArtWall.sectionEyebrow', "Express Yourself")}
             </span>
-            <h2 className="section-title">Every Form of Art Welcome</h2>
+            <h2 className="section-title">{t('events.youthArtWall.sectionTitle', "Every Form of Art Welcome")}</h2>
             <p className="section-subtitle mx-auto">
-              Whether you're a seasoned artist or picking up a brush for the first time, 
-              the Youth Art Wall welcomes all forms of creative expression.
+              {t('events.youthArtWall.sectionSubtitle', "Whether you're a seasoned artist or picking up a brush for the first time, the Youth Art Wall welcomes all forms of creative expression.")}
             </p>
           </motion.div>
 
@@ -145,11 +148,11 @@ const YouthArtWall = () => {
             className="text-center mb-12 md:mb-16"
           >
             <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
-              Get Started
+              {t('events.youthArtWall.getStarted', "Get Started")}
             </span>
-            <h2 className="section-title">How to Participate</h2>
+            <h2 className="section-title">{t('events.youthArtWall.howToParticipate', "How to Participate")}</h2>
             <p className="section-subtitle mx-auto">
-              No barriers, no rules—just pure creative freedom.
+              {t('events.youthArtWall.howToParticipateSubtitle', "No barriers, no rules—just pure creative freedom.")}
             </p>
           </motion.div>
 
@@ -208,11 +211,10 @@ const YouthArtWall = () => {
             </div>
 
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-              Be Part of Something Beautiful
+              {t('events.youthArtWall.bePartOf', "Be Part of Something Beautiful")}
             </h2>
             <p className="text-muted-foreground text-lg">
-              The Youth Art Wall isn't just about individual pieces—it's about creating a 
-              collective masterpiece that represents the dreams and aspirations of Andhra Pradesh's youth.
+              {t('events.youthArtWall.bePartOfDesc', "The Youth Art Wall isn't just about individual pieces—it's about creating a collective masterpiece that represents the dreams and aspirations of Andhra Pradesh's youth.")}
             </p>
           </motion.div>
         </div>

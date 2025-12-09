@@ -3,15 +3,10 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const navLinksNoHome = [
-  // Home will be rendered first, not included here
-  // Events handled separately as dropdown
-  { href: "#schedule", label: "Schedule", section: "schedule" },
-  { href: "#gallery", label: "Gallery", section: "gallery" },
-  { href: "#faq", label: "FAQ", section: "faq" },
-  { href: "/join-our-team", label: "Join Us", section: "join-our-team", isRoute: true },
-];
+// Nav links will be computed with translations inside the component
 
 const eventDropdown = [
   {
@@ -72,6 +67,15 @@ export const Navbar = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useLanguage();
+
+  // Nav links with translations
+  const navLinksNoHome = [
+    { href: "#schedule", label: t('nav.schedule', 'Schedule'), section: "schedule" },
+    { href: "#gallery", label: t('nav.gallery', 'Gallery'), section: "gallery" },
+    { href: "#faq", label: t('nav.faq', 'FAQ'), section: "faq" },
+    { href: "/join-our-team", label: t('nav.joinUs', 'Join Us'), section: "join-our-team", isRoute: true },
+  ];
 
   // Active state logic only uses router pathname (not scrolling positions)
   const isHomeActive = location.pathname === "/";
@@ -280,7 +284,7 @@ export const Navbar = () => {
               }}
               className={getNavLinkClasses(isHomeActive)}
             >
-              Home
+              {t('nav.home', 'Home')}
             </a>
 
             {/* Events dropdown */}
@@ -300,7 +304,7 @@ export const Navbar = () => {
                 aria-expanded={showEventsDropdown}
                 type="button"
               >
-                Events
+                {t('nav.events', 'Events')}
                 <ChevronDown 
                   size={18} 
                   className={`ml-0.5 transition-colors duration-300 ${
@@ -387,15 +391,16 @@ export const Navbar = () => {
             })}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Language Switcher + CTA Button */}
+          <div className="hidden md:flex items-center gap-3">
+            <LanguageSwitcher isAtTop={isAtTop} />
             <motion.button
               onClick={openRegistrationForm}
               className={ctaButtonText}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Register Now
+              {t('nav.registerNow', 'Register Now')}
             </motion.button>
           </div>
 
@@ -438,7 +443,7 @@ export const Navbar = () => {
                     : "hover:bg-muted"
                 }`}
               >
-                Home
+                {t('nav.home', 'Home')}
               </motion.a>
 
               {/* Events dropdown in mobile, as accordion */}
@@ -457,7 +462,7 @@ export const Navbar = () => {
                   type="button"
                 >
                   <span className="flex items-center gap-1">
-                    Events
+                    {t('nav.events', 'Events')}
                   </span>
                   <ChevronDown
                     className={`transition-transform duration-150 ${mobileDropdownOpen === 0 ? "rotate-180" : ""} ${mobileNavText}`}
@@ -544,14 +549,24 @@ export const Navbar = () => {
                   {link.label}
                 </motion.a>
               ))}
+              {/* Language Switcher in Mobile */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: (navLinksNoHome.length + 2) * 0.05 }}
+                className="py-2 px-4"
+              >
+                <LanguageSwitcher isAtTop={false} />
+              </motion.div>
+              
               <motion.button
                 onClick={openRegistrationForm}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: (navLinksNoHome.length + 2) * 0.05 }}
+                transition={{ delay: (navLinksNoHome.length + 3) * 0.05 }}
                 className={`btn-primary text-center mt-2 w-full ${isAtTop ? "bg-gradient-to-r from-festival-red-light to-festival-red text-white" : ""} transition-colors duration-300`}
               >
-                Register Now
+                {t('nav.registerNow', 'Register Now')}
               </motion.button>
             </div>
           </motion.div>

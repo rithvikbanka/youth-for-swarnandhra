@@ -1,12 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Quote, Star } from "lucide-react";
-
-const stats = [
-  { value: 2000, suffix: "+", label: "Youth Participants from Across Andhra", color: "text-primary" },
-  { value: 50, suffix: "+", label: "Events & Performances", color: "text-accent" },
-  { value: 26, suffix: "", label: "Districts Represented", color: "text-festival-gold" },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const CountUpNumber = ({ value, suffix, isInView }: { value: number; suffix: string; isInView: boolean }) => {
   const [count, setCount] = useState(0);
@@ -38,33 +33,58 @@ const CountUpNumber = ({ value, suffix, isInView }: { value: number; suffix: str
   );
 };
 
-const testimonials = [
-  {
-    quote: "This festival changed how I see my potential as an artist. The energy from youth across Andhra was truly inspiring.",
-    author: "Priya Reddy",
-    role: "Bharatanatyam Dancer",
-    location: "Visakhapatnam",
-  },
-  {
-    quote: "Meeting young innovators from different districts opened my eyes to the incredible talent in our state.",
-    author: "Arjun Kumar",
-    role: "Startup Founder",
-    location: "Vijayawada",
-  },
-];
-
-const partnerLogos = [
-  { name: "Govt. of Andhra Pradesh", abbr: "AP" },
-  { name: "Dept. of Youth Services", abbr: "DYS" },
-  { name: "Cultural Affairs", abbr: "CA" },
-  { name: "Education Dept.", abbr: "ED" },
-];
-
 export const WhyAttend = () => {
   const statsRef = useRef(null);
   const isStatsInView = useInView(statsRef, { once: true, margin: "-100px" });
   const sectionRef = useRef(null);
   const isSectionInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const { locale } = useLanguage();
+
+  const content = locale === 'te' ? {
+    eyebrow: "పెద్ద దానిలో భాగం అవ్వండి",
+    title: "మాతో ఎందుకు చేరాలి?",
+    stats: [
+      { value: 2000, suffix: "+", label: "ఆంధ్ర అంతటా యువ పాల్గొనేవారు", color: "text-primary" },
+      { value: 50, suffix: "+", label: "ఈవెంట్‌లు & ప్రదర్శనలు", color: "text-accent" },
+      { value: 26, suffix: "", label: "జిల్లాల ప్రాతినిధ్యం", color: "text-festival-gold" },
+    ],
+    testimonials: [
+      {
+        quote: "ఈ ఉత్సవం నా సామర్థ్యాన్ని ఒక కళాకారుడిగా చూసే విధానాన్ని మార్చింది. ఆంధ్ర అంతటా యువత నుండి వచ్చిన శక్తి నిజంగా స్ఫూర్తిదాయకంగా ఉంది.",
+        author: "ప్రియ రెడ్డి",
+        role: "భరతనాట్య నర్తకి",
+        location: "విశాఖపట్నం",
+      },
+      {
+        quote: "వివిధ జిల్లాల నుండి యువ ఆవిష్కర్తలను కలవడం మన రాష్ట్రంలో అద్భుతమైన ప్రతిభను చూడడానికి నా కళ్ళు తెరిచింది.",
+        author: "అర్జున్ కుమార్",
+        role: "స్టార్టప్ వ్యవస్థాపకుడు",
+        location: "విజయవాడ",
+      },
+    ]
+  } : {
+    eyebrow: "Be Part of Something Big",
+    title: "Why Join Us?",
+    stats: [
+      { value: 2000, suffix: "+", label: "Youth Participants from Across Andhra", color: "text-primary" },
+      { value: 50, suffix: "+", label: "Events & Performances", color: "text-accent" },
+      { value: 26, suffix: "", label: "Districts Represented", color: "text-festival-gold" },
+    ],
+    testimonials: [
+      {
+        quote: "This festival changed how I see my potential as an artist. The energy from youth across Andhra was truly inspiring.",
+        author: "Priya Reddy",
+        role: "Bharatanatyam Dancer",
+        location: "Visakhapatnam",
+      },
+      {
+        quote: "Meeting young innovators from different districts opened my eyes to the incredible talent in our state.",
+        author: "Arjun Kumar",
+        role: "Startup Founder",
+        location: "Vijayawada",
+      },
+    ]
+  };
 
   return (
     <section className="section-padding bg-background">
@@ -78,14 +98,14 @@ export const WhyAttend = () => {
           className="text-center mb-12 md:mb-16"
         >
           <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
-            Be Part of Something Big
+            {content.eyebrow}
           </span>
-          <h2 className="section-title">Why Join Us?</h2>
+          <h2 className="section-title">{content.title}</h2>
         </motion.div>
 
         {/* Stats Grid */}
         <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 md:mb-24">
-          {stats.map((stat, index) => (
+          {content.stats.map((stat, index) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 30 }}
@@ -103,7 +123,7 @@ export const WhyAttend = () => {
 
         {/* Testimonials */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16 md:mb-24">
-          {testimonials.map((testimonial, index) => (
+          {content.testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.author}
               initial={{ opacity: 0, x: index === 0 ? -30 : 30 }}
@@ -134,33 +154,6 @@ export const WhyAttend = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* COMMENTED OUT - Moved to separate OrganizedBy component
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isSectionInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center"
-        >
-          <p className="text-muted-foreground text-sm uppercase tracking-wider mb-6">
-            Organized By
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            {partnerLogos.map((partner) => (
-              <motion.div
-                key={partner.name}
-                className="flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer"
-                whileHover={{ y: -2 }}
-              >
-                <div className="w-16 h-16 bg-muted rounded-xl flex items-center justify-center text-foreground font-bold text-lg">
-                  {partner.abbr}
-                </div>
-                <span className="text-xs text-muted-foreground">{partner.name}</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-        */}
       </div>
     </section>
   );

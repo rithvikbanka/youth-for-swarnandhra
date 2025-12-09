@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { EventHero } from "@/components/EventHero";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { 
   Mic, 
   Music, 
@@ -14,69 +15,8 @@ import {
   PartyPopper
 } from "lucide-react";
 
-const experiences = [
-  {
-    icon: Mic,
-    title: "Open Mic Stage",
-    description: "Take the spotlight and perform your heart out in front of an enthusiastic crowd. Every voice matters!",
-    color: "text-primary",
-    bg: "bg-primary/10"
-  },
-  {
-    icon: Music,
-    title: "Live Music & Dance",
-    description: "From classical to contemporary, showcase your musical talents and dance moves that set the stage on fire.",
-    color: "text-accent",
-    bg: "bg-accent/10"
-  },
-  {
-    icon: Sparkles,
-    title: "Poetry & Storytelling",
-    description: "Words have power. Share your stories, poems, and spoken word pieces that inspire and move audiences.",
-    color: "text-purple-500",
-    bg: "bg-purple-100"
-  },
-  {
-    icon: Zap,
-    title: "Stand-up & Beatbox",
-    description: "Make them laugh, make them groove! Comedians and beatboxers bring unique energy to the carnival.",
-    color: "text-festival-gold",
-    bg: "bg-festival-gold/10"
-  }
-];
-
-const whyLoveIt = [
-  {
-    icon: Star,
-    title: "Zero Judgment Zone",
-    description: "A supportive environment where every performance is celebrated, regardless of experience level."
-  },
-  {
-    icon: Users,
-    title: "Connect with Fellow Artists",
-    description: "Meet like-minded creative souls from across Andhra Pradesh and build lasting connections."
-  },
-  {
-    icon: Trophy,
-    title: "Recognition & Prizes",
-    description: "Outstanding performers get recognized with awards, certificates, and exciting prizes."
-  },
-  {
-    icon: PartyPopper,
-    title: "Unforgettable Experience",
-    description: "Create memories that last a lifetime in the most energetic festival atmosphere."
-  }
-];
-
-const howToParticipate = [
-  "Register online through the YUVA portal",
-  "Select your performance category (music, poetry, stand-up, etc.)",
-  "Prepare your act (2-5 minutes)",
-  "Arrive at the venue on your scheduled day",
-  "Perform and shine! 🌟"
-];
-
 const YouthTalentCarnival = () => {
+  const { t } = useLanguage();
   const experienceRef = useRef(null);
   const whyRef = useRef(null);
   const howRef = useRef(null);
@@ -85,16 +25,80 @@ const YouthTalentCarnival = () => {
   const isWhyInView = useInView(whyRef, { once: true, margin: "-100px" });
   const isHowInView = useInView(howRef, { once: true, margin: "-100px" });
 
+  const experiences = [
+    {
+      icon: Mic,
+      title: t('events.talentCarnival.openMic', "Open Mic Stage"),
+      description: t('events.talentCarnival.openMicDesc', "Take the spotlight and perform your heart out in front of an enthusiastic crowd. Every voice matters!"),
+      color: "text-primary",
+      bg: "bg-primary/10"
+    },
+    {
+      icon: Music,
+      title: t('events.talentCarnival.liveMusic', "Live Music & Dance"),
+      description: t('events.talentCarnival.liveMusicDesc', "From classical to contemporary, showcase your musical talents and dance moves that set the stage on fire."),
+      color: "text-accent",
+      bg: "bg-accent/10"
+    },
+    {
+      icon: Sparkles,
+      title: t('events.talentCarnival.poetryStorytelling', "Poetry & Storytelling"),
+      description: t('events.talentCarnival.poetryStorytellingDesc', "Words have power. Share your stories, poems, and spoken word pieces that inspire and move audiences."),
+      color: "text-purple-500",
+      bg: "bg-purple-100"
+    },
+    {
+      icon: Zap,
+      title: t('events.talentCarnival.standupBeatbox', "Stand-up & Beatbox"),
+      description: t('events.talentCarnival.standupBeatboxDesc', "Make them laugh, make them groove! Comedians and beatboxers bring unique energy to the carnival."),
+      color: "text-festival-gold",
+      bg: "bg-festival-gold/10"
+    }
+  ];
+
+  const whyLoveIt = [
+    {
+      icon: Star,
+      title: t('events.talentCarnival.zeroJudgment', "Zero Judgment Zone"),
+      description: t('events.talentCarnival.zeroJudgmentDesc', "A supportive environment where every performance is celebrated, regardless of experience level.")
+    },
+    {
+      icon: Users,
+      title: t('events.talentCarnival.connectArtists', "Connect with Fellow Artists"),
+      description: t('events.talentCarnival.connectArtistsDesc', "Meet like-minded creative souls from across Andhra Pradesh and build lasting connections.")
+    },
+    {
+      icon: Trophy,
+      title: t('events.talentCarnival.recognitionPrizes', "Recognition & Prizes"),
+      description: t('events.talentCarnival.recognitionPrizesDesc', "Outstanding performers get recognized with awards, certificates, and exciting prizes.")
+    },
+    {
+      icon: PartyPopper,
+      title: t('events.talentCarnival.unforgettableExp', "Unforgettable Experience"),
+      description: t('events.talentCarnival.unforgettableExpDesc', "Create memories that last a lifetime in the most energetic festival atmosphere.")
+    }
+  ];
+
+  const howToParticipate = [
+    t('events.talentCarnival.step1', "Register online through the YUVA portal"),
+    t('events.talentCarnival.step2', "Select your performance category (music, poetry, stand-up, etc.)"),
+    t('events.talentCarnival.step3', "Prepare your act (2-5 minutes)"),
+    t('events.talentCarnival.step4', "Arrive at the venue on your scheduled day"),
+    t('events.talentCarnival.step5', "Perform and shine! 🌟")
+  ];
+
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
       
       <EventHero
-        eyebrow="Your Voice. Your Moment."
-        eyebrowIcon={Mic}
-        title="Youth Talent Carnival"
-        description="The most energetic stage of the festival—an open mic arena where you perform music, poetry, dance, stand-up, storytelling, beatboxing, monologues, or anything that reflects your creative spark."
-        themeKey="talent-carnival"
+        slug="talent-carnival"
+        title={t('events.talentCarnival.title', "Youth Talent Carnival")}
+        subtitle={t('events.talentCarnival.subtitle', "Think of it as stage-time for everything you love — poetry, dance, music, stand-up, storytelling, beatboxing… basically anything that shows your creative spark. No judgement, no dynamics — just a stage waiting for your vibe.")}
+        imageUrl="/eventpages/youthtalentcarnival.png"
+        date={t('events.talentCarnival.date', "18-20 December 2025")}
+        time={t('events.talentCarnival.time', "11 AM onwards")}
+        location={t('events.talentCarnival.location', "Vijayawada, Andhra Pradesh")}
       />
 
       {/* What You'll Experience */}
@@ -107,11 +111,11 @@ const YouthTalentCarnival = () => {
             className="text-center mb-12 md:mb-16"
           >
             <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
-              The Experience
+              {t('events.talentCarnival.sectionEyebrow', "The Experience")}
             </span>
-            <h2 className="section-title">What You'll Experience</h2>
+            <h2 className="section-title">{t('events.talentCarnival.sectionTitle', "What You'll Experience")}</h2>
             <p className="section-subtitle mx-auto">
-              A celebration of raw talent, creativity, and the boundless energy of youth.
+              {t('events.talentCarnival.sectionSubtitle', "A celebration of raw talent, creativity, and the boundless energy of youth.")}
             </p>
           </motion.div>
 
@@ -151,11 +155,11 @@ const YouthTalentCarnival = () => {
             className="text-center mb-12 md:mb-16"
           >
             <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
-              The Magic
+              {t('events.talentCarnival.whyMagic', "The Magic")}
             </span>
-            <h2 className="section-title">Why You'll Love It</h2>
+            <h2 className="section-title">{t('events.talentCarnival.whyYoullLove', "Why You'll Love It")}</h2>
             <p className="section-subtitle mx-auto">
-              More than just a stage—it's where dreams take flight.
+              {t('events.talentCarnival.whyYoullLoveSubtitle', "More than just a stage—it's where dreams take flight.")}
             </p>
           </motion.div>
 
@@ -194,16 +198,16 @@ const YouthTalentCarnival = () => {
               className="text-center mb-12"
             >
               <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
-                Join The Stage
+                {t('events.talentCarnival.joinTheStage', "Join The Stage")}
               </span>
-              <h2 className="section-title">How to Participate</h2>
+              <h2 className="section-title">{t('events.talentCarnival.howToParticipate', "How to Participate")}</h2>
             </motion.div>
 
             <div className="bg-white rounded-2xl p-6 md:p-8 shadow-card">
               <div className="space-y-4">
                 {howToParticipate.map((step, index) => (
                   <motion.div
-                    key={step}
+                    key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={isHowInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ delay: 0.2 + index * 0.1 }}

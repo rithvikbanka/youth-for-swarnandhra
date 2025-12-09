@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { EventHero } from "@/components/EventHero";
 import { getSessionsByTagOnly } from "@/data/schedule";
 import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 // Derive schedule data from shared source
 const impactLabsSchedule = getSessionsByTagOnly("Youth Impact Labs");
@@ -45,17 +46,44 @@ const EventYouthImpactLabs = () => {
   const hackathonRef = useRef(null);
   const isScheduleInView = useInView(scheduleRef, { once: true, margin: "-100px" });
   const isHackathonInView = useInView(hackathonRef, { once: true, margin: "-100px" });
+  const { locale } = useLanguage();
+
+  const content = locale === 'te' ? {
+    title: "యువ ఇంపాక్ట్ ల్యాబ్‌లు",
+    subtitle: "సమాజ సవాళ్లకు ఆచరణాత్మక పరిష్కారాలను అభివృద్ధి చేయడానికి యువత కలిసి పనిచేసే ఆచరణాత్మక వర్క్‌షాప్‌లు మరియు ఆవిష్కరణ ల్యాబ్‌లు.",
+    date: "19-20 డిసెంబర్ 2025",
+    time: "ఉ. 10 - మ. 2",
+    location: "విజయవాడ, ఆంధ్ర ప్రదేశ్",
+    sectionEyebrow: "ఆవిష్కరణ & సామాజిక వ్యవస్థాపనత్వం",
+    sectionTitle: "నిజమైన ప్రభావం సృష్టించండి",
+    sectionSubtitle: "సామాజిక వ్యవస్థాపనత్వం మరియు హ్యాకథాన్ సవాళ్ల ద్వారా వాస్తవ-ప్రపంచ సమస్యలను పరిష్కరించడానికి చేంజ్‌మేకర్లు మరియు ఆవిష్కర్తలతో సహకరించండి.",
+    viewPDF: "ఈవెంట్ వివరాలు PDF చూడండి",
+    registerNow: "🎉 ఇప్పుడు నమోదు చేయండి"
+  } : {
+    title: "Youth Impact Labs",
+    subtitle: "If you believe you can change the world — this is your playground. Dive into social-hackathons, brainstorm with like-minded youth, and build projects that matter. Come ready to think big, get creative, and leave with more than ideas — leave with impact.",
+    date: "19-20 December 2025",
+    time: "10 AM - 2 PM",
+    location: "Vijayawada, Andhra Pradesh",
+    sectionEyebrow: "Innovation & Social Entrepreneurship",
+    sectionTitle: "Create Real Impact",
+    sectionSubtitle: "Collaborate with changemakers and innovators to solve real-world problems through social entrepreneurship and hackathon challenges.",
+    viewPDF: "View Event Details PDF",
+    registerNow: "🎉 Register Now"
+  };
 
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
       
       <EventHero
-        eyebrow="Special Events"
-        eyebrowIcon={Rocket}
-        title="Youth Impact Labs"
-        description="For those who want to change the World - Social Hackathon & Discussions on Social Entrepreneurship"
-        themeKey="youth-impact-labs"
+        slug="youth-impact-labs"
+        title={content.title}
+        subtitle={content.subtitle}
+        imageUrl="/eventpages/youthimpactlabs.png"
+        date={content.date}
+        time={content.time}
+        location={content.location}
       />
 
       {/* Combined Section: Header + Schedule Cards + Register Button */}
@@ -69,12 +97,11 @@ const EventYouthImpactLabs = () => {
             className="text-center mb-12 md:mb-16"
           >
             <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
-              Innovation & Social Entrepreneurship
+              {content.sectionEyebrow}
             </span>
-            <h2 className="section-title">Create Real Impact</h2>
+            <h2 className="section-title">{content.sectionTitle}</h2>
             <p className="section-subtitle mx-auto">
-              Collaborate with changemakers and innovators to solve real-world problems 
-              through social entrepreneurship and hackathon challenges.
+              {content.sectionSubtitle}
             </p>
             
             {/* Event PDF Button */}
@@ -86,7 +113,7 @@ const EventYouthImpactLabs = () => {
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary/10 border border-primary/30 text-primary hover:bg-primary/20 transition-colors text-sm font-semibold"
               >
                 <FileText className="w-4 h-4" />
-                View Event Details PDF
+                {content.viewPDF}
               </a>
             </div>
           </motion.div>
@@ -162,7 +189,7 @@ const EventYouthImpactLabs = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              🎉 Register Now
+              {content.registerNow}
             </motion.button>
           </motion.div>
         </div>

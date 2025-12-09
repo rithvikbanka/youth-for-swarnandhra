@@ -3,8 +3,9 @@ import { useRef } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { EventHero } from "@/components/EventHero";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { 
-  Gem, 
+  Gem,
   Palette, 
   Heart, 
   Users,
@@ -16,72 +17,8 @@ import {
   BookOpen
 } from "lucide-react";
 
-const youllSee = [
-  {
-    icon: Palette,
-    title: "Traditional Crafts",
-    description: "Witness master artisans at work—pottery, weaving, wood carving, and centuries-old techniques passed down through generations."
-  },
-  {
-    icon: Gem,
-    title: "Handloom Heritage",
-    description: "Explore the rich tradition of Andhra handlooms—Mangalagiri, Uppada, Venkatagiri, and more—each thread telling a story."
-  },
-  {
-    icon: ShoppingBag,
-    title: "Artisan Marketplace",
-    description: "Shop directly from artisans, supporting local communities while taking home authentic pieces of Andhra's heritage."
-  },
-  {
-    icon: Sparkles,
-    title: "Live Demonstrations",
-    description: "Watch craftspeople create magic before your eyes—from block printing to bronze casting."
-  }
-];
-
-const connectsWith = [
-  {
-    icon: HandHeart,
-    title: "Master Artisans",
-    description: "Meet the guardians of traditional crafts and learn their stories of preserving heritage."
-  },
-  {
-    icon: Users,
-    title: "Young Entrepreneurs",
-    description: "Connect with youth who are reviving traditional crafts with modern business approaches."
-  },
-  {
-    icon: Leaf,
-    title: "Sustainable Practices",
-    description: "Discover eco-friendly craft techniques that honor both tradition and the environment."
-  },
-  {
-    icon: BookOpen,
-    title: "Cultural Stories",
-    description: "Every craft has a story—learn about the history, symbolism, and meaning behind each creation."
-  }
-];
-
-const experienceZones = [
-  {
-    title: "Heritage Walk",
-    description: "Guided tours through craft villages and artisan communities"
-  },
-  {
-    title: "Hands-On Workshop",
-    description: "Try your hand at traditional crafts with expert guidance"
-  },
-  {
-    title: "Artisan Stories",
-    description: "Interactive sessions with master craftspeople sharing their journeys"
-  },
-  {
-    title: "Youth Innovation Hub",
-    description: "Where traditional crafts meet modern design and technology"
-  }
-];
-
 const Yuvasrishti = () => {
+  const { t } = useLanguage();
   const seeRef = useRef(null);
   const connectRef = useRef(null);
   const zoneRef = useRef(null);
@@ -90,16 +27,83 @@ const Yuvasrishti = () => {
   const isConnectInView = useInView(connectRef, { once: true, margin: "-100px" });
   const isZoneInView = useInView(zoneRef, { once: true, margin: "-100px" });
 
+  const youllSee = [
+    {
+      icon: Palette,
+      title: t('events.yuvasrishti.traditionalCrafts', "Traditional Crafts"),
+      description: t('events.yuvasrishti.traditionalCraftsDesc', "Witness master artisans at work—pottery, weaving, wood carving, and centuries-old techniques passed down through generations.")
+    },
+    {
+      icon: Gem,
+      title: t('events.yuvasrishti.handloomHeritage', "Handloom Heritage"),
+      description: t('events.yuvasrishti.handloomHeritageDesc', "Explore the rich tradition of Andhra handlooms—Mangalagiri, Uppada, Venkatagiri, and more—each thread telling a story.")
+    },
+    {
+      icon: ShoppingBag,
+      title: t('events.yuvasrishti.artisanMarketplace', "Artisan Marketplace"),
+      description: t('events.yuvasrishti.artisanMarketplaceDesc', "Shop directly from artisans, supporting local communities while taking home authentic pieces of Andhra's heritage.")
+    },
+    {
+      icon: Sparkles,
+      title: t('events.yuvasrishti.liveDemonstrations', "Live Demonstrations"),
+      description: t('events.yuvasrishti.liveDemonstrationsDesc', "Watch craftspeople create magic before your eyes—from block printing to bronze casting.")
+    }
+  ];
+
+  const connectsWith = [
+    {
+      icon: HandHeart,
+      title: t('events.yuvasrishti.masterArtisans', "Master Artisans"),
+      description: t('events.yuvasrishti.masterArtisansDesc', "Meet the guardians of traditional crafts and learn their stories of preserving heritage.")
+    },
+    {
+      icon: Users,
+      title: t('events.yuvasrishti.youngEntrepreneurs', "Young Entrepreneurs"),
+      description: t('events.yuvasrishti.youngEntrepreneursDesc', "Connect with youth who are reviving traditional crafts with modern business approaches.")
+    },
+    {
+      icon: Leaf,
+      title: t('events.yuvasrishti.sustainablePractices', "Sustainable Practices"),
+      description: t('events.yuvasrishti.sustainablePracticesDesc', "Discover eco-friendly craft techniques that honor both tradition and the environment.")
+    },
+    {
+      icon: BookOpen,
+      title: t('events.yuvasrishti.culturalStories', "Cultural Stories"),
+      description: t('events.yuvasrishti.culturalStoriesDesc', "Every craft has a story—learn about the history, symbolism, and meaning behind each creation.")
+    }
+  ];
+
+  const experienceZones = [
+    {
+      title: t('events.yuvasrishti.heritageWalk', "Heritage Walk"),
+      description: t('events.yuvasrishti.heritageWalkDesc', "Guided tours through craft villages and artisan communities")
+    },
+    {
+      title: t('events.yuvasrishti.handsOnWorkshop', "Hands-On Workshop"),
+      description: t('events.yuvasrishti.handsOnWorkshopDesc', "Try your hand at traditional crafts with expert guidance")
+    },
+    {
+      title: t('events.yuvasrishti.artisanStories', "Artisan Stories"),
+      description: t('events.yuvasrishti.artisanStoriesDesc', "Interactive sessions with master craftspeople sharing their journeys")
+    },
+    {
+      title: t('events.yuvasrishti.youthInnovationHub', "Youth Innovation Hub"),
+      description: t('events.yuvasrishti.youthInnovationHubDesc', "Where traditional crafts meet modern design and technology")
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
       
       <EventHero
-        eyebrow="Where Tradition Meets Tomorrow"
-        eyebrowIcon={Gem}
-        title="Yuvasrishti"
-        description="The heritage heartbeat of YUVA 2025. Step into a vibrant pavilion where Andhra Pradesh's crafts, handlooms, and creative industries come alive through interactive stalls, artisan stories, and youth-led experience zones."
-        themeKey="yuvasrishti"
+        slug="yuvasrishti"
+        title={t('events.yuvasrishti.title', "Yuvasrishti")}
+        subtitle={t('events.yuvasrishti.subtitle', "Step into the heart of Andhra's heritage — explore crafts, handlooms, local artistry and culture, led by youth for youth. Traditional skills meet youthful energy, with interactive stalls, artisans' stories and creative showcases rooted in our culture.")}
+        imageUrl="/eventpages/yuvasrishti.png"
+        date={t('events.yuvasrishti.date', "18-20 December 2025")}
+        time={t('events.yuvasrishti.time', "Full Day")}
+        location={t('events.yuvasrishti.location', "Vijayawada, Andhra Pradesh")}
       />
 
       {/* You'll See Section */}
@@ -112,11 +116,11 @@ const Yuvasrishti = () => {
             className="text-center mb-12 md:mb-16"
           >
             <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
-              Discover Heritage
+              {t('events.yuvasrishti.sectionEyebrow', "Discover Heritage")}
             </span>
-            <h2 className="section-title">You'll See</h2>
+            <h2 className="section-title">{t('events.yuvasrishti.sectionTitle', "You'll See")}</h2>
             <p className="section-subtitle mx-auto">
-              A living showcase of Andhra Pradesh's rich artistic heritage and craftsmanship.
+              {t('events.yuvasrishti.sectionSubtitle', "A living showcase of Andhra Pradesh's rich artistic heritage and craftsmanship.")}
             </p>
           </motion.div>
 
@@ -156,11 +160,11 @@ const Yuvasrishti = () => {
             className="text-center mb-12 md:mb-16"
           >
             <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
-              Make Connections
+              {t('events.yuvasrishti.makeConnections', "Make Connections")}
             </span>
-            <h2 className="section-title">Yuvasrishti Connects You With</h2>
+            <h2 className="section-title">{t('events.yuvasrishti.connectsWith', "Yuvasrishti Connects You With")}</h2>
             <p className="section-subtitle mx-auto">
-              More than exhibits—meaningful connections with the people and stories behind the craft.
+              {t('events.yuvasrishti.connectsWithSubtitle', "More than exhibits—meaningful connections with the people and stories behind the craft.")}
             </p>
           </motion.div>
 
@@ -198,9 +202,9 @@ const Yuvasrishti = () => {
             className="text-center mb-12"
           >
             <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
-              Interactive Experiences
+              {t('events.yuvasrishti.interactiveExperiences', "Interactive Experiences")}
             </span>
-            <h2 className="section-title">Experience Zones</h2>
+            <h2 className="section-title">{t('events.yuvasrishti.experienceZones', "Experience Zones")}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">

@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { EventHero } from "@/components/EventHero";
 import { scheduleByDay, type ScheduleSession } from "@/data/schedule";
 import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 // Helper to get date string from day label
 const getDayWithDate = (dayLabel: string, date: string) => {
@@ -25,6 +26,31 @@ const openRegistrationForm = () => {
 const EventYouthCon = () => {
   const contentRef = useRef(null);
   const isContentInView = useInView(contentRef, { once: true, margin: "-100px" });
+  const { locale } = useLanguage();
+
+  const content = locale === 'te' ? {
+    title: "యువ కాన్",
+    subtitle: "అపరిచితులను కలుపుట - యువత మరియు పరిశ్రమ నాయకుల మధ్య అర్థవంతమైన సంభాషణలు, నెట్‌వర్కింగ్ మరియు మార్గదర్శకత్వం కోసం ప్రత్యేక వేదిక.",
+    date: "18-20 డిసెంబర్ 2025",
+    time: "మధ్యాహ్నం మరియు సాయంత్రం",
+    location: "విజయవాడ, ఆంధ్ర ప్రదేశ్",
+    sectionEyebrow: "నెట్‌వర్కింగ్ & మెంటరింగ్ అవకాశాలు",
+    sectionTitle: "అపరిచితులను కలుపుట",
+    sectionSubtitle: "భారతదేశం అంతటా పరిశ్రమ నాయకులు, వ్యవస్థాపకులు మరియు సహచరులతో సంబంధాలను నిర్మించండి.",
+    viewPDF: "ఈవెంట్ వివరాలు PDF చూడండి",
+    registerNow: "🎉 ఇప్పుడు నమోదు చేయండి"
+  } : {
+    title: "Youth Con",
+    subtitle: "Networking just got a makeover. Youth Con brings together curious students and industry leaders — a place where you can talk, learn, and build real connections. It's not just about resumes and CVs — it's about passion, mentorship and meaningful conversations that might change your path.",
+    date: "18-20 December 2025",
+    time: "Afternoons and evenings",
+    location: "Vijayawada, Andhra Pradesh",
+    sectionEyebrow: "Networking & Mentoring Opportunities",
+    sectionTitle: "Connecting the Strangers",
+    sectionSubtitle: "Build relationships with industry leaders, entrepreneurs, and peers from across India.",
+    viewPDF: "View Event Details PDF",
+    registerNow: "🎉 Register Now"
+  };
 
   // Derive Youth Con sessions from shared data
   const youthConSessions = useMemo(() => {
@@ -64,11 +90,13 @@ const EventYouthCon = () => {
       <Navbar />
       
       <EventHero
-        eyebrow="Special Events"
-        eyebrowIcon={Users}
-        title="Youth Con"
-        description="Connecting the Strangers - A unique platform for meaningful conversations, networking, and mentoring between youth and industry leaders."
-        themeKey="youth-con"
+        slug="youth-con"
+        title={content.title}
+        subtitle={content.subtitle}
+        imageUrl="/eventpages/youthcon.png"
+        date={content.date}
+        time={content.time}
+        location={content.location}
       />
 
       {/* Unified Content Section */}
@@ -82,11 +110,11 @@ const EventYouthCon = () => {
             className="text-center mb-12 md:mb-16"
           >
             <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
-              Networking & Mentoring Opportunities
+              {content.sectionEyebrow}
             </span>
-            <h2 className="section-title">Connecting the Strangers</h2>
+            <h2 className="section-title">{content.sectionTitle}</h2>
             <p className="section-subtitle mx-auto">
-              Build relationships with industry leaders, entrepreneurs, and peers from across India.
+              {content.sectionSubtitle}
             </p>
             
             {/* Event PDF Button */}
@@ -98,7 +126,7 @@ const EventYouthCon = () => {
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary/10 border border-primary/30 text-primary hover:bg-primary/20 transition-colors text-sm font-semibold"
               >
                 <FileText className="w-4 h-4" />
-                View Event Details PDF
+                {content.viewPDF}
               </a>
             </div>
           </motion.div>
@@ -125,7 +153,7 @@ const EventYouthCon = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                🎉 Register Now
+                {content.registerNow}
               </motion.button>
           </motion.div>
           <motion.p
@@ -191,7 +219,7 @@ const EventYouthCon = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                🎉 Register Now
+                {content.registerNow}
               </motion.button>
           </motion.div>
           <motion.p
@@ -257,7 +285,7 @@ const EventYouthCon = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                🎉 Register Now
+                {content.registerNow}
               </motion.button>
           </motion.div>
           <motion.p

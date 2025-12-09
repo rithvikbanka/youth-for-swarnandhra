@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { X, Play, Eye } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 // Gallery images
 import gallery1 from "@/assets/gallery1.jpg";
@@ -17,45 +18,87 @@ import video1 from "@/assets/video1.jpg";
 import video2 from "@/assets/video2.jpg";
 import video3 from "@/assets/video3.jpg";
 
-const galleryImages = [
-  { src: gallery1, alt: "Classical Bharatanatyam performance", size: "large" },
-  { src: gallery2, alt: "Kuchipudi dancer in motion", size: "normal" },
-  { src: gallery3, alt: "Young vocalist performing", size: "normal" },
-  { src: gallery4, alt: "Traditional art workshop", size: "large" },
-  { src: gallery5, alt: "Poetry recitation event", size: "normal" },
-  { src: gallery6, alt: "Youth innovation hub", size: "normal" },
-  { src: gallery7, alt: "Morning yoga session", size: "normal" },
-  { src: gallery8, alt: "Folk dance ensemble", size: "large" },
-];
-
-const videos = [
-  {
-    id: 1,
-    title: "Spirit of Andhra Pradesh at Yuva 2025",
-    thumbnail: video1,
-    views: "2K+",
-    url: "https://www.instagram.com/apyouthservices/reel/DRwYylwkayW/"
-  },
-  {
-    id: 2,
-    title: "Youth Minister's Call to YUVA",
-    thumbnail: video2,
-    views: "30K+",
-    url: "https://www.instagram.com/apyouthservices/reel/DRuX-i2E7k6/"
-  },
-  {
-    id: 3,
-    title: "Commissioner Invites You to YUVA",
-    thumbnail: video3,
-    views: "18K+",
-    url: "https://www.instagram.com/apyouthservices/reel/DRsf13jExKf/"
-  },
-];
-
 export const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { locale } = useLanguage();
+
+  const content = locale === 'te' ? {
+    eyebrow: "దృశ్య ప్రయాణం",
+    title: "ఆత్మను జరుపుకోండి",
+    subtitle: "గత ఉత్సవాల నుండి ముఖ్యాంశాలు మరియు ఈ సంవత్సరం లైన్అప్",
+    videosTitle: "2025 ఉత్సవ వీడియోలు",
+    galleryImages: [
+      { alt: "YUVA 2024 - వక్తలు & పానలిస్టులు", size: "large" },
+      { alt: "కూచిపూడి నర్తకి చలనంలో", size: "normal" },
+      { alt: "యువ గాయకుడు ప్రదర్శన", size: "normal" },
+      { alt: "సాంప్రదాయ కళ వర్క్‌షాప్", size: "large" },
+      { alt: "కవిత్వ పఠన ఈవెంట్", size: "normal" },
+      { alt: "యువ ఆవిష్కరణ హబ్", size: "normal" },
+      { alt: "ఉదయం యోగా సెషన్", size: "normal" },
+      { alt: "జానపద నృత్య బృందం", size: "large" },
+    ],
+    videos: [
+      { title: "యువ 2025 వద్ద ఆంధ్ర ప్రదేశ్ ఆత్మ", views: "2K+ వీక్షణలు" },
+      { title: "యువజన మంత్రి YUVA కు పిలుపు", views: "30K+ వీక్షణలు" },
+      { title: "కమిషనర్ మిమ్మల్ని YUVA కు ఆహ్వానిస్తున్నారు", views: "18K+ వీక్షణలు" },
+    ]
+  } : {
+    eyebrow: "Visual Journey",
+    title: "Celebrate the Spirit",
+    subtitle: "Highlights from past festivals and this year's lineup",
+    videosTitle: "2025 Festival Videos",
+    galleryImages: [
+      { alt: "YUVA 2024 - Speakers & Panelists", size: "large" },
+      { alt: "Kuchipudi dancer in motion", size: "normal" },
+      { alt: "Young vocalist performing", size: "normal" },
+      { alt: "Traditional art workshop", size: "large" },
+      { alt: "Poetry recitation event", size: "normal" },
+      { alt: "Youth innovation hub", size: "normal" },
+      { alt: "Morning yoga session", size: "normal" },
+      { alt: "Folk dance ensemble", size: "large" },
+    ],
+    videos: [
+      { title: "Spirit of Andhra Pradesh at Yuva 2025", views: "2K+ views" },
+      { title: "Youth Minister's Call to YUVA", views: "30K+ views" },
+      { title: "Commissioner Invites You to YUVA", views: "18K+ views" },
+    ]
+  };
+
+  const galleryImagesSrc = [
+    gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7, gallery8
+  ];
+
+  const galleryImages = content.galleryImages.map((img, idx) => ({
+    src: galleryImagesSrc[idx],
+    alt: img.alt,
+    size: img.size
+  }));
+
+  const videos = [
+    {
+      id: 1,
+      title: content.videos[0].title,
+      thumbnail: video1,
+      views: content.videos[0].views,
+      url: "https://www.instagram.com/apyouthservices/reel/DRwYylwkayW/"
+    },
+    {
+      id: 2,
+      title: content.videos[1].title,
+      thumbnail: video2,
+      views: content.videos[1].views,
+      url: "https://www.instagram.com/apyouthservices/reel/DRuX-i2E7k6/"
+    },
+    {
+      id: 3,
+      title: content.videos[2].title,
+      thumbnail: video3,
+      views: content.videos[2].views,
+      url: "https://www.instagram.com/apyouthservices/reel/DRsf13jExKf/"
+    },
+  ];
 
   return (
     <section id="gallery" className="section-padding bg-background">
@@ -69,11 +112,11 @@ export const Gallery = () => {
           className="text-center mb-12 md:mb-16"
         >
           <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
-            Visual Journey
+            {content.eyebrow}
           </span>
-          <h2 className="section-title">Celebrate the Spirit</h2>
+          <h2 className="section-title">{content.title}</h2>
           <p className="section-subtitle mx-auto">
-            Highlights from past festivals and this year's lineup
+            {content.subtitle}
           </p>
         </motion.div>
 
@@ -118,7 +161,7 @@ export const Gallery = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <h3 className="text-2xl md:text-3xl font-heading font-bold text-foreground text-center mb-8">
-          2025 Festival Videos
+            {content.videosTitle}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {videos.map((video, index) => (
@@ -154,7 +197,7 @@ export const Gallery = () => {
                   <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
                     {video.title}
                   </h4>
-                  <p className="text-sm text-muted-foreground">{video.views} views</p>
+                  <p className="text-sm text-muted-foreground">{video.views}</p>
                 </a>
               </motion.div>
             ))}

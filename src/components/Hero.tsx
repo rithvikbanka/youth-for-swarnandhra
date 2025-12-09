@@ -3,17 +3,26 @@ import { motion } from "framer-motion";
 import { ArrowRight, Calendar, MapPin, Users } from "lucide-react";
 import heroDancer from "@/assets/hero-dancer.jpg";
 import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 // Set countdown timer target to December 18, 2025
 const targetDate = new Date("2025-12-18T00:00:00").getTime();
 
 const CountdownTimer = () => {
+  const { t } = useLanguage();
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0,
   });
+
+  const labels: Record<string, string> = {
+    days: t('countdown.days', 'DAYS'),
+    hours: t('countdown.hours', 'HOURS'),
+    minutes: t('countdown.minutes', 'MINUTES'),
+    seconds: t('countdown.seconds', 'SECONDS'),
+  };
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -54,7 +63,7 @@ const CountdownTimer = () => {
           >
             {String(value).padStart(2, "0")}
           </motion.span>
-          <span className="countdown-label">{key}</span>
+          <span className="countdown-label">{labels[key]}</span>
         </motion.div>
       ))}
     </div>
@@ -62,12 +71,14 @@ const CountdownTimer = () => {
 };
 
 export const Hero = () => {
+  const { t } = useLanguage();
+  
   const openRegistrationForm = () => {
     window.open(PARTICIPANT_FORM_VIEW_URL, "_blank");
   };
 
   const scrollToEvents = () => {
-    const element = document.getElementById("events");
+    const element = document.getElementById("transform-section");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -121,7 +132,7 @@ export const Hero = () => {
           >
             <span className="w-2 h-2 bg-festival-yellow rounded-full animate-pulse" />
             <span className="text-white/90 text-sm font-medium">
-              Andhra Pradesh State Youth Festival 2025
+              {t('hero.badge', 'Andhra Pradesh State Youth Festival 2025')}
             </span>
           </motion.div>
 
@@ -132,9 +143,9 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white leading-tight mb-4"
           >
-            Youth for{" "}
-            <span className="text-gradient-gold">Swarnandhra</span>{" "}
-            2047
+            {t('hero.title', 'Youth for')}{" "}
+            <span className="text-gradient-gold">{t('hero.highlight', 'Swarnandhra')}</span>{" "}
+            {t('hero.year', '2047')}
           </motion.h1>
 
           {/* Subheadline */}
@@ -144,7 +155,7 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-white/90 font-light mb-6"
           >
-            Lead. Create. Celebrate.
+            {t('hero.subtitle', 'Lead. Create. Celebrate.')}
           </motion.p>
 
           {/* Info Pills */}
@@ -156,15 +167,22 @@ export const Hero = () => {
           >
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-white/90 text-sm">
               <Users size={16} />
-              <span>2000+ Youth Participants</span>
+              <span>{t('hero.participants', '2000+ Youth Participants')}</span>
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-white/90 text-sm">
               <Calendar size={16} />
-              <span>18, 19, 20 December 2025</span>
+              <span>{t('hero.dates', '18, 19, 20 December 2025')}</span>
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-white/90 text-sm">
               <MapPin size={16} />
-              <span>Amaravati, Vijayawada</span>
+              <a
+                href="https://maps.app.goo.gl/Gi8e5ziY1eWZaqtd7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline focus:outline-none"
+              >
+                {t('hero.location', 'K L University, Vaddeswaram')}
+              </a>
             </div>
           </motion.div>
 
@@ -181,7 +199,7 @@ export const Hero = () => {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
-              Register Now
+              {t('hero.registerNow', 'Register Now')}
               <ArrowRight className="inline-block ml-2 transition-transform group-hover:translate-x-1" size={20} />
             </motion.button>
             <motion.button
@@ -190,7 +208,7 @@ export const Hero = () => {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
-              Explore Events
+              {t('hero.exploreEvents', 'Explore Events')}
             </motion.button>
           </motion.div>
 
@@ -201,7 +219,7 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.7 }}
           >
             <p className="text-white/70 text-sm mb-3 uppercase tracking-wider">
-              Festival Begins In
+              {t('hero.countdown', 'Festival Begins In')}
             </p>
             <CountdownTimer />
           </motion.div>

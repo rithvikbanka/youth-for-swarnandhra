@@ -2,32 +2,60 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Calendar, MapPin, Clock, Download } from "lucide-react";
 import { scheduleByDay, type DaySchedule, type ScheduleSession } from "@/data/schedule";
-
-const categories = [
-  { id: "all", label: "All Events", tag: "all" },
-  { id: "changemaker", label: "Youth Changemaker Talks", tag: "Youth Changemaker Talks" },
-  { id: "con", label: "Youth Con", tag: "Youth Con" },
-  { id: "impact", label: "Youth Impact Labs", tag: "Youth Impact Labs" },
-  { id: "talent", label: "Talent Carnival", tag: "Talent Carnival" },
-  { id: "artwall", label: "Youth Art Wall", tag: "Youth Art Wall" },
-  { id: "yuvasrishti", label: "Yuvasrishti", tag: "Yuvasrishti" },
-];
-
-const categoryColors: Record<string, string> = {
-  "All Events": "bg-festival-charcoal text-white",
-  "Youth Changemaker Talks": "bg-primary text-primary-foreground",
-  "Youth Con": "bg-accent text-accent-foreground",
-  "Youth Impact Labs": "bg-festival-gold text-white",
-  "Talent Carnival": "bg-pink-500 text-white",
-  "Youth Art Wall": "bg-blue-500 text-white",
-  "Yuvasrishti": "bg-purple-500 text-white",
-  "Carnival Parade": "bg-orange-500 text-white",
-};
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export const Schedule = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { locale } = useLanguage();
+
+  const content = locale === 'te' ? {
+    eyebrow: "మూడు రోజుల ఉత్సవం",
+    title: "18, 19, 20 డిసెంబర్ 2025",
+    allEvents: "అన్ని ఈవెంట్‌లు",
+    yctLabel: "యువ చేంజ్‌మేకర్ చర్చలు",
+    youthConLabel: "యువ కాన్",
+    impactLabsLabel: "యువ ఇంపాక్ట్ ల్యాబ్‌లు",
+    talentLabel: "ప్రతిభ కార్నివాల్",
+    artWallLabel: "యువ కళ గోడ",
+    yuvasrishtiLabel: "యువసృష్టి",
+    downloadPDF: "పూర్తి షెడ్యూల్‌ను PDF గా డౌన్‌లోడ్ చేయండి",
+    noEvents: "ఈ విభాగంలో ఈవెంట్‌లు లేవు"
+  } : {
+    eyebrow: "Three Days of Celebration",
+    title: "18, 19, 20 December 2025",
+    allEvents: "All Events",
+    yctLabel: "Youth Changemaker Talks",
+    youthConLabel: "Youth Con",
+    impactLabsLabel: "Youth Impact Labs",
+    talentLabel: "Talent Carnival",
+    artWallLabel: "Youth Art Wall",
+    yuvasrishtiLabel: "Yuvasrishti",
+    downloadPDF: "Download Full Schedule as PDF",
+    noEvents: "No events in this category"
+  };
+
+  const categories = [
+    { id: "all", label: content.allEvents, tag: "all" },
+    { id: "changemaker", label: content.yctLabel, tag: "Youth Changemaker Talks" },
+    { id: "con", label: content.youthConLabel, tag: "Youth Con" },
+    { id: "impact", label: content.impactLabsLabel, tag: "Youth Impact Labs" },
+    { id: "talent", label: content.talentLabel, tag: "Talent Carnival" },
+    { id: "artwall", label: content.artWallLabel, tag: "Youth Art Wall" },
+    { id: "yuvasrishti", label: content.yuvasrishtiLabel, tag: "Yuvasrishti" },
+  ];
+
+  const categoryColors: Record<string, string> = {
+    "All Events": "bg-festival-charcoal text-white",
+    "Youth Changemaker Talks": "bg-primary text-primary-foreground",
+    "Youth Con": "bg-accent text-accent-foreground",
+    "Youth Impact Labs": "bg-festival-gold text-white",
+    "Talent Carnival": "bg-pink-500 text-white",
+    "Youth Art Wall": "bg-blue-500 text-white",
+    "Yuvasrishti": "bg-purple-500 text-white",
+    "Carnival Parade": "bg-orange-500 text-white",
+  };
 
   const filterSessions = (sessions: ScheduleSession[]) => {
     const selectedCategory = categories.find(c => c.id === activeCategory);
@@ -62,11 +90,11 @@ export const Schedule = () => {
           className="text-center mb-8 md:mb-12"
         >
           <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3">
-            Three Days of Celebration
+            {content.eyebrow}
           </span>
           <h2 className="section-title flex items-center justify-center gap-3">
             <Calendar className="w-8 h-8 md:w-10 md:h-10 text-primary" />
-            18, 19, 20 December 2025
+            {content.title}
           </h2>
         </motion.div>
 
@@ -148,7 +176,7 @@ export const Schedule = () => {
                 
                 {day.sessions.length === 0 && (
                   <p className="text-center text-muted-foreground py-8">
-                    No events in this category for {day.label}
+                    {content.noEvents} {day.label}
                   </p>
                 )}
               </div>
@@ -169,7 +197,7 @@ export const Schedule = () => {
             whileTap={{ scale: 0.98 }}
           >
             <Download size={18} />
-            Download Full Schedule as PDF
+            {content.downloadPDF}
           </motion.button>
         </motion.div>
       </div>

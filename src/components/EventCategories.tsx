@@ -1,66 +1,15 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ArrowRight, Palette, Mic2, BookOpen, Lightbulb, Heart } from "lucide-react";
 import classicalDance from "@/assets/classical-dance.jpg";
 import youthSinging from "@/assets/youth-singing.jpg";
 import artsCrafts from "@/assets/arts-crafts.jpg";
 import literary from "@/assets/literary.jpg";
 import startup from "@/assets/startup.jpg";
 import wellness from "@/assets/wellness.jpg";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const categories = [
-  {
-    id: 1,
-    title: "Folk Dance Group",
-    description: "High-energy folk rhythms, colours and culture.",
-    image: classicalDance,
-    icon: "💃",
-    color: "from-red-500/20 to-orange-500/20",
-  },
-  {
-    id: 2,
-    title: "Folk Song Group",
-    description: "Soulful Andhra folk songs celebrating regional roots.",
-    image: youthSinging,
-    icon: "🎶",
-    color: "from-orange-500/20 to-yellow-500/20",
-  },
-  {
-    id: 3,
-    title: "Story Writing",
-    description: "Young storytellers bringing powerful tales alive.",
-    image: literary,
-    icon: "✍️",
-    color: "from-yellow-500/20 to-green-500/20",
-  },
-  {
-    id: 4,
-    title: "Painting",
-    description: "Youthful imaginations exploding on vibrant canvases.",
-    image: artsCrafts,
-    icon: "🎨",
-    color: "from-green-500/20 to-teal-500/20",
-  },
-  {
-    id: 5,
-    title: "Declamation",
-    description: "Fierce speeches echoing youth's voice & Andhra's pride.",
-    image: startup,
-    icon: "🎙️",
-    color: "from-blue-500/20 to-purple-500/20",
-  },
-  {
-    id: 6,
-    title: "Poetry",
-    description: "Verses and poems expressing youth creativity.",
-    image: wellness,
-    icon: "📝",
-    color: "from-purple-500/20 to-pink-500/20",
-  },
-];
-
-const EventCard = ({ category, index }: { category: typeof categories[0]; index: number }) => {
+const EventCard = ({ category, index }: { category: { id: number; title: string; description: string; image: string; icon: string; color: string }; index: number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -98,14 +47,6 @@ const EventCard = ({ category, index }: { category: typeof categories[0]; index:
         <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
           {category.description}
         </p>
-        {/* <motion.a
-          href="#schedule"
-          className="inline-flex items-center gap-1 text-accent font-semibold text-sm hover:text-primary transition-colors group/link"
-          whileHover={{ x: 4 }}
-        >
-          See Schedule
-          <ArrowRight size={16} className="transition-transform group-hover/link:translate-x-1" />
-        </motion.a> */}
       </div>
     </motion.div>
   );
@@ -114,6 +55,42 @@ const EventCard = ({ category, index }: { category: typeof categories[0]; index:
 export const EventCategories = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { locale } = useLanguage();
+
+  const content = locale === 'te' ? {
+    eyebrow: "ఆరు శ్రేష్ఠత విభాగాలు",
+    title: "మాతో జరుపుకోండి",
+    subtitle: "అన్ని 26 జిల్లాల విజేతల నుండి ఆరు హై-వోల్టేజ్ పోటీలను కనుగొనండి.",
+    categories: [
+      { title: "జానపద నృత్య బృందం", description: "అధిక-శక్తి జానపద లయలు, రంగులు మరియు సంస్కృతి." },
+      { title: "జానపద గాన బృందం", description: "ప్రాంతీయ మూలాలను జరుపుకునే ఆత్మపూర్వక ఆంధ్ర జానపద పాటలు." },
+      { title: "కథా రచన", description: "శక్తివంతమైన కథలను జీవంతో తీసుకువచ్చే యువ కథకులు." },
+      { title: "చిత్రలేఖనం", description: "ఉత్సాహభరితమైన కాన్వాస్‌లపై పేలుతున్న యువ ఊహలు." },
+      { title: "వాక్చాతుర్యం", description: "యువత గొంతు & ఆంధ్ర గర్వాన్ని ప్రతిధ్వనిస్తున్న తీవ్రమైన ప్రసంగాలు." },
+      { title: "కవిత్వం", description: "యువ సృజనాత్మకతను వ్యక్తం చేసే శ్లోకాలు మరియు కవితలు." },
+    ]
+  } : {
+    eyebrow: "Six Categories of Excellence",
+    title: "Celebrate with Us",
+    subtitle: "Discover six high-voltage competitions from Winners of all 26 Districts.",
+    categories: [
+      { title: "Folk Dance Group", description: "High-energy folk rhythms, colours and culture." },
+      { title: "Folk Song Group", description: "Soulful Andhra folk songs celebrating regional roots." },
+      { title: "Story Writing", description: "Young storytellers bringing powerful tales alive." },
+      { title: "Painting", description: "Youthful imaginations exploding on vibrant canvases." },
+      { title: "Declamation", description: "Fierce speeches echoing youth's voice & Andhra's pride." },
+      { title: "Poetry", description: "Verses and poems expressing youth creativity." },
+    ]
+  };
+
+  const categories = [
+    { id: 1, ...content.categories[0], image: classicalDance, icon: "💃", color: "from-red-500/20 to-orange-500/20" },
+    { id: 2, ...content.categories[1], image: youthSinging, icon: "🎶", color: "from-orange-500/20 to-yellow-500/20" },
+    { id: 3, ...content.categories[2], image: literary, icon: "✍️", color: "from-yellow-500/20 to-green-500/20" },
+    { id: 4, ...content.categories[3], image: artsCrafts, icon: "🎨", color: "from-green-500/20 to-teal-500/20" },
+    { id: 5, ...content.categories[4], image: startup, icon: "🎙️", color: "from-blue-500/20 to-purple-500/20" },
+    { id: 6, ...content.categories[5], image: wellness, icon: "📝", color: "from-purple-500/20 to-pink-500/20" },
+  ];
 
   return (
     <section id="events" className="section-padding bg-gradient-warm pattern-rangoli">
@@ -132,11 +109,11 @@ export const EventCategories = () => {
             transition={{ delay: 0.2 }}
             className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-3"
           >
-            Six Categories of Excellence
+            {content.eyebrow}
           </motion.span>
-          <h2 className="section-title">Celebrate with Us</h2>
+          <h2 className="section-title">{content.title}</h2>
           <p className="section-subtitle mx-auto">
-            Discover six high-voltage competitions from Winners of all 26 Districts.
+            {content.subtitle}
           </p>
         </motion.div>
 

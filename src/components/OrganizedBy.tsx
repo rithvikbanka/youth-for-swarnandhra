@@ -1,9 +1,21 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export const OrganizedBy = () => {
   const sectionRef = useRef(null);
   const isSectionInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const { locale } = useLanguage();
+
+  const content = locale === 'te' ? {
+    eyebrow: "నిర్వహించినది",
+    department: "యువజన సేవల శాఖ",
+    government: "ఆంధ్ర ప్రదేశ్ ప్రభుత్వం"
+  } : {
+    eyebrow: "Organized By",
+    department: "Department of Youth Services",
+    government: "Government of Andhra Pradesh"
+  };
 
   return (
     <motion.div
@@ -16,7 +28,7 @@ export const OrganizedBy = () => {
       <div className="container mx-auto">
         {/* Heading */}
         <p className="text-muted-foreground text-sm uppercase tracking-wider mb-4">
-          Organized By
+          {content.eyebrow}
         </p>
 
         {/* Logo */}
@@ -28,7 +40,7 @@ export const OrganizedBy = () => {
         >
           <motion.img
             src="/ap_logo.png"
-            alt="Government of Andhra Pradesh"
+            alt={content.government}
             className="h-[180px] w-auto"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
@@ -43,10 +55,10 @@ export const OrganizedBy = () => {
           className="space-y-1"
         >
           <p className="text-lg md:text-xl font-semibold text-foreground">
-            Department of Youth Services
+            {content.department}
           </p>
           <p className="text-sm md:text-base text-muted-foreground">
-            Government of Andhra Pradesh
+            {content.government}
           </p>
         </motion.div>
       </div>
