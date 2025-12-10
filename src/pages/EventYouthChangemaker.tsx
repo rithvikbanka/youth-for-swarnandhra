@@ -112,7 +112,8 @@ const EventYouthChangemaker = () => {
         slug="youth-changemaker-talks"
         title={content.title}
         subtitle={content.subtitle}
-        imageUrl="/eventpages/youthchangemakertalks.png"
+        // TODO: Uncomment when banner images are ready
+        // imageUrl="/eventpages/youthchangemakertalks.png"
         date={content.date}
         time={content.time}
         location={content.location}

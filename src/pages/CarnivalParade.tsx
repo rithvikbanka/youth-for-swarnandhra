@@ -102,7 +102,8 @@ const CarnivalParade = () => {
         slug="carnival-parade"
         title={content.title}
         subtitle={content.subtitle}
-        imageUrl="/eventpages/carnivalparade.png"
+        // TODO: Uncomment when banner images are ready
+        // imageUrl="/eventpages/carnivalparade.png"
         date={content.date}
         time={content.time}
         location={content.location}

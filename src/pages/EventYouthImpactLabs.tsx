@@ -80,7 +80,8 @@ const EventYouthImpactLabs = () => {
         slug="youth-impact-labs"
         title={content.title}
         subtitle={content.subtitle}
-        imageUrl="/eventpages/youthimpactlabs.png"
+        // TODO: Uncomment when banner images are ready
+        // imageUrl="/eventpages/youthimpactlabs.png"
         date={content.date}
         time={content.time}
         location={content.location}
