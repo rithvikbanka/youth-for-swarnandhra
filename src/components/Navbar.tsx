@@ -3,7 +3,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
-import { LanguageSwitcher } from "./LanguageSwitcher";
+// TODO: Uncomment when Telugu translations are ready
+// import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 // Nav links will be computed with translations inside the component
@@ -393,7 +394,8 @@ export const Navbar = () => {
 
           {/* Language Switcher + CTA Button */}
           <div className="hidden md:flex items-center gap-3">
-            <LanguageSwitcher isAtTop={isAtTop} />
+            {/* TODO: Uncomment when Telugu translations are ready */}
+            {/* <LanguageSwitcher isAtTop={isAtTop} /> */}
             <motion.button
               onClick={openRegistrationForm}
               className={ctaButtonText}
@@ -549,15 +551,16 @@ export const Navbar = () => {
                   {link.label}
                 </motion.a>
               ))}
+              {/* TODO: Uncomment when Telugu translations are ready */}
               {/* Language Switcher in Mobile */}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: (navLinksNoHome.length + 2) * 0.05 }}
                 className="py-2 px-4"
               >
                 <LanguageSwitcher isAtTop={false} />
-              </motion.div>
+              </motion.div> */}
               
               <motion.button
                 onClick={openRegistrationForm}
