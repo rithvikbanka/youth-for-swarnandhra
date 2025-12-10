@@ -191,14 +191,17 @@ export const Schedule = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center mt-10 md:mt-12"
         >
-          <motion.button
+          <motion.a
+            href="https://drive.google.com/file/d/1szz2ql583WIwFwXIsIWTvYX4MA8POgdS/view?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-secondary inline-flex items-center gap-2"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
             <Download size={18} />
             {content.downloadPDF}
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </section>
