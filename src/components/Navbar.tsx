@@ -6,6 +6,7 @@ import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
 // TODO: Uncomment when Telugu translations are ready
 // import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { trackRegistrationClick } from "@/lib/analytics";
 
 // Nav links will be computed with translations inside the component
 
@@ -164,6 +165,7 @@ export const Navbar = () => {
    * Register button: opens the official Google Form in a new tab 
    */
   const openRegistrationForm = () => {
+    trackRegistrationClick('navbar');
     window.open(PARTICIPANT_FORM_VIEW_URL, "_blank");
     setIsMobileOpen(false);
   };

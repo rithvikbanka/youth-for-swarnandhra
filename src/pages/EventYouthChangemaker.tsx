@@ -8,6 +8,7 @@ import { SocialIcon } from "@/components/icons/SocialIcon";
 import { getSessionsByTagOnly } from "@/data/schedule";
 import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { trackRegistrationClick } from "@/lib/analytics";
 
 // Derive schedule data from shared source
 const talksSchedule = getSessionsByTagOnly("Youth Changemaker Talks");
@@ -64,6 +65,7 @@ const moderators = [
 ];
 
 const openRegistrationForm = () => {
+  trackRegistrationClick('youth_changemaker_talks_page');
   window.open(PARTICIPANT_FORM_VIEW_URL, "_blank");
 };
 

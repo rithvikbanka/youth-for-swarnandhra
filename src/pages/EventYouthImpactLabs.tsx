@@ -7,6 +7,7 @@ import { EventHero } from "@/components/EventHero";
 import { getSessionsByTagOnly } from "@/data/schedule";
 import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { trackRegistrationClick } from "@/lib/analytics";
 
 // Derive schedule data from shared source
 const impactLabsSchedule = getSessionsByTagOnly("Youth Impact Labs");
@@ -38,6 +39,7 @@ const hackathonPoints = [
 ];
 
 const openRegistrationForm = () => {
+  trackRegistrationClick('youth_impact_labs_page');
   window.open(PARTICIPANT_FORM_VIEW_URL, "_blank");
 };
 

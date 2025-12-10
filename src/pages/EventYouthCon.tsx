@@ -7,6 +7,7 @@ import { EventHero } from "@/components/EventHero";
 import { scheduleByDay, type ScheduleSession } from "@/data/schedule";
 import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { trackRegistrationClick } from "@/lib/analytics";
 
 // Helper to get date string from day label
 const getDayWithDate = (dayLabel: string, date: string) => {
@@ -20,6 +21,7 @@ const EVENT_PDF_URL = "https://drive.google.com/file/d/19BP0stjo-y0L682P-waEc2ck
 type SessionWithDay = ScheduleSession & { dayLabel: string; date: string };
 
 const openRegistrationForm = () => {
+  trackRegistrationClick('youth_con_page');
   window.open(PARTICIPANT_FORM_VIEW_URL, "_blank");
 };
 

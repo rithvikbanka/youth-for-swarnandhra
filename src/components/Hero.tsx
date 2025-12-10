@@ -4,6 +4,7 @@ import { ArrowRight, Calendar, MapPin, Users } from "lucide-react";
 import heroDancer from "@/assets/hero-dancer.jpg";
 import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { trackRegistrationClick } from "@/lib/analytics";
 
 // Set countdown timer target to December 18, 2025
 const targetDate = new Date("2025-12-18T00:00:00").getTime();
@@ -74,6 +75,7 @@ export const Hero = () => {
   const { t } = useLanguage();
   
   const openRegistrationForm = () => {
+    trackRegistrationClick('hero_section');
     window.open(PARTICIPANT_FORM_VIEW_URL, "_blank");
   };
 

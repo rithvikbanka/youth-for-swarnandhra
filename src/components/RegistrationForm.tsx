@@ -3,8 +3,10 @@ import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { trackRegistrationClick } from "@/lib/analytics";
 
 const openRegistrationForm = () => {
+  trackRegistrationClick('registration_section');
   window.open(PARTICIPANT_FORM_VIEW_URL, "_blank");
 };
 

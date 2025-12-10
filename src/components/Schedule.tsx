@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { Calendar, MapPin, Clock, Download } from "lucide-react";
 import { scheduleByDay, type DaySchedule, type ScheduleSession } from "@/data/schedule";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { trackScheduleDownload } from "@/lib/analytics";
 
 export const Schedule = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -198,6 +199,7 @@ export const Schedule = () => {
             className="btn-secondary inline-flex items-center gap-2"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            onClick={() => trackScheduleDownload()}
           >
             <Download size={18} />
             {content.downloadPDF}
