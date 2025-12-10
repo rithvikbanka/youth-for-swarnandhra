@@ -17,6 +17,7 @@ const eventDropdown = [
       { label: "Youth Changemaker Talks", section: "youth-changemaker-talks", route: "/event/youth-changemaker-talks" },
       { label: "Youth Con", section: "youth-con", route: "/event/youth-con" },
       { label: "Youth Impact Labs", section: "youth-impact-labs", route: "/event/youth-impact-labs" },
+      { label: "Youth Radio Andhra", section: "andhra-youth-radio", route: "/event/andhra-youth-radio" },
     ],
   },
   {
@@ -24,9 +25,6 @@ const eventDropdown = [
     items: [
       { label: "Andhra Yuva Sankalp", section: "andhra-yuva-sankalp", route: "/other-events/andhra-yuva-sankalp" },
       { label: "Youth Talent Carnival", section: "youth-talent-carnival", route: "/other-events/youth-talent-carnival" },
-      { label: "Youth Art Wall", section: "youth-art-wall", route: "/other-events/youth-art-wall" },
-      { label: "Carnival Parade", section: "carnival-parade", route: "/other-events/carnival-parade" },
-      { label: "Yuvasrishti", section: "yuvasrishti", route: "/other-events/yuvasrishti" },
     ],
   },
 ];

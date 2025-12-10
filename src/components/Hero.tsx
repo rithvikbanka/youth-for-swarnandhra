@@ -123,110 +123,171 @@ export const Hero = () => {
       </motion.div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 md:px-6 pt-20">
-        <div className="max-w-3xl">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6"
-          >
-            <span className="w-2 h-2 bg-festival-yellow rounded-full animate-pulse" />
-            <span className="text-white/90 text-sm font-medium">
-              {t('hero.badge', 'Andhra Pradesh State Youth Festival 2025')}
-            </span>
-          </motion.div>
+      <div className="relative z-10 container mx-auto px-4 md:px-6 pt-20 pb-8">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+          {/* LEFT SIDE: Text Content */}
+          <div className="flex-1 max-w-3xl lg:max-w-2xl">
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6"
+            >
+              <span className="w-2 h-2 bg-festival-yellow rounded-full animate-pulse" />
+              <span className="text-white/90 text-sm font-medium">
+                {t('hero.badge', 'Andhra Pradesh State Youth Festival 2025')}
+              </span>
+            </motion.div>
 
-          {/* Main Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-4xl md:text-5xl lg:text-7xl font-heading font-bold text-white leading-tight mb-4"
-          >
-            {t('hero.title', 'Youth for')}{" "}
-            <span className="text-gradient-gold">{t('hero.highlight', 'Swarnandhra')}</span>{" "}
-            {t('hero.year', '2047')}
-          </motion.h1>
+            {/* Main Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-white leading-tight mb-4"
+            >
+              {t('hero.title', 'Youth for')}{" "}
+              <span className="text-gradient-gold">{t('hero.highlight', 'Swarnandhra')}</span>{" "}
+              {t('hero.year', '2047')}
+            </motion.h1>
 
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-white/90 font-light mb-6"
-          >
-            {t('hero.subtitle', 'Lead. Create. Celebrate.')}
-          </motion.p>
+            {/* Subheadline */}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl md:text-2xl text-white/90 font-light mb-6"
+            >
+              {t('hero.subtitle', 'Lead. Create. Celebrate.')}
+            </motion.p>
 
-          {/* Info Pills */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-wrap gap-3 mb-8"
-          >
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-white/90 text-sm">
-              <Users size={16} />
-              <span>{t('hero.participants', '2000+ Youth Participants')}</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-white/90 text-sm">
-              <Calendar size={16} />
-              <span>{t('hero.dates', '18, 19, 20 December 2025')}</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-white/90 text-sm">
-              <MapPin size={16} />
-              <a
-                href="https://maps.app.goo.gl/Gi8e5ziY1eWZaqtd7"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline focus:outline-none"
+            {/* Info Pills */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="flex flex-wrap gap-3 mb-8"
+            >
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-white/90 text-sm">
+                <Users size={16} />
+                <span>{t('hero.participants', '2000+ Youth Participants')}</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-white/90 text-sm">
+                <Calendar size={16} />
+                <span>{t('hero.dates', '18, 19, 20 December 2025')}</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 text-white/90 text-sm">
+                <MapPin size={16} />
+                <a
+                  href="https://maps.app.goo.gl/Gi8e5ziY1eWZaqtd7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline focus:outline-none"
+                >
+                  {t('hero.location', 'Amaravati, Andhra Pradesh')}
+                </a>
+              </div>
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4 mb-12"
+            >
+              <motion.button
+                onClick={openRegistrationForm}
+                className="btn-hero group"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
               >
-                {t('hero.location', 'Amaravati, Andhra Pradesh')}
-              </a>
+                {t('hero.registerNow', 'Register Now')}
+                <ArrowRight className="inline-block ml-2 transition-transform group-hover:translate-x-1" size={20} />
+              </motion.button>
+              <motion.button
+                onClick={scrollToEvents}
+                className="btn-hero-outline"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {t('hero.exploreEvents', 'Explore Events')}
+              </motion.button>
+            </motion.div>
+
+            {/* Countdown Timer */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
+            >
+              <p className="text-white/70 text-sm mb-3 uppercase tracking-wider">
+                {t('hero.countdown', 'Festival Begins In')}
+              </p>
+              <CountdownTimer />
+            </motion.div>
+          </div>
+
+          {/* RIGHT SIDE: Hero Image - CM Chandrababu Naidu */}
+          <motion.div
+            initial={{ opacity: 0, x: 50, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+            className="hidden lg:flex flex-1 items-end justify-center lg:justify-end"
+          >
+            <div className="relative w-full max-w-2xl xl:max-w-3xl">
+              {/* Decorative glow behind image */}
+              <div className="absolute inset-0 bg-gradient-to-t from-festival-gold/20 via-transparent to-transparent blur-3xl scale-110" />
+              
+              {/* Hero Image */}
+              <motion.img
+                src="/eventpages/hero.png"
+                alt="Hon'ble Chief Minister Shri Nara Chandrababu Naidu Garu"
+                className="relative w-full h-auto object-contain drop-shadow-2xl"
+                style={{
+                  filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.4))',
+                  maxHeight: '850px', // Increased from 600px
+                }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              />
+              
+              {/* Optional: Floating badge/label */}
+              {/* <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1 }}
+                className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2"
+              >
+                <span className="text-white/90 text-xs font-medium whitespace-nowrap">
+                  🇮🇳 Vision for Swarnandhra 2047
+                </span>
+              </motion.div> */}
             </div>
-          </motion.div>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 mb-12"
-          >
-            <motion.button
-              onClick={openRegistrationForm}
-              className="btn-hero group"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {t('hero.registerNow', 'Register Now')}
-              <ArrowRight className="inline-block ml-2 transition-transform group-hover:translate-x-1" size={20} />
-            </motion.button>
-            <motion.button
-              onClick={scrollToEvents}
-              className="btn-hero-outline"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              {t('hero.exploreEvents', 'Explore Events')}
-            </motion.button>
-          </motion.div>
-
-          {/* Countdown Timer */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-          >
-            <p className="text-white/70 text-sm mb-3 uppercase tracking-wider">
-              {t('hero.countdown', 'Festival Begins In')}
-            </p>
-            <CountdownTimer />
           </motion.div>
         </div>
       </div>
+
+      {/* Mobile Hero Image - Shows below content on smaller screens */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+        className="lg:hidden relative z-10 px-4 pb-8"
+      >
+        <div className="relative max-w-lg mx-auto">
+          <motion.img
+            src="/eventpages/hero.png"
+            alt="Hon'ble Chief Minister Shri Nara Chandrababu Naidu Garu"
+            className="w-full h-auto object-contain drop-shadow-xl"
+            style={{
+              filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.3))',
+              maxHeight: '600px', // Increased from 400px
+            }}
+          />
+        </div>
+      </motion.div>
 
       {/* Scroll Indicator */}
       <motion.div

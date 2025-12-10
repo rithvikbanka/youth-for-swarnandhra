@@ -49,6 +49,12 @@ export const eventThemes = {
     texture: texturePatterns.chirala,
     showMeta: false, // HIDE schedule chips
   },
+  "andhra-youth-radio": {
+    bannerGradient: "from-[#833AB4]/95 via-[#FD1D1D]/90 to-[#FCB045]/85",
+    bannerBackground: "/backgrounds/b1.jpg",
+    texture: texturePatterns.dharmavaram,
+    showMeta: false, // HIDE schedule chips for special events
+  },
 } as const;
 
 export type EventThemeKey = keyof typeof eventThemes;
