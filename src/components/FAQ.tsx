@@ -91,7 +91,7 @@ export const FAQ = () => {
     },
     {
       question: "Where is the festival being held?",
-      answer: "The festival is being held at K L University, Vaddeswaram. Venue details will be sent to your registered email 7 days before the event.",
+      answer: "The festival is being held at Amaravati, Andhra Pradesh. Venue details will be sent to your registered email 7 days before the event.",
     },
     {
       question: "What if I need accommodations or special access?",

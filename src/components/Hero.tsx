@@ -181,7 +181,7 @@ export const Hero = () => {
                 rel="noopener noreferrer"
                 className="hover:underline focus:outline-none"
               >
-                {t('hero.location', 'K L University, Vaddeswaram')}
+                {t('hero.location', 'Amaravati, Andhra Pradesh')}
               </a>
             </div>
           </motion.div>
