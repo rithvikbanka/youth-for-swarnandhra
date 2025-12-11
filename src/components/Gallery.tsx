@@ -4,19 +4,19 @@ import { X, Play, Eye } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 // Gallery images
-import gallery1 from "@/assets/gallery1.jpg";
-import gallery2 from "@/assets/gallery2.jpg";
-import gallery3 from "@/assets/gallery3.jpg";
-import gallery4 from "@/assets/gallery4.jpg";
-import gallery5 from "@/assets/gallery5.jpg";
-import gallery6 from "@/assets/gallery6.jpg";
-import gallery7 from "@/assets/gallery7.jpg";
-import gallery8 from "@/assets/gallery8.jpg";
+import gallery1 from "@/assets/gallery1.webp";
+import gallery2 from "@/assets/gallery2.webp";
+import gallery3 from "@/assets/gallery3.webp";
+import gallery4 from "@/assets/gallery4.webp";
+import gallery5 from "@/assets/gallery5.webp";
+import gallery6 from "@/assets/gallery6.webp";
+import gallery7 from "@/assets/gallery7.webp";
+import gallery8 from "@/assets/gallery8.webp";
 
 // Video thumbnails
-import video1 from "@/assets/video1.jpg";
-import video2 from "@/assets/video2.jpg";
-import video3 from "@/assets/video3.jpg";
+import video1 from "@/assets/video1.webp";
+import video2 from "@/assets/video2.webp";
+import video3 from "@/assets/video3.webp";
 
 export const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -50,14 +50,14 @@ export const Gallery = () => {
     subtitle: "Highlights from past festivals and this year's lineup",
     videosTitle: "2025 Festival Videos",
     galleryImages: [
-      { alt: "YUVA 2024 - Speakers & Panelists", size: "large" },
-      { alt: "Kuchipudi dancer in motion", size: "normal" },
-      { alt: "Young vocalist performing", size: "normal" },
-      { alt: "Traditional art workshop", size: "large" },
-      { alt: "Poetry recitation event", size: "normal" },
-      { alt: "Youth innovation hub", size: "normal" },
-      { alt: "Morning yoga session", size: "normal" },
-      { alt: "Folk dance ensemble", size: "large" },
+      { alt: "Panel of speakers, government officials and organizers at YUVA 2024 thought leadership session", size: "large" },
+      { alt: "P.S. Pradyumna IAS, Chief Secretary of CMO at YUVA 2024 opening ceremony", size: "normal" },
+      { alt: "Youth ensemble performing traditional Andhra Pradesh tribal folk dance at YUVA 2024", size: "normal" },
+      { alt: "Youth performing traditional tribal dance with vibrant costumes at YUVA 2024 festival", size: "large" },
+      { alt: "Young speaker delivering talk at YUVA 2024 State Youth Festival", size: "normal" },
+      { alt: "Traditional Indian handicrafts and art pieces displayed at YUVA 2024 cultural exhibition", size: "normal" },
+      { alt: "P.S. Pradyumna IAS, Chief Secretary of CMO with NCC cadets at YUVA 2024", size: "normal" },
+      { alt: "Youth group performing high-energy traditional stick dance routine at YUVA 2024 cultural program", size: "large" },
     ],
     videos: [
       { title: "Spirit of Andhra Pradesh at Yuva 2025", views: "2K+ views" },
@@ -136,6 +136,7 @@ export const Gallery = () => {
               <img
                 src={image.src}
                 alt={image.alt}
+                loading="lazy"
                 className="w-full h-full object-cover aspect-square transition-transform duration-500 group-hover:scale-105"
               />
               {/* Hover Overlay */}
@@ -181,6 +182,7 @@ export const Gallery = () => {
                   <img
                     src={video.thumbnail}
                     alt={video.title}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   {/* Play Button */}
@@ -227,6 +229,7 @@ export const Gallery = () => {
             animate={{ scale: 1, opacity: 1 }}
             src={selectedImage}
             alt="Gallery image"
+            loading="lazy"
             className="max-w-full max-h-[85vh] object-contain rounded-lg"
             onClick={(e) => e.stopPropagation()}
           />

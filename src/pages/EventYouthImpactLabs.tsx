@@ -83,7 +83,7 @@ const EventYouthImpactLabs = () => {
         title={content.title}
         subtitle={content.subtitle}
         // TODO: Uncomment when banner images are ready
-        // imageUrl="/eventpages/youthimpactlabs.png"
+        // imageUrl="/eventpages/youthimpactlabs.webp"
         date={content.date}
         time={content.time}
         location={content.location}

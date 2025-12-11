@@ -258,15 +258,17 @@ export const Navbar = () => {
           >
             <div className="relative h-[50px] w-auto">
               <img
-                src="/yuva_logo.png"
+                src="/yuva_logo.webp"
                 alt="APYF Logo"
+                loading="eager"
                 className={`h-[50px] w-auto absolute transition-opacity duration-300 ${
                   isAtTop ? "opacity-0" : "opacity-100"
                 }`}
               />
               <img
-                src="/yuva_logo1.png"
+                src="/yuva_logo1.webp"
                 alt="APYF Logo"
+                loading="eager"
                 className={`h-[50px] w-auto transition-opacity duration-300 ${
                   isAtTop ? "opacity-100" : "opacity-0"
                 }`}

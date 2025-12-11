@@ -67,6 +67,7 @@ const Event = () => {
         <motion.img
           src={data.heroImage}
           alt={data.title}
+          loading="eager"
           className="object-cover w-full h-full"
           initial={{ scale: 1.05 }}
           animate={{ scale: 1 }}

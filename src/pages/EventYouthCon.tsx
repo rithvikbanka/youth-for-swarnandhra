@@ -96,7 +96,7 @@ const EventYouthCon = () => {
         title={content.title}
         subtitle={content.subtitle}
         // TODO: Uncomment when banner images are ready
-        // imageUrl="/eventpages/youthcon.png"
+        // imageUrl="/eventpages/youthcon.webp"
         date={content.date}
         time={content.time}
         location={content.location}

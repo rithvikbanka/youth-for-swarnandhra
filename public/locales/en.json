@@ -17,8 +17,7 @@
     "subtitle": "Lead. Create. Celebrate.",
     "participants": "2000+ Youth Participants",
     "dates": "18, 19, 20 December 2025",
-    // "location": "Amaravati, Andhra Pradesh",
-    "location": "Amaravati, Andhra Pradesh",
+    "location": "K L University, Vaddeswaram, Andhra Pradesh",
     "registerNow": "Register Now",
     "exploreEvents": "Explore Events",
     "countdown": "Festival Begins In"
@@ -66,7 +65,7 @@
       "subtitle": "Focused on empowering young people to become active agents of positive change, highlighting their innovative solutions, leadership, and passion for tackling social and economic issues, moving beyond 'future leaders' to 'present-day doers'.",
       "date": "18-20 December 2025",
       "time": "Sessions across all three days",
-      "location": "Vijayawada, Andhra Pradesh",
+      "location": "K L University, Vijayawada, Andhra Pradesh",
       "sectionEyebrow": "Transformative Talks & Interactions",
       "sectionTitle": "Meet India's Changemakers",
       "sectionSubtitle": "Connect with visionary speakers, industry experts, and social entrepreneurs driving innovation and impact across the nation.",
@@ -78,7 +77,7 @@
       "subtitle": "Connecting the Strangers - A unique platform for meaningful conversations, networking, and mentoring between youth and industry leaders.",
       "date": "18-20 December 2025",
       "time": "Afternoons and evenings",
-      "location": "Vijayawada, Andhra Pradesh",
+      "location": "K L University, Vijayawada, Andhra Pradesh",
       "sectionEyebrow": "Networking & Mentoring Opportunities",
       "sectionTitle": "Connecting the Strangers",
       "sectionSubtitle": "Build relationships with industry leaders, entrepreneurs, and peers from across India.",
@@ -94,7 +93,7 @@
       "subtitle": "Hands-on workshops and innovation labs where young people collaborate to develop practical solutions for community challenges.",
       "date": "19-20 December 2025",
       "time": "10 AM - 2 PM",
-      "location": "Vijayawada, Andhra Pradesh",
+      "location": "K L University, Vijayawada, Andhra Pradesh",
       "sectionEyebrow": "Innovation & Social Entrepreneurship",
       "sectionTitle": "Create Real Impact",
       "sectionSubtitle": "Collaborate with changemakers and innovators to solve real-world problems through social entrepreneurship and hackathon challenges.",
@@ -121,7 +120,7 @@
       "subtitle": "Your imagination, your canvas. Paint, sketch, doodle, draw or tell stories — let your art speak for your dreams, hopes, angst or joy. This isn't just a wall, it's where your voice becomes visible.",
       "date": "18-20 December 2025",
       "time": "Full Day",
-      "location": "Vijayawada, Andhra Pradesh",
+      "location": "K L University, Vijayawada, Andhra Pradesh",
       "sectionEyebrow": "Express Yourself",
       "sectionTitle": "Every Form of Art Welcome",
       "sectionSubtitle": "Whether you're a seasoned artist or picking up a brush for the first time, the Youth Art Wall welcomes all forms of creative expression.",
@@ -156,7 +155,7 @@
       "subtitle": "Think of it as stage-time for everything you love — poetry, dance, music, stand-up, storytelling, beatboxing… basically anything that shows your creative spark. No judgement, no dynamics — just a stage waiting for your vibe.",
       "date": "18-20 December 2025",
       "time": "11 AM onwards",
-      "location": "Vijayawada, Andhra Pradesh",
+      "location": "K L University, Vijayawada, Andhra Pradesh",
       "sectionEyebrow": "The Experience",
       "sectionTitle": "What You'll Experience",
       "sectionSubtitle": "A celebration of raw talent, creativity, and the boundless energy of youth.",
@@ -192,7 +191,7 @@
       "subtitle": "Step into the heart of Andhra's heritage — explore crafts, handlooms, local artistry and culture, led by youth for youth. Traditional skills meet youthful energy, with interactive stalls, artisans' stories and creative showcases rooted in our culture.",
       "date": "18-20 December 2025",
       "time": "Full Day",
-      "location": "Vijayawada, Andhra Pradesh",
+      "location": "K L University, Vijayawada, Andhra Pradesh",
       "sectionEyebrow": "Discover Heritage",
       "sectionTitle": "You'll See",
       "sectionSubtitle": "A living showcase of Andhra Pradesh's rich artistic heritage and craftsmanship.",
@@ -231,14 +230,14 @@
       "subtitle": "A vibrant street parade featuring floats, performers, and cultural displays from all districts of Andhra Pradesh.",
       "date": "18 December 2025",
       "time": "3 PM - 6 PM",
-      "location": "Vijayawada, Andhra Pradesh"
+      "location": "K L University, Vijayawada, Andhra Pradesh"
     },
     "andhraYuvaSankalp": {
       "title": "Andhra Yuva Sankalp",
       "subtitle": "A digital marathon on the themes of Youth Empowerment, AI, Fitness & Social Impact. Unleashing the talent and creativity of youth through content creation for social awareness.",
       "date": "20 December 2025",
       "time": "10 PM onwards",
-      "location": "Vijayawada, Andhra Pradesh"
+      "location": "K L University, Vijayawada, Andhra Pradesh"
     }
   },
   "schedule": {
@@ -354,7 +353,8 @@
     "am": "AM",
     "pm": "PM",
     "onwards": "onwards",
-    "vijayawada": "Vijayawada",
-    "onLinkedin": "on LinkedIn"
+    "vijayawada": "Vijayawada", "klu": "K L University"
+    "onLinkedin": "on LinkedIn",
+    "klu": "K L University"
   }
 }

@@ -39,8 +39,9 @@ export const OrganizedBy = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <motion.img
-            src="/ap_logo.png"
+            src="/ap_logo.webp"
             alt={content.government}
+            loading="lazy"
             className="h-[180px] w-auto"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}

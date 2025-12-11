@@ -99,6 +99,7 @@ const SocialPostCard = ({ post, index }: { post: SocialPost; index: number }) =>
             <img 
               src={post.imageUrl} 
               alt={post.title || "Social media post"} 
+              loading="lazy"
               className="w-full h-full object-cover"
             />
           ) : (

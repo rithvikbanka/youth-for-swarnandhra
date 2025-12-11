@@ -103,7 +103,7 @@ const CarnivalParade = () => {
         title={content.title}
         subtitle={content.subtitle}
         // TODO: Uncomment when banner images are ready
-        // imageUrl="/eventpages/carnivalparade.png"
+        // imageUrl="/eventpages/carnivalparade.webp"
         date={content.date}
         time={content.time}
         location={content.location}

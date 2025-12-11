@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, MapPin, Users } from "lucide-react";
-import heroDancer from "@/assets/hero-dancer.jpg";
+import heroDancer from "@/assets/hero-dancer.webp";
 import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { trackRegistrationClick } from "@/lib/analytics";
@@ -102,6 +102,7 @@ export const Hero = () => {
           src={heroDancer}
           alt="Classical Bharatanatyam dancer performing"
           className="w-full h-full object-cover object-center"
+          loading="eager"
         />
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-hero" />
@@ -185,7 +186,7 @@ export const Hero = () => {
                   rel="noopener noreferrer"
                   className="hover:underline focus:outline-none"
                 >
-                  {t('hero.location', 'Amaravati, Andhra Pradesh')}
+                  {t('hero.location', 'K L University, Vaddeswaram, Andhra Pradesh')}
                 </a>
               </div>
             </motion.div>
@@ -242,9 +243,10 @@ export const Hero = () => {
               
               {/* Hero Image */}
               <motion.img
-                src="/eventpages/hero.png"
+                src="/eventpages/hero.webp"
                 alt="Hon'ble Chief Minister Shri Nara Chandrababu Naidu Garu"
                 className="relative w-full h-auto object-contain drop-shadow-2xl"
+                loading="eager"
                 style={{
                   filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.4))',
                   maxHeight: '850px', // Increased from 600px
@@ -278,9 +280,10 @@ export const Hero = () => {
       >
         <div className="relative max-w-lg mx-auto">
           <motion.img
-            src="/eventpages/hero.png"
+            src="/eventpages/hero.webp"
             alt="Hon'ble Chief Minister Shri Nara Chandrababu Naidu Garu"
             className="w-full h-auto object-contain drop-shadow-xl"
+            loading="eager"
             style={{
               filter: 'drop-shadow(0 15px 30px rgba(0,0,0,0.3))',
               maxHeight: '600px', // Increased from 400px

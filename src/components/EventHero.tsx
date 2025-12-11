@@ -98,6 +98,7 @@ export const EventHero = ({
                   <img
                     src={imageUrl}
                     alt={title}
+                    loading="eager"
                     className="absolute inset-0 w-full h-full object-contain object-bottom"
                     style={{
                       filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.2))',
@@ -116,6 +117,7 @@ export const EventHero = ({
           <img
             src={imageUrl}
             alt={title}
+            loading="eager"
             className="absolute inset-0 w-full h-full object-contain"
             style={{
               filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.2))',

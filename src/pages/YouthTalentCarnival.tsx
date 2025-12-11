@@ -96,7 +96,7 @@ const YouthTalentCarnival = () => {
         title={t('events.talentCarnival.title', "Youth Talent Carnival")}
         subtitle={t('events.talentCarnival.subtitle', "Think of it as stage-time for everything you love — poetry, dance, music, stand-up, storytelling, beatboxing… basically anything that shows your creative spark. No judgement, no dynamics — just a stage waiting for your vibe.")}
         // TODO: Uncomment when banner images are ready
-        // imageUrl="/eventpages/youthtalentcarnival.png"
+        // imageUrl="/eventpages/youthtalentcarnival.webp"
         date={t('events.talentCarnival.date', "18-20 December 2025")}
         time={t('events.talentCarnival.time', "11 AM onwards")}
         location={t('events.talentCarnival.location', "Vijayawada, Andhra Pradesh")}

@@ -15,31 +15,31 @@ const socialPosts = [
     id: "ays-1",
     type: "instagram" as const,
     url: "https://x.com/naralokesh/status/1955123971164344469",
-    image: "/ays/a1.jpg"
+    image: "/ays/a1.webp"
   },
   {
     id: "ays-2",
     type: "instagram" as const,
     url: "https://www.instagram.com/p/DNPeH4JTuJ0/",
-    image: "/ays/a2.jpg"
+    image: "/ays/a2.webp"
   },
   {
     id: "ays-3",
     type: "instagram" as const,
     url: "https://www.instagram.com/reel/DP1yDDKkuvC/",
-    image: "/ays/a3.jpg"
+    image: "/ays/a3.webp"
   },
   {
     id: "ays-4",
     type: "instagram" as const,
     url: "https://www.instagram.com/reel/DP1slFKEruB/",
-    image: "/ays/a4.jpg"
+    image: "/ays/a4.webp"
   },
   {
     id: "ays-5",
     type: "instagram" as const,
     url: "https://www.instagram.com/reel/DPok_5Bk6NF/",
-    image: "/ays/a5.jpg"
+    image: "/ays/a5.webp"
   },
 ];
 
@@ -78,7 +78,7 @@ const AndhraYuvaSankalp = () => {
         slug="andhra-yuva-sankalp"
         title={content.title}
         subtitle={content.subtitle}
-        imageUrl="/eventpages/andhrayuvasankalp.png"
+        imageUrl="/eventpages/andhrayuvasankalp.webp"
       />
 
       {/* Social Media Highlights Section */}
@@ -118,6 +118,7 @@ const AndhraYuvaSankalp = () => {
                     <img
                       src={post.image}
                       alt={content.postTitles[index]}
+                      loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     

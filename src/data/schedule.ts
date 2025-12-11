@@ -21,56 +21,56 @@ export const scheduleByDay: DaySchedule[] = [
         time: "10:00 AM - 01:00 PM",
         topic: "Inauguration",
         description: "Official opening ceremony of the State Youth Festival YUVA 2025.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "All Events"
       },
       {
         time: "10:00 AM - 12:00 PM",
         topic: "Green Innovation",
         description: "Eco-entrepreneurship insights focusing on Green Hydrogen and Solar Energy.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Changemaker Talks"
       },
       {
         time: "02:00 PM - 04:00 PM",
         topic: "Speed Networking 1",
         description: "Rapid networking session to connect youth with peers and mentors.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Con"
       },
       {
         time: "02:00 PM - 04:00 PM",
         topic: "Speed Mentoring 1",
         description: "One-on-one quick mentoring opportunities with industry experts.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Con"
       },
       {
         time: "11:00 AM - 01:00 PM",
         topic: "Carnival Parade",
         description: "Traditional and costume parade showcasing cultural diversity.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Carnival Parade"
       },
       {
         time: "11:00 AM onwards",
         topic: "Youth Talent Carnival",
         description: "Dance, Acting, Singing, Poetry & More performances.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Talent Carnival"
       },
       {
         time: "Full Day",
         topic: "Yuvasrishti",
         description: "Ongoing initiatives and participation throughout the festival.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Yuvasrishti"
       },
       {
         time: "Full Day",
         topic: "Youth Art Wall",
         description: "2D, 3D, Multimedia Artwork Display and exhibition.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Art Wall"
       }
     ]
@@ -83,84 +83,84 @@ export const scheduleByDay: DaySchedule[] = [
         time: "10:00 AM - 04:00 PM",
         topic: "Social Hackathon 1",
         description: "Collaborative lab session connecting local youth with the global diaspora.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Impact Labs"
       },
       {
         time: "02:00 PM - 04:00 PM",
         topic: "Thought Leadership",
         description: "A strategic session on shaping the State Youth Vision Document.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Changemaker Talks"
       },
       {
         time: "10:00 AM - 12:00 PM",
         topic: "Future of Work",
         description: "Exploring Youth roles in AI, Quantum Computing, and the Gig Economy.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Changemaker Talks"
       },
       {
         time: "10:00 AM - 12:00 AM",
         topic: "Speed Mentoring 2",
         description: "Second session of speed mentoring with professionals.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Con"
       },
       {
         time: "12:00 PM - 02:00 PM",
         topic: "Meetup 1",
         description: "Casual community meetup for participants to share ideas.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Con"
       },
       {
         time: "02:00 PM - 04:00 PM",
         topic: "Wellness & Wellbeing",
         description: "Designing healthy habits in the era of lifestyle disorders.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Changemaker Talks"
       },
       {
         time: "02:00 PM - 04:00 PM",
         topic: "Speed Mentoring 3",
         description: "Third session of speed mentoring for career guidance.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Con"
       },
       {
         time: "02:00 PM - 04:00 PM",
         topic: "Speed Networking 2",
         description: "Second rapid networking opportunity for attendees.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Con"
       },
       {
         time: "04:00 PM - 06:00 PM",
         topic: "Meetup 2",
         description: "Evening meetup session for group discussions and bonding.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Con"
       },
       {
         time: "11:00 AM onwards",
         topic: "Youth Talent Carnival",
         description: "Dance, Acting, Singing, Poetry & More performances.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Talent Carnival"
       },
       {
         time: "Full Day",
         topic: "Yuvasrishti",
         description: "Ongoing initiatives and participation throughout the festival.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Yuvasrishti"
       },
       {
         time: "Full Day",
         topic: "Youth Art Wall",
         description: "2D, 3D, Multimedia Artwork Display and exhibition.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Art Wall"
       }
     ]
@@ -173,49 +173,49 @@ export const scheduleByDay: DaySchedule[] = [
         time: "10:00 AM - 02:00 PM",
         topic: "Social Hackathon 2",
         description: "Continued collaborative session for youth impact and global connection.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Impact Labs"
       },
       {
         time: "10:00 AM - 12:00 PM",
         topic: "Swarnandhra for Viksit Bharat 2047",
         description: "Visionary talk on the roadmap for a developed India by 2047.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Changemaker Talks"
       },
       {
         time: "12:00 PM - 02:00 PM",
         topic: "Meetup 3",
         description: "Final meetup gathering for the youth festival participants.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Con"
       },
       {
         time: "03:00 PM - 06:00 PM",
         topic: "Valedictory",
         description: "Closing ceremony, awards, and final address of the festival.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "All Events"
       },
       {
         time: "11:00 AM onwards",
         topic: "Youth Talent Carnival",
         description: "Dance, Acting, Singing, Poetry & More performances.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Talent Carnival"
       },
       {
         time: "Full Day",
         topic: "Yuvasrishti",
         description: "Ongoing initiatives and participation throughout the festival.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Yuvasrishti"
       },
       {
         time: "Full Day",
         topic: "Youth Art Wall",
         description: "2D, 3D, Multimedia Artwork Display and exhibition.",
-        location: "Vijayawada",
+        location: "K L University, Vijayawada",
         tag: "Youth Art Wall"
       }
     ]

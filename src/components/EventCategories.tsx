@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import classicalDance from "@/assets/classical-dance.jpg";
-import youthSinging from "@/assets/youth-singing.jpg";
-import artsCrafts from "@/assets/arts-crafts.jpg";
-import literary from "@/assets/literary.jpg";
-import startup from "@/assets/startup.jpg";
-import wellness from "@/assets/wellness.jpg";
+import classicalDance from "@/assets/classical-dance.webp";
+import youthSinging from "@/assets/youth-singing.webp";
+import artsCrafts from "@/assets/arts-crafts.webp";
+import literary from "@/assets/literary.webp";
+import startup from "@/assets/startup.webp";
+import wellness from "@/assets/wellness.webp";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const EventCard = ({ category, index }: { category: { id: number; title: string; description: string; image: string; icon: string; color: string }; index: number }) => {
@@ -26,6 +26,7 @@ const EventCard = ({ category, index }: { category: { id: number; title: string;
         <motion.img
           src={category.image}
           alt={category.title}
+          loading="lazy"
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className={`absolute inset-0 bg-gradient-to-t ${category.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />

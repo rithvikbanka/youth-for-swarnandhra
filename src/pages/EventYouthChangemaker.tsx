@@ -20,32 +20,73 @@ const speakers = [
   {
     name: "Sudhanshu Kaushik",
     designation: "President & CEO, Centre for Youth Policy",
-    image: "/speakers/s1.png",
+    image: "/speakers/s1.webp",
     linkedinUrl: "https://www.linkedin.com/in/sudhanshukaushik/"
   },
   {
     name: "Yash Agarwal",
     designation: "Founder, Public Policy India & Proficy",
-    image: "/speakers/s2.png",
+    image: "/speakers/s2.webp",
     linkedinUrl: "https://www.linkedin.com/in/yashagarwalm/"
   },
   {
     name: "Malika Pandey",
-    designation: "Assistant Private Secretary to Union Minister of Women and Child Development",
-    image: "/speakers/s3.png",
+    designation: "Public Policy Professional, represented India in BRICS Women & Former Assistant Private Secretary to Union Minister of Women & Child Development",
+    image: "/speakers/s3.webp",
     linkedinUrl: "https://www.linkedin.com/in/malika-pandey-035783182/"
   },
   {
     name: "Devansh S.",
     designation: "Policy Consultant to Government of India (GoI)",
-    image: "/speakers/s4.png",
+    image: "/speakers/s4.webp",
     linkedinUrl: "https://www.linkedin.com/in/devanshshah10/"
   },
   {
     name: "Anudeep Muttavarapu",
     designation: "Senior Director @ Motorola Solutions | Global Cloud, Data & AI Leader",
-    image: "/speakers/s5.png",
+    image: "/speakers/s5.webp",
     linkedinUrl: "https://www.linkedin.com/in/amuttavarapu/"
+  },
+  {
+    name: "Vikas Marmat IAS",
+    designation: "Project Director, Kuppam Area Development Authority, GoAP. Mechanical Engg, IIT Kanpur; MA Public Policy, JNU; LLM (Pro), NLUD; Author & Pianist.",
+    image: "/speakers/s9.webp",
+    linkedinUrl: "https://www.linkedin.com/in/vikas-marmat/"
+  },
+  {
+    name: "Kommi Shiva Kishore, IPS",
+    designation: "Indian Police Service officer and AI practitioner. IIT Kharagpur alumnus (2010–15) with expertise in financial engineering.",
+    image: "/speakers/s6.webp",
+    linkedinUrl: "https://www.linkedin.com/in/kishorekommi/"
+  },
+  {
+    name: "Dhatri Reddy, IAS",
+    designation: "CEO, RTIH & APIS; IAS 2020 batch. Former Deutsche Bank professional and IIT Kharagpur graduate.",
+    image: "/speakers/s7.webp",
+    linkedinUrl: "https://www.linkedin.com/in/dhatrireddy/"
+  },
+  {
+    name: "Apoorva Bharat, IAS",
+    designation: "Sub Collector, Etipaka, Government of Andhra Pradesh.",
+    image: "/speakers/s8.webp"
+  },
+  {
+    name: "Sushmitha Ramanathan, IPS",
+    designation: "ASP, Jangareddygudem, Eluru District, Andhra Pradesh.",
+    image: "/speakers/s10.webp",
+    instagramUrl: "https://www.instagram.com/sushmitha.ramanathan_ips/"
+  },
+  {
+    name: "Madhish Parikh",
+    designation: "National Youth Awardee, Govt of India. Founder & President, Elixir Foundation; Founding Director, BRICS Youth Alliance; Co-founder, Invincible; former Curator & Shaper, World Economic Forum.",
+    image: "/speakers/s11.webp",
+    linkedinUrl: "https://www.linkedin.com/in/madhish/"
+  },
+  {
+    name: "Dr. G Trinadh Kumar, IFS",
+    designation: "Inspector General of Forests (Central), Hyderabad.",
+    image: "/speakers/s12.webp",
+    linkedinUrl: "https://www.linkedin.com/in/trinadhkumar/"
   }
 ];
 
@@ -53,13 +94,13 @@ const moderators = [
   {
     name: "Keshav Kaviti",
     designation: "Cloud FinOps Manager, Motorola Solutions",
-    image: "/moderators/m2.png",
+    image: "/moderators/m2.webp",
     linkedinUrl: "https://www.linkedin.com/in/keshav-kaviti-700358249/"
   },
   {
     name: "Rakesh Pendyala",
     designation: "MBA Gold Medalist, Business Leadership @ IIM Kozhikode",
-    image: "/moderators/m1.png",
+    image: "/moderators/m1.webp",
     linkedinUrl: "https://www.linkedin.com/in/rakesh-pendyala/"
   }
 ];
@@ -115,7 +156,7 @@ const EventYouthChangemaker = () => {
         title={content.title}
         subtitle={content.subtitle}
         // TODO: Uncomment when banner images are ready
-        // imageUrl="/eventpages/youthchangemakertalks.png"
+        // imageUrl="/eventpages/youthchangemakertalks.webp"
         date={content.date}
         time={content.time}
         location={content.location}
@@ -233,23 +274,24 @@ const EventYouthChangemaker = () => {
             {content.meetSpeakers}
           </motion.h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
             {speakers.map((speaker, index) => (
               <motion.div
                 key={speaker.name}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isSpeakersInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="bg-white rounded-2xl p-6 shadow-card hover:shadow-lg transition-shadow duration-300 flex flex-col h-full"
               >
                 {/* Image */}
                 <motion.div
-                  className="w-[180px] h-[180px] mx-auto mb-4 overflow-hidden rounded-xl bg-muted"
+                  className="w-[160px] h-[160px] mx-auto mb-4 overflow-hidden rounded-xl bg-muted"
                   whileHover={{ scale: 1.02 }}
                 >
                   <img
                     src={speaker.image}
                     alt={speaker.name}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
                 </motion.div>
@@ -263,13 +305,22 @@ const EventYouthChangemaker = () => {
                 </p>
                 
                 {/* Social Icon - Bottom Center */}
-                {speaker.linkedinUrl && (
+                {(speaker.linkedinUrl || speaker.instagramUrl) && (
                   <div className="flex justify-center pt-4 mt-4 border-t border-border">
-                    <SocialIcon
-                      href={speaker.linkedinUrl}
-                      platform="linkedin"
-                      ariaLabel={`${speaker.name} on LinkedIn`}
-                    />
+                    {speaker.linkedinUrl && (
+                      <SocialIcon
+                        href={speaker.linkedinUrl}
+                        platform="linkedin"
+                        ariaLabel={`${speaker.name} on LinkedIn`}
+                      />
+                    )}
+                    {speaker.instagramUrl && (
+                      <SocialIcon
+                        href={speaker.instagramUrl}
+                        platform="instagram"
+                        ariaLabel={`${speaker.name} on Instagram`}
+                      />
+                    )}
                   </div>
                 )}
               </motion.div>
@@ -307,6 +358,7 @@ const EventYouthChangemaker = () => {
                   <img
                     src={moderator.image}
                     alt={moderator.name}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                   />
                 </motion.div>

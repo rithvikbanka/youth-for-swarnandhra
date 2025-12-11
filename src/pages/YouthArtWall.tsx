@@ -91,7 +91,7 @@ const YouthArtWall = () => {
         title={t('events.youthArtWall.title', "Youth Art Wall")}
         subtitle={t('events.youthArtWall.subtitle', "Your imagination, your canvas. Paint, sketch, doodle, draw or tell stories — let your art speak for your dreams, hopes, angst or joy. This isn't just a wall, it's where your voice becomes visible.")}
         // TODO: Uncomment when banner images are ready
-        // imageUrl="/eventpages/youthartwall.png"
+        // imageUrl="/eventpages/youthartwall.webp"
         date={t('events.youthArtWall.date', "18-20 December 2025")}
         time={t('events.youthArtWall.time', "Full Day")}
         location={t('events.youthArtWall.location', "Vijayawada, Andhra Pradesh")}

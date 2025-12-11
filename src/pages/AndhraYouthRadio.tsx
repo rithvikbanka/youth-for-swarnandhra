@@ -141,14 +141,14 @@ const AndhraYouthRadio = () => {
       {/* 
         EventHero Banner Section
         NOTE: The hero banner image is currently:
-        imageUrl="/eventpages/hero.png"
+        imageUrl="/eventpages/hero.webp"
         If you wish to change or set the banner image, adjust this prop.
       */}
       <EventHero
         slug="andhra-youth-radio"
         title={content.title}
         subtitle={content.subtitle}
-        // imageUrl="/eventpages/hero.png"  // <-- This is the banner image. Temporarily commented as per instruction.
+        // imageUrl="/eventpages/hero.webp"  // <-- This is the banner image. Temporarily commented as per instruction.
         date={content.date}
         time={content.time}
         location={content.location}

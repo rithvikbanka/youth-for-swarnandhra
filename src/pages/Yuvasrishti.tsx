@@ -101,7 +101,7 @@ const Yuvasrishti = () => {
         title={t('events.yuvasrishti.title', "Yuvasrishti")}
         subtitle={t('events.yuvasrishti.subtitle', "Step into the heart of Andhra's heritage — explore crafts, handlooms, local artistry and culture, led by youth for youth. Traditional skills meet youthful energy, with interactive stalls, artisans' stories and creative showcases rooted in our culture.")}
         // TODO: Uncomment when banner images are ready
-        // imageUrl="/eventpages/yuvasrishti.png"
+        // imageUrl="/eventpages/yuvasrishti.webp"
         date={t('events.yuvasrishti.date', "18-20 December 2025")}
         time={t('events.yuvasrishti.time', "Full Day")}
         location={t('events.yuvasrishti.location', "Vijayawada, Andhra Pradesh")}
