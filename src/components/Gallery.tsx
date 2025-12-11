@@ -176,27 +176,27 @@ export const Gallery = () => {
                   target="_blank"
                   rel="noreferrer"
                   className="group cursor-pointer block"
-                >
-                  <div className="relative overflow-hidden rounded-xl aspect-video mb-3">
-                    <img
-                      src={video.thumbnail}
-                      alt={video.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    {/* Play Button */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
-                      <motion.div
-                        className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg"
-                        whileHover={{ scale: 1.15 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <Play className="w-7 h-7 text-white ml-1" fill="white" />
-                      </motion.div>
-                    </div>
+              >
+                <div className="relative overflow-hidden rounded-xl aspect-video mb-3">
+                  <img
+                    src={video.thumbnail}
+                    alt={video.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  {/* Play Button */}
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
+                    <motion.div
+                      className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg"
+                      whileHover={{ scale: 1.15 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Play className="w-7 h-7 text-white ml-1" fill="white" />
+                    </motion.div>
                   </div>
-                  <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {video.title}
-                  </h4>
+                </div>
+                <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                  {video.title}
+                </h4>
                   <p className="text-sm text-muted-foreground">{video.views}</p>
                 </a>
               </motion.div>

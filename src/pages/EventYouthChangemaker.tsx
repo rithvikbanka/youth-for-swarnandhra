@@ -209,14 +209,14 @@ const EventYouthChangemaker = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-center"
           >
-            <motion.button
+          <motion.button
               onClick={openRegistrationForm}
-              className="btn-primary text-lg md:text-xl px-10 py-4 bg-gradient-to-r from-festival-red-light to-festival-red text-white rounded-full shadow-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            className="btn-primary text-lg md:text-xl px-10 py-4 bg-gradient-to-r from-festival-red-light to-festival-red text-white rounded-full shadow-lg"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
               {content.registerNow}
-            </motion.button>
+          </motion.button>
           </motion.div>
         </div>
       </section>

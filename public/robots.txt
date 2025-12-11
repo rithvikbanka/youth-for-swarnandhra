@@ -12,3 +12,9 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://apyouthfestival.com/sitemap.xml
+
+# Host
+Host: https://apyouthfestival.com

@@ -82,7 +82,7 @@ export const RegistrationForm = () => {
             className="btn-hero group inline-flex items-center gap-2"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-                >
+          >
             {content.button}
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </motion.button>

@@ -28,9 +28,9 @@ export const Footer = () => {
       navigate("/");
       setTimeout(() => {
         const element = document.getElementById(link.section!);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
       }, 100);
     } else {
       navigate(link.href);
@@ -55,21 +55,21 @@ export const Footer = () => {
                   {link.href === "/join-our-team" ? (
                     <Link
                       to="/join-our-team"
-                      className="text-muted-foreground hover:text-primary transition-colors duration-200"
-                    >
-                      {link.label}
+                    className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                  >
+                    {link.label}
                     </Link>
                   ) : (
-                    <a
-                      href={link.href}
-                      onClick={(e) => {
-                        e.preventDefault();
+                  <a
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
                         handleNavClick(link);
-                      }}
-                      className="text-muted-foreground hover:text-primary transition-colors duration-200"
-                    >
-                      {link.label}
-                    </a>
+                    }}
+                    className="text-muted-foreground hover:text-primary transition-colors duration-200"
+                  >
+                    {link.label}
+                  </a>
                   )}
                 </li>
               ))}
