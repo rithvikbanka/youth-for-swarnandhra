@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { MapPin, Clock, FileText } from "lucide-react";
+import { MapPin, Clock, FileText, Globe } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { EventHero } from "@/components/EventHero";
@@ -16,78 +16,91 @@ const talksSchedule = getSessionsByTagOnly("Youth Changemaker Talks");
 // Event PDF resource
 const EVENT_PDF_URL = "https://drive.google.com/file/d/1XXjw1BD7tiFGLwypRJn3HgowKHKkNykF/view?usp=drive_link";
 
+// SPEAKERS in the required custom order:
 const speakers = [
-  {
-    name: "Sudhanshu Kaushik",
-    designation: "President & CEO, Centre for Youth Policy",
-    image: "/speakers/s1.webp",
-    linkedinUrl: "https://www.linkedin.com/in/sudhanshukaushik/"
-  },
-  {
-    name: "Yash Agarwal",
-    designation: "Founder, Public Policy India & Proficy",
-    image: "/speakers/s2.webp",
-    linkedinUrl: "https://www.linkedin.com/in/yashagarwalm/"
-  },
-  {
-    name: "Malika Pandey",
-    designation: "Public Policy Professional, represented India in BRICS Women & Former Assistant Private Secretary to Union Minister of Women & Child Development",
-    image: "/speakers/s3.webp",
-    linkedinUrl: "https://www.linkedin.com/in/malika-pandey-035783182/"
-  },
-  {
-    name: "Devansh S.",
-    designation: "Policy Consultant to Government of India (GoI)",
-    image: "/speakers/s4.webp",
-    linkedinUrl: "https://www.linkedin.com/in/devanshshah10/"
-  },
-  {
-    name: "Anudeep Muttavarapu",
-    designation: "Senior Director @ Motorola Solutions | Global Cloud, Data & AI Leader",
-    image: "/speakers/s5.webp",
-    linkedinUrl: "https://www.linkedin.com/in/amuttavarapu/"
-  },
+  // Vikas Marmat
   {
     name: "Vikas Marmat IAS",
     designation: "Project Director, Kuppam Area Development Authority, GoAP. Mechanical Engg, IIT Kanpur; MA Public Policy, JNU; LLM (Pro), NLUD; Author & Pianist.",
     image: "/speakers/s9.webp",
     linkedinUrl: "https://www.linkedin.com/in/vikas-marmat/"
   },
+  // Kommi Shiva Kishore
   {
     name: "Kommi Shiva Kishore, IPS",
     designation: "Indian Police Service officer and AI practitioner. IIT Kharagpur alumnus (2010–15) with expertise in financial engineering.",
     image: "/speakers/s6.webp",
     linkedinUrl: "https://www.linkedin.com/in/kishorekommi/"
   },
+  // Dhatri Reddy
   {
     name: "Dhatri Reddy, IAS",
     designation: "CEO, RTIH & APIS; IAS 2020 batch. Former Deutsche Bank professional and IIT Kharagpur graduate.",
     image: "/speakers/s7.webp",
     linkedinUrl: "https://www.linkedin.com/in/dhatrireddy/"
   },
+  // Apoorva Bharat
   {
     name: "Apoorva Bharat, IAS",
     designation: "Sub Collector, Etipaka, Government of Andhra Pradesh.",
     image: "/speakers/s8.webp"
   },
+  // Sushmitha Ramanathan
   {
     name: "Sushmitha Ramanathan, IPS",
     designation: "ASP, Jangareddygudem, Eluru District, Andhra Pradesh.",
     image: "/speakers/s10.webp",
     instagramUrl: "https://www.instagram.com/sushmitha.ramanathan_ips/"
   },
+  // Dr. G. Trinadh Kumar
+  {
+    name: "Dr. G Trinadh Kumar, IFS",
+    designation: "Inspector General of Forests (Central), Hyderabad.",
+    image: "/speakers/s12.webp",
+    website: "https://fsi.nic.in/regional-director-southern-zone"
+  },
+  // Madhish Parikh
   {
     name: "Madhish Parikh",
     designation: "National Youth Awardee, Govt of India. Founder & President, Elixir Foundation; Founding Director, BRICS Youth Alliance; Co-founder, Invincible; former Curator & Shaper, World Economic Forum.",
     image: "/speakers/s11.webp",
     linkedinUrl: "https://www.linkedin.com/in/madhish/"
   },
+  // Sudhanshu Kaushik
   {
-    name: "Dr. G Trinadh Kumar, IFS",
-    designation: "Inspector General of Forests (Central), Hyderabad.",
-    image: "/speakers/s12.webp",
-    linkedinUrl: "https://www.linkedin.com/in/trinadhkumar/"
-  }
+    name: "Sudhanshu Kaushik",
+    designation: "President & CEO, Centre for Youth Policy",
+    image: "/speakers/s1.webp",
+    linkedinUrl: "https://www.linkedin.com/in/sudhanshukaushik/"
+  },
+  // Malika Pandey
+  {
+    name: "Malika Pandey",
+    designation: "Public Policy Professional, represented India in BRICS Women & Former Assistant Private Secretary to Union Minister of Women & Child Development",
+    image: "/speakers/s3.webp",
+    linkedinUrl: "https://www.linkedin.com/in/malika-pandey-035783182/"
+  },
+  // Devansh S.
+  {
+    name: "Devansh S.",
+    designation: "Policy Consultant to Government of India (GoI)",
+    image: "/speakers/s4.webp",
+    linkedinUrl: "https://www.linkedin.com/in/devanshshah10/"
+  },
+  // Yash Agarwal
+  {
+    name: "Yash Agarwal",
+    designation: "Founder, Public Policy India & Proficy",
+    image: "/speakers/s2.webp",
+    linkedinUrl: "https://www.linkedin.com/in/yashagarwalm/"
+  },
+  // Anudeep Muttavarapu
+  {
+    name: "Anudeep Muttavarapu",
+    designation: "Senior Director @ Motorola Solutions | Global Cloud, Data & AI Leader",
+    image: "/speakers/s5.webp",
+    linkedinUrl: "https://www.linkedin.com/in/amuttavarapu/"
+  },
 ];
 
 const moderators = [
@@ -305,16 +318,29 @@ const EventYouthChangemaker = () => {
                 </p>
                 
                 {/* Social Icon - Bottom Center */}
-                {(speaker.linkedinUrl || speaker.instagramUrl) && (
+                {(speaker.linkedinUrl || speaker.instagramUrl || speaker.website) && (
                   <div className="flex justify-center pt-4 mt-4 border-t border-border">
-                    {speaker.linkedinUrl && (
+                    {/* If the speaker has a "website" field, show globe icon, not LinkedIn */}
+                    {speaker.website && (
+                      <a
+                        href={speaker.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${speaker.name} Website`}
+                        className="inline-flex items-center justify-center w-8 h-8 rounded transition-colors text-primary hover:text-accent"
+                      >
+                        <Globe className="w-5 h-5" />
+                      </a>
+                    )}
+                    {/* Otherwise show relevant icons as before */}
+                    {!speaker.website && speaker.linkedinUrl && (
                       <SocialIcon
                         href={speaker.linkedinUrl}
                         platform="linkedin"
                         ariaLabel={`${speaker.name} on LinkedIn`}
                       />
                     )}
-                    {speaker.instagramUrl && (
+                    {!speaker.website && speaker.instagramUrl && (
                       <SocialIcon
                         href={speaker.instagramUrl}
                         platform="instagram"
