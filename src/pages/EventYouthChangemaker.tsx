@@ -23,28 +23,28 @@ const speakers = [
     name: "Dr. G Trinadh Kumar, IFS",
     designation: "Inspector General of Forests (Central), Hyderabad.",
     image: "/speakers/s12.webp",
-    website: "https://fsi.nic.in/regional-director-southern-zone"
+    // website: "https://fsi.nic.in/regional-director-southern-zone"
   },
   // Vikas Marmat
   {
     name: "Vikas Marmat IAS",
     designation: "Project Director, Kuppam Area Development Authority, GoAP. Mechanical Engg, IIT Kanpur; MA Public Policy, JNU; LLM (Pro), NLUD; Author & Pianist.",
     image: "/speakers/s9.webp",
-    linkedinUrl: "https://www.linkedin.com/in/vikas-marmat/"
+    // linkedinUrl: "https://www.linkedin.com/in/vikas-marmat/"
   },
   // Kommi Shiva Kishore
   {
     name: "Kommi Shiva Kishore, IPS",
     designation: "Indian Police Service officer and AI practitioner. IIT Kharagpur alumnus (2010–15) with expertise in financial engineering.",
     image: "/speakers/s6.webp",
-    linkedinUrl: "https://www.linkedin.com/in/kishorekommi/"
+    // linkedinUrl: "https://www.linkedin.com/in/kishorekommi/"
   },
   // Dhatri Reddy
   {
     name: "Dhatri Reddy, IAS",
     designation: "CEO, RTIH & APIS; IAS 2020 batch. Former Deutsche Bank professional and IIT Kharagpur graduate.",
     image: "/speakers/s7.webp",
-    linkedinUrl: "https://www.linkedin.com/in/dhatrireddy/"
+    // linkedinUrl: "https://www.linkedin.com/in/dhatrireddy/"
   },
   // Apoorva Bharat
   {
@@ -57,49 +57,49 @@ const speakers = [
     name: "Sushmitha Ramanathan, IPS",
     designation: "ASP, Jangareddygudem, Eluru District, Andhra Pradesh.",
     image: "/speakers/s10.webp",
-    instagramUrl: "https://www.instagram.com/sushmitha.ramanathan_ips/"
+    // instagramUrl: "https://www.instagram.com/sushmitha.ramanathan_ips/"
   },
   // Madhish Parikh
   {
     name: "Madhish Parikh",
     designation: "National Youth Awardee, Govt of India. Founder & President, Elixir Foundation; Founding Director, BRICS Youth Alliance; Co-founder, Invincible; former Curator & Shaper, World Economic Forum.",
     image: "/speakers/s11.webp",
-    linkedinUrl: "https://www.linkedin.com/in/madhish/"
+    // linkedinUrl: "https://www.linkedin.com/in/madhish/"
   },
   // Sudhanshu Kaushik
   {
     name: "Sudhanshu Kaushik",
     designation: "President & CEO, Centre for Youth Policy",
     image: "/speakers/s1.webp",
-    linkedinUrl: "https://www.linkedin.com/in/sudhanshukaushik/"
+    // linkedinUrl: "https://www.linkedin.com/in/sudhanshukaushik/"
   },
   // Malika Pandey
   {
     name: "Malika Pandey",
     designation: "Public Policy Professional, represented India in BRICS Women & Former Assistant Private Secretary to Union Minister of Women & Child Development",
     image: "/speakers/s3.webp",
-    linkedinUrl: "https://www.linkedin.com/in/malika-pandey-035783182/"
+    // linkedinUrl: "https://www.linkedin.com/in/malika-pandey-035783182/"
   },
   // Anudeep Muttavarapu
   {
     name: "Anudeep Muttavarapu",
     designation: "Senior Director @ Motorola Solutions | Global Cloud, Data & AI Leader",
     image: "/speakers/s5.webp",
-    linkedinUrl: "https://www.linkedin.com/in/amuttavarapu/"
+    // linkedinUrl: "https://www.linkedin.com/in/amuttavarapu/"
   },
   // Devansh S.
   {
     name: "Devansh S.",
     designation: "Policy Consultant to Government of India (GoI)",
     image: "/speakers/s4.webp",
-    linkedinUrl: "https://www.linkedin.com/in/devanshshah10/"
+    // linkedinUrl: "https://www.linkedin.com/in/devanshshah10/"
   },
   // Yash Agarwal
   {
     name: "Yash Agarwal",
     designation: "Founder, Public Policy India & Proficy",
     image: "/speakers/s2.webp",
-    linkedinUrl: "https://www.linkedin.com/in/yashagarwalm/"
+    // linkedinUrl: "https://www.linkedin.com/in/yashagarwalm/"
   },
 ];
 
@@ -108,13 +108,13 @@ const moderators = [
     name: "Keshav Kaviti",
     designation: "Cloud FinOps Manager, Motorola Solutions",
     image: "/moderators/m2.webp",
-    linkedinUrl: "https://www.linkedin.com/in/keshav-kaviti-700358249/"
+    // linkedinUrl: "https://www.linkedin.com/in/keshav-kaviti-700358249/"
   },
   {
     name: "Rakesh Pendyala",
     designation: "MBA Gold Medalist, Business Leadership @ IIM Kozhikode",
     image: "/moderators/m1.webp",
-    linkedinUrl: "https://www.linkedin.com/in/rakesh-pendyala/"
+    // linkedinUrl: "https://www.linkedin.com/in/rakesh-pendyala/"
   }
 ];
 
