@@ -18,6 +18,13 @@ const EVENT_PDF_URL = "https://drive.google.com/file/d/1XXjw1BD7tiFGLwypRJn3Hgow
 
 // SPEAKERS in the required custom order:
 const speakers = [
+  // Dr. G. Trinadh Kumar
+  {
+    name: "Dr. G Trinadh Kumar, IFS",
+    designation: "Inspector General of Forests (Central), Hyderabad.",
+    image: "/speakers/s12.webp",
+    website: "https://fsi.nic.in/regional-director-southern-zone"
+  },
   // Vikas Marmat
   {
     name: "Vikas Marmat IAS",
@@ -52,13 +59,6 @@ const speakers = [
     image: "/speakers/s10.webp",
     instagramUrl: "https://www.instagram.com/sushmitha.ramanathan_ips/"
   },
-  // Dr. G. Trinadh Kumar
-  {
-    name: "Dr. G Trinadh Kumar, IFS",
-    designation: "Inspector General of Forests (Central), Hyderabad.",
-    image: "/speakers/s12.webp",
-    website: "https://fsi.nic.in/regional-director-southern-zone"
-  },
   // Madhish Parikh
   {
     name: "Madhish Parikh",
@@ -80,6 +80,13 @@ const speakers = [
     image: "/speakers/s3.webp",
     linkedinUrl: "https://www.linkedin.com/in/malika-pandey-035783182/"
   },
+  // Anudeep Muttavarapu
+  {
+    name: "Anudeep Muttavarapu",
+    designation: "Senior Director @ Motorola Solutions | Global Cloud, Data & AI Leader",
+    image: "/speakers/s5.webp",
+    linkedinUrl: "https://www.linkedin.com/in/amuttavarapu/"
+  },
   // Devansh S.
   {
     name: "Devansh S.",
@@ -93,13 +100,6 @@ const speakers = [
     designation: "Founder, Public Policy India & Proficy",
     image: "/speakers/s2.webp",
     linkedinUrl: "https://www.linkedin.com/in/yashagarwalm/"
-  },
-  // Anudeep Muttavarapu
-  {
-    name: "Anudeep Muttavarapu",
-    designation: "Senior Director @ Motorola Solutions | Global Cloud, Data & AI Leader",
-    image: "/speakers/s5.webp",
-    linkedinUrl: "https://www.linkedin.com/in/amuttavarapu/"
   },
 ];
 
