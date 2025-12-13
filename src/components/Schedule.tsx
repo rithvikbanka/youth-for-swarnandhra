@@ -18,6 +18,7 @@ export const Schedule = () => {
     yctLabel: "యువ చేంజ్‌మేకర్ చర్చలు",
     youthConLabel: "యువ కాన్",
     impactLabsLabel: "యువ ఇంపాక్ట్ ల్యాబ్‌లు",
+    diasporaLabel: "గ్లోబల్ డయాస్పోరా",
     talentLabel: "ప్రతిభ కార్నివాల్",
     artWallLabel: "యువ కళ గోడ",
     yuvasrishtiLabel: "యువసృష్టి",
@@ -30,9 +31,10 @@ export const Schedule = () => {
     yctLabel: "Youth Changemaker Talks",
     youthConLabel: "Youth Con",
     impactLabsLabel: "Youth Impact Labs",
-    talentLabel: "Talent Carnival",
-    artWallLabel: "Youth Art Wall",
-    yuvasrishtiLabel: "Yuvasrishti",
+    diasporaLabel: "Global Diaspora",
+    // talentLabel: "Talent Carnival",
+    // artWallLabel: "Youth Art Wall",
+    // yuvasrishtiLabel: "Yuvasrishti",
     downloadPDF: "Download Full Schedule as PDF",
     noEvents: "No events in this category"
   };
@@ -42,9 +44,10 @@ export const Schedule = () => {
     { id: "changemaker", label: content.yctLabel, tag: "Youth Changemaker Talks" },
     { id: "con", label: content.youthConLabel, tag: "Youth Con" },
     { id: "impact", label: content.impactLabsLabel, tag: "Youth Impact Labs" },
-    { id: "talent", label: content.talentLabel, tag: "Talent Carnival" },
-    { id: "artwall", label: content.artWallLabel, tag: "Youth Art Wall" },
-    { id: "yuvasrishti", label: content.yuvasrishtiLabel, tag: "Yuvasrishti" },
+    { id: "diaspora", label: content.diasporaLabel, tag: "Global Diaspora Connect" },
+    // { id: "talent", label: content.talentLabel, tag: "Talent Carnival" },
+    // { id: "artwall", label: content.artWallLabel, tag: "Youth Art Wall" },
+    // { id: "yuvasrishti", label: content.yuvasrishtiLabel, tag: "Yuvasrishti" },
   ];
 
   const categoryColors: Record<string, string> = {
@@ -52,6 +55,7 @@ export const Schedule = () => {
     "Youth Changemaker Talks": "bg-primary text-primary-foreground",
     "Youth Con": "bg-accent text-accent-foreground",
     "Youth Impact Labs": "bg-festival-gold text-white",
+    "Global Diaspora Connect": "bg-indigo-600 text-white",
     "Talent Carnival": "bg-pink-500 text-white",
     "Youth Art Wall": "bg-blue-500 text-white",
     "Yuvasrishti": "bg-purple-500 text-white",

@@ -55,6 +55,17 @@ export const TransformSection = () => {
       hoverBg: "hover:border-cyan-400",
     },
     {
+      id: "diaspora",
+      titleKey: "events.globalDiaspora.title",
+      descKey: "events.globalDiaspora.subtitle",
+      fallbackTitle: "Global Diaspora Connect",
+      fallbackDesc: "Where Andhra meets the world — connect with global achievers, innovators, and professionals",
+      href: "/event/global-diaspora",
+      gradient: "from-indigo-500/10 to-blue-600/10",
+      borderColor: "border-indigo-200",
+      hoverBg: "hover:border-indigo-400",
+    },
+    {
       id: "talent",
       titleKey: "events.talentCarnival.title",
       descKey: "events.talentCarnival.subtitle",

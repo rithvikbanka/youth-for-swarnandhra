@@ -25,7 +25,7 @@ export const scheduleByDay: DaySchedule[] = [
         tag: "All Events"
       },
       {
-        time: "10:00 AM - 12:00 PM",
+        time: "02:00 PM - 04:00 PM",
         topic: "Green Innovation",
         description: "Eco-entrepreneurship insights focusing on Green Hydrogen and Solar Energy.",
         location: "K L University, Vijayawada",
@@ -45,13 +45,13 @@ export const scheduleByDay: DaySchedule[] = [
         location: "K L University, Vijayawada",
         tag: "Youth Con"
       },
-      {
-        time: "11:00 AM - 01:00 PM",
-        topic: "Carnival Parade",
-        description: "Traditional and costume parade showcasing cultural diversity.",
-        location: "K L University, Vijayawada",
-        tag: "Carnival Parade"
-      },
+      // {
+      //   time: "11:00 AM - 01:00 PM",
+      //   topic: "Carnival Parade",
+      //   description: "Traditional and costume parade showcasing cultural diversity.",
+      //   location: "K L University, Vijayawada",
+      //   tag: "Carnival Parade"
+      // },
       {
         time: "11:00 AM onwards",
         topic: "Youth Talent Carnival",
@@ -60,19 +60,26 @@ export const scheduleByDay: DaySchedule[] = [
         tag: "Talent Carnival"
       },
       {
-        time: "Full Day",
-        topic: "Yuvasrishti",
-        description: "Ongoing initiatives and participation throughout the festival.",
+        time: "02:00 PM - 05:00 PM",
+        topic: "GCC & African Countries",
+        description: "Connect with professionals and innovators from Gulf and African nations.",
         location: "K L University, Vijayawada",
-        tag: "Yuvasrishti"
+        tag: "Global Diaspora Connect"
       },
-      {
-        time: "Full Day",
-        topic: "Youth Art Wall",
-        description: "2D, 3D, Multimedia Artwork Display and exhibition.",
-        location: "K L University, Vijayawada",
-        tag: "Youth Art Wall"
-      }
+      // {
+      //   time: "Full Day",
+      //   topic: "Yuvasrishti",
+      //   description: "Ongoing initiatives and participation throughout the festival.",
+      //   location: "K L University, Vijayawada",
+      //   tag: "Yuvasrishti"
+      // },
+      // {
+      //   time: "Full Day",
+      //   topic: "Youth Art Wall",
+      //   description: "2D, 3D, Multimedia Artwork Display and exhibition.",
+      //   location: "K L University, Vijayawada",
+      //   tag: "Youth Art Wall"
+      // }
     ]
   },
   {
@@ -150,19 +157,40 @@ export const scheduleByDay: DaySchedule[] = [
         tag: "Talent Carnival"
       },
       {
-        time: "Full Day",
-        topic: "Yuvasrishti",
-        description: "Ongoing initiatives and participation throughout the festival.",
+        time: "10:30 AM - 12:30 PM",
+        topic: "Austria, New Zealand & Southeast Asia",
+        description: "Connect with achievers from Austria, New Zealand and Southeast Asian nations.",
         location: "K L University, Vijayawada",
-        tag: "Yuvasrishti"
+        tag: "Global Diaspora Connect"
       },
       {
-        time: "Full Day",
-        topic: "Youth Art Wall",
-        description: "2D, 3D, Multimedia Artwork Display and exhibition.",
+        time: "02:00 PM - 05:00 PM",
+        topic: "European (Nordic Nations & Europe)",
+        description: "Meet professionals and entrepreneurs from Nordic and European countries.",
         location: "K L University, Vijayawada",
-        tag: "Youth Art Wall"
-      }
+        tag: "Global Diaspora Connect"
+      },
+      {
+        time: "06:00 PM - 10:00 PM",
+        topic: "America & Canada",
+        description: "Network with innovators and leaders from North America.",
+        location: "K L University, Vijayawada",
+        tag: "Global Diaspora Connect"
+      },
+      // {
+      //   time: "Full Day",
+      //   topic: "Yuvasrishti",
+      //   description: "Ongoing initiatives and participation throughout the festival.",
+      //   location: "K L University, Vijayawada",
+      //   tag: "Yuvasrishti"
+      // },
+      // {
+      //   time: "Full Day",
+      //   topic: "Youth Art Wall",
+      //   description: "2D, 3D, Multimedia Artwork Display and exhibition.",
+      //   location: "K L University, Vijayawada",
+      //   tag: "Youth Art Wall"
+      // }
     ]
   },
   {
@@ -204,20 +232,20 @@ export const scheduleByDay: DaySchedule[] = [
         location: "K L University, Vijayawada",
         tag: "Talent Carnival"
       },
-      {
-        time: "Full Day",
-        topic: "Yuvasrishti",
-        description: "Ongoing initiatives and participation throughout the festival.",
-        location: "K L University, Vijayawada",
-        tag: "Yuvasrishti"
-      },
-      {
-        time: "Full Day",
-        topic: "Youth Art Wall",
-        description: "2D, 3D, Multimedia Artwork Display and exhibition.",
-        location: "K L University, Vijayawada",
-        tag: "Youth Art Wall"
-      }
+      // {
+      //   time: "Full Day",
+      //   topic: "Yuvasrishti",
+      //   description: "Ongoing initiatives and participation throughout the festival.",
+      //   location: "K L University, Vijayawada",
+      //   tag: "Yuvasrishti"
+      // },
+      // {
+      //   time: "Full Day",
+      //   topic: "Youth Art Wall",
+      //   description: "2D, 3D, Multimedia Artwork Display and exhibition.",
+      //   location: "K L University, Vijayawada",
+      //   tag: "Youth Art Wall"
+      // }
     ]
   }
 ];
@@ -247,4 +275,3 @@ export const getSessionsByTagOnly = (tag: string): DaySchedule[] => {
     }))
     .filter(day => day.sessions.length > 0);
 };
-

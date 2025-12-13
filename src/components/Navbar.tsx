@@ -18,6 +18,7 @@ const eventDropdown = [
       { label: "Youth Con", section: "youth-con", route: "/event/youth-con" },
       { label: "Youth Impact Labs", section: "youth-impact-labs", route: "/event/youth-impact-labs" },
       { label: "Youth Radio Andhra", section: "andhra-youth-radio", route: "/event/andhra-youth-radio" },
+      { label: "Global Diaspora Connect", section: "global-diaspora", route: "/event/global-diaspora" },
     ],
   },
   {

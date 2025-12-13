@@ -55,6 +55,12 @@ export const eventThemes = {
     texture: texturePatterns.dharmavaram,
     showMeta: false, // HIDE schedule chips for special events
   },
+  "global-diaspora": {
+    bannerGradient: "from-[#1e40af]/95 via-[#4338ca]/90 to-[#6366f1]/85",
+    bannerBackground: "/backgrounds/b2.webp",
+    texture: texturePatterns.ikat,
+    showMeta: false, // HIDE schedule chips for special events
+  },
 } as const;
 
 export type EventThemeKey = keyof typeof eventThemes;

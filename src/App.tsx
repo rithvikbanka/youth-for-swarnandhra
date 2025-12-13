@@ -11,6 +11,7 @@ import EventYouthChangemaker from "./pages/EventYouthChangemaker";
 import EventYouthCon from "./pages/EventYouthCon";
 import EventYouthImpactLabs from "./pages/EventYouthImpactLabs";
 import AndhraYouthRadio from "./pages/AndhraYouthRadio";
+import GlobalDiaspora from "./pages/GlobalDiaspora";
 import AndhraYuvaSankalp from "./pages/AndhraYuvaSankalp";
 import YouthTalentCarnival from "./pages/YouthTalentCarnival";
 import YouthArtWall from "./pages/YouthArtWall";
@@ -37,6 +38,7 @@ const App = () => (
             <Route path="/event/youth-con" element={<EventYouthCon />} />
             <Route path="/event/youth-impact-labs" element={<EventYouthImpactLabs />} />
             <Route path="/event/andhra-youth-radio" element={<AndhraYouthRadio />} />
+            <Route path="/event/global-diaspora" element={<GlobalDiaspora />} />
             {/* Other Events */}
             <Route path="/other-events/andhra-yuva-sankalp" element={<AndhraYuvaSankalp />} />
             <Route path="/other-events/youth-talent-carnival" element={<YouthTalentCarnival />} />
