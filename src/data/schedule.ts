@@ -158,8 +158,8 @@ export const scheduleByDay: DaySchedule[] = [
       },
       {
         time: "10:30 AM - 12:30 PM",
-        topic: "Austria, New Zealand & Southeast Asia",
-        description: "Connect with achievers from Austria, New Zealand and Southeast Asian nations.",
+        topic: "Australia, New Zealand & Southeast Asia",
+        description: "Connect with achievers from Australia, New Zealand and Southeast Asian nations.",
         location: "K L University, Vijayawada",
         tag: "Global Diaspora Connect"
       },

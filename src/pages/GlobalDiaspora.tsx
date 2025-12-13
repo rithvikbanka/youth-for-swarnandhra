@@ -24,7 +24,7 @@ const diasporaSchedule: DiasporaSession[] = [
     icon: "🌍"
   },
   {
-    region: "Austria, New Zealand & Southeast Asia",
+    region: "Australia, New Zealand & Southeast Asia",
     date: "19th December",
     time: "10:30 AM - 12:30 PM",
     icon: "🌏"
@@ -294,7 +294,7 @@ const GlobalDiaspora = () => {
               <div className="flex flex-wrap justify-center gap-4">
                 <div className="flex items-center gap-2 px-4 py-2 bg-white/15 rounded-full">
                   <MapPin className="w-4 h-4" />
-                  <span className="text-sm font-medium">Vijayawada, AP</span>
+                  <span className="text-sm font-medium">K L University, Vaddeswaram</span>
                 </div>
                 <div className="flex items-center gap-2 px-4 py-2 bg-white/15 rounded-full">
                   <Calendar className="w-4 h-4" />

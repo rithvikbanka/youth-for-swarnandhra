@@ -1,9 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { MapPin, Clock, Lightbulb, Rocket, Globe, CheckCircle, FileText } from "lucide-react";
+import { MapPin, Clock, Lightbulb, Rocket, Globe, CheckCircle, FileText, Globe as GlobeIcon } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { EventHero } from "@/components/EventHero";
+import { SocialIcon } from "@/components/icons/SocialIcon";
 import { getSessionsByTagOnly } from "@/data/schedule";
 import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -38,6 +39,49 @@ const hackathonPoints = [
   }
 ];
 
+const speakers = [
+  {
+    name: "Dr. G Trinadh Kumar, IFS",
+    designation: "Inspector General of Forests (Central), Hyderabad.",
+    image: "/speakers/s12.webp"
+  },
+  {
+    name: "Geetanjali Sharma, IAS",
+    designation: "MD, APSFL, Director (Communications), ITE&C Dept., Govt. of AP, Vice Chairperson, MUDA",
+    image: "/speakers/s21.webp"
+  },
+  {
+    name: "Sushmitha Ramanathan, IPS",
+    designation: "ASP, Jangareddygudem, Andhra Pradesh",
+    image: "/speakers/s10.webp"
+  },
+  {
+    name: "Dr. Anil Rachamalla",
+    designation: "Vice President @ FourthSquare, Founder @ EndNow Foundation, Author, Columnist, UNDP Awardee",
+    image: "/speakers/s22.webp"
+  },
+  {
+    name: "Archana Suresh",
+    designation: "Social Finance Expert, Former T-SIG Director, Telangana Govt, TEDx Speaker",
+    image: "/speakers/s23.webp"
+  },
+  {
+    name: "Priya Modi",
+    designation: "Co-Founder & COO, Social Enterprise Academy India, Ex Director - WASH Innovation Hub (ASCI)",
+    image: "/speakers/s24.webp"
+  },
+  {
+    name: "Bollineni Keerthi",
+    designation: "President at Vasavya Mahila Mandali NGO, MC Member BNI DIAMONDS",
+    image: "/speakers/s25.webp"
+  },
+  {
+    name: "J.S.R. Annamayya",
+    designation: "Assistant Director CGR, IEC Advisor to TTD, Former IEC Advisor Municipal Corporations in Government of AP",
+    image: "/speakers/s26.webp"
+  }
+];
+
 const openRegistrationForm = () => {
   trackRegistrationClick('youth_impact_labs_page');
   window.open(PARTICIPANT_FORM_VIEW_URL, "_blank");
@@ -46,8 +90,10 @@ const openRegistrationForm = () => {
 const EventYouthImpactLabs = () => {
   const scheduleRef = useRef(null);
   const hackathonRef = useRef(null);
+  const speakersRef = useRef(null);
   const isScheduleInView = useInView(scheduleRef, { once: true, margin: "-100px" });
   const isHackathonInView = useInView(hackathonRef, { once: true, margin: "-100px" });
+  const isSpeakersInView = useInView(speakersRef, { once: true, margin: "-100px" });
   const { locale } = useLanguage();
 
   const content = locale === 'te' ? {
@@ -195,6 +241,58 @@ const EventYouthImpactLabs = () => {
               {content.registerNow}
             </motion.button>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Meet Distinguished Experts Section */}
+      <section ref={speakersRef} className="section-padding bg-background">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isSpeakersInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-primary mb-3">
+              Meet Distinguished Experts
+            </h2>
+            <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+              Learn from leaders shaping real-world impact across sectors
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+            {speakers.map((speaker, index) => (
+              <motion.div
+                key={speaker.name}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isSpeakersInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="bg-white rounded-2xl p-6 shadow-card hover:shadow-lg transition-shadow duration-300 flex flex-col h-full"
+              >
+                {/* Image */}
+                <motion.div
+                  className="w-[160px] h-[160px] mx-auto mb-4 overflow-hidden rounded-xl bg-muted"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <img
+                    src={speaker.image}
+                    alt={speaker.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+                
+                {/* Name & Designation */}
+                <h3 className="font-bold text-lg text-foreground mb-1 text-center">
+                  {speaker.name}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed text-center flex-grow">
+                  {speaker.designation}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

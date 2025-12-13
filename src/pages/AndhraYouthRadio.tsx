@@ -12,7 +12,8 @@ import {
   Headphones,
   Signal,
   Star,
-  Zap
+  Zap,
+  Instagram
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -105,13 +106,50 @@ const stats = [
   { value: "National", label: "Opportunity" }
 ];
 
+// Radio Partners
+const anchoredBy = {
+  name: "KL Radio",
+  location: "Vaddeswaram",
+  instagram: "https://www.instagram.com/kl__radio/",
+  image: "/radio/kl_radio.webp"
+};
+
+const collaborationPartners = [
+  {
+    name: "Annamacharya Radio 89.6",
+    location: "New Boyanapalli, Rajampet",
+    instagram: "https://www.instagram.com/annamacharya_radio",
+    image: "/radio/annamacharya_radio.webp"
+  },
+  {
+    name: "Radio Vishnu",
+    location: "Sri Vishnu Educational Society, Bhimavaram",
+    googleShare: "https://share.google/4fdKleWBHWskpUq7l",
+    image: "/radio/vishnu_radio.webp"
+  },
+  {
+    name: "Vishnu Podcast",
+    location: "Sri Vishnu Educational Society, Bhimavaram",
+    spotify: "https://open.spotify.com/show/1gkoF4xROWOeCepGKDhLPa?si=M3XrDcZqQp-nr9z7dhov6w",
+    youtube: "https://youtube.com/@vishnupodcast0220?si=SuVleT3HhduACpHP",
+    image: "/radio/vishnu_podcast.webp"
+  },
+  {
+    name: "GMRIT Community Radio Station 90.4",
+    instagram: "https://www.instagram.com/_community_radio_90.4/",
+    image: "/radio/gmrit_radio.webp"
+  }
+];
+
 const AndhraYouthRadio = () => {
   const aboutRef = useRef(null);
+  const radioPartnersRef = useRef(null);
   const whyRef = useRef(null);
   const getRef = useRef(null);
   const howRef = useRef(null);
   
   const isAboutInView = useInView(aboutRef, { once: true, margin: "-100px" });
+  const isRadioPartnersInView = useInView(radioPartnersRef, { once: true, margin: "-100px" });
   const isWhyInView = useInView(whyRef, { once: true, margin: "-100px" });
   const isGetInView = useInView(getRef, { once: true, margin: "-100px" });
   const isHowInView = useInView(howRef, { once: true, margin: "-100px" });
@@ -249,6 +287,191 @@ const AndhraYouthRadio = () => {
               ))}
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Radio Partners Section */}
+      <section ref={radioPartnersRef} className="section-padding bg-background">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isRadioPartnersInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-3">Youth Radio Andhra</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Amplifying Youth Voices Across Andhra Pradesh
+            </p>
+          </motion.div>
+
+          {/* Anchored By Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isRadioPartnersInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-16"
+          >
+            <h3 className="text-xl md:text-2xl font-heading font-bold text-center mb-8 text-primary">
+              Anchored By
+            </h3>
+            {/* 
+              Change here:
+              - Remove max-w-sm and mx-auto (which center and set a smaller width than the grid cards)
+              - Add the same classes as the collaboration cards for width and padding for consistency
+              - Each collaboration partner card has: bg-white rounded-xl p-6 shadow-card hover:shadow-lg transition-shadow duration-300 border border-gray-200 flex flex-col h-full 
+              - The "border-2 border-primary/20" is similar but border width and color slightly different, let’s use border border-gray-200 for unity.
+            */}
+            <div className="flex justify-center">
+              <div className="bg-white rounded-xl p-6 shadow-card hover:shadow-lg transition-shadow duration-300 border border-gray-200 flex flex-col h-full w-full max-w-[320px]">
+                {/* Logo - Full display, no cropping */}
+                <div className="flex justify-center items-center w-[120px] h-[120px] mx-auto mb-4 rounded-lg bg-gray-50 border border-gray-100 p-2">
+                  <img
+                    src={anchoredBy.image}
+                    alt={anchoredBy.name}
+                    loading="lazy"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                
+                {/* Name */}
+                <h4 className="text-lg font-bold text-foreground text-center mb-1">
+                  {anchoredBy.name}
+                </h4>
+                
+                {/* Location */}
+                {anchoredBy.location && (
+                  <p className="text-sm text-gray-500 text-center">
+                    {anchoredBy.location}
+                  </p>
+                )}
+                
+                {/* Spacer to push icons to bottom */}
+                <div className="flex-grow" />
+
+                {/* Icons - Bottom aligned with separator */}
+                {anchoredBy.instagram && (
+                  <div className="flex items-center justify-center gap-5 mt-4 pt-4 border-t border-gray-100">
+                    <a
+                      href={anchoredBy.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Visit Instagram"
+                      aria-label={`${anchoredBy.name} on Instagram`}
+                      className="text-gray-500 hover:text-pink-600 hover:scale-110 transition-all duration-300"
+                    >
+                      <Instagram className="w-6 h-6" />
+                    </a>
+                  </div>
+                )}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* In Collaboration With Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isRadioPartnersInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <h3 className="text-xl md:text-2xl font-heading font-bold text-center mb-8 text-primary">
+              In Collaboration With
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {collaborationPartners.map((partner, index) => (
+                <motion.div
+                  key={partner.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isRadioPartnersInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                  className="bg-white rounded-xl p-6 shadow-card hover:shadow-lg transition-shadow duration-300 border border-gray-200 flex flex-col h-full"
+                >
+                  {/* Logo - Full display, no cropping */}
+                  <div className="flex justify-center items-center w-[120px] h-[120px] mx-auto mb-4 rounded-lg bg-gray-50 border border-gray-100 p-2">
+                    <img
+                      src={partner.image}
+                      alt={partner.name}
+                      loading="lazy"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  
+                  {/* Name */}
+                  <h4 className="text-lg font-bold text-foreground text-center mb-1">
+                    {partner.name}
+                  </h4>
+                  
+                  {/* Location */}
+                  {partner.location && (
+                    <p className="text-sm text-gray-500 text-center">
+                      {partner.location}
+                    </p>
+                  )}
+                  
+                  {/* Spacer to push icons to bottom */}
+                  <div className="flex-grow" />
+                  
+                  {/* Icons - Bottom aligned */}
+                  <div className="flex items-center justify-center gap-5 mt-4 pt-4 border-t border-gray-100">
+                    {partner.instagram && (
+                      <a
+                        href={partner.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Visit Instagram"
+                        aria-label={`${partner.name} on Instagram`}
+                        className="text-gray-500 hover:text-pink-600 hover:scale-110 transition-all duration-300"
+                      >
+                        <Instagram className="w-6 h-6" />
+                      </a>
+                    )}
+                    {partner.googleShare && (
+                      <a
+                        href={partner.googleShare}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Listen Now"
+                        aria-label={`${partner.name} - Listen`}
+                        className="text-gray-500 hover:text-blue-600 hover:scale-110 transition-all duration-300"
+                      >
+                        <Radio className="w-6 h-6" />
+                      </a>
+                    )}
+                    {partner.spotify && (
+                      <a
+                        href={partner.spotify}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Listen on Spotify"
+                        aria-label={`${partner.name} on Spotify`}
+                        className="text-gray-500 hover:text-[#1DB954] hover:scale-110 transition-all duration-300"
+                      >
+                        {/* Spotify SVG Icon */}
+                        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                        </svg>
+                      </a>
+                    )}
+                    {partner.youtube && (
+                      <a
+                        href={partner.youtube}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Watch on YouTube"
+                        aria-label={`${partner.name} on YouTube`}
+                        className="text-gray-500 hover:text-red-600 hover:scale-110 transition-all duration-300"
+                      >
+                        {/* YouTube SVG Icon */}
+                        <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                      </a>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -451,4 +674,3 @@ const AndhraYouthRadio = () => {
 };
 
 export default AndhraYouthRadio;
-

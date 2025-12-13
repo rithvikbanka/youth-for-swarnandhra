@@ -25,6 +25,12 @@ const speakers = [
     image: "/speakers/s12.webp",
     // website: "https://fsi.nic.in/regional-director-southern-zone"
   },
+  // Amitabh Ranjan
+  {
+    name: "Amitabh Ranjan",
+    designation: "An IIT-educated administrator driving national capacity building, e-governance innovation, and public sector leadership",
+    image: "/speakers/s13.webp"
+  },
   // Vikas Marmat
   {
     name: "Vikas Marmat IAS",
@@ -100,6 +106,48 @@ const speakers = [
     designation: "Founder, Public Policy India & Proficy",
     image: "/speakers/s2.webp",
     // linkedinUrl: "https://www.linkedin.com/in/yashagarwalm/"
+  },
+  // Prof. K V S G Murali Krishna
+  {
+    name: "Prof. K V S G Murali Krishna",
+    designation: "Founder, Environmental Protection Society, Ex Vice Chancellor of JNTUK, Ex Member of SEAC (State Expert Appraisal Committee of AP), Author of 20+ Books",
+    image: "/speakers/s14.webp"
+  },
+  // Dr. Shyla Talluri
+  {
+    name: "Dr. Shyla Talluri",
+    designation: "Founder & CEO, PURE, US Presidential Lifetime Achievement Awardee",
+    image: "/speakers/s15.webp"
+  },
+  // Dr. Jagadeesh G
+  {
+    name: "Dr. Jagadeesh G",
+    designation: "Founder Smart Bhujal, Consultant International Water Management Institute (IWMI), Consultant CTO - CWD",
+    image: "/speakers/s16.webp"
+  },
+  // Chandini Chandana
+  {
+    name: "Chandini Chandana",
+    designation: "Co founder AVERA AI MOBILITY, Chairwomen CII IWIN AP",
+    image: "/speakers/s17.webp"
+  },
+  // Vinay Nandina
+  {
+    name: "Vinay Nandina",
+    designation: "Founder SRREPL, Alumni IIM Kozhikode",
+    image: "/speakers/s18.webp"
+  },
+  // Jaya Peesapaty
+  {
+    name: "Jaya Peesapaty",
+    designation: "Founder, Telugu Association Hong Kong, Cultural Ambassador & Awardee",
+    image: "/speakers/s19.webp"
+  },
+  // Dr. Karumachi Nalini
+  {
+    name: "Dr. Karumachi Nalini",
+    designation: "Obstetrics and Gynaecologist",
+    image: "/speakers/s20.webp"
   },
 ];
 
@@ -278,14 +326,19 @@ const EventYouthChangemaker = () => {
       {/* Speakers Section */}
       <section ref={speakersRef} className="section-padding bg-background">
         <div className="container mx-auto">
-          <motion.h2
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isSpeakersInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-2xl md:text-3xl font-heading font-bold text-center mb-10"
+            className="text-center mb-10"
           >
-            {content.meetSpeakers}
-          </motion.h2>
+            <h2 className="text-2xl md:text-3xl font-heading font-bold mb-3">
+              Meet Distinguished Experts
+            </h2>
+            <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+              Learn from leaders shaping real-world impact across sectors
+            </p>
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
             {speakers.map((speaker, index) => (
@@ -318,12 +371,12 @@ const EventYouthChangemaker = () => {
                 </p>
                 
                 {/* Social Icon - Bottom Center */}
-                {(speaker.linkedinUrl || speaker.instagramUrl || speaker.website) && (
+                {((speaker as any).linkedinUrl || (speaker as any).instagramUrl || (speaker as any).website) && (
                   <div className="flex justify-center pt-4 mt-4 border-t border-border">
                     {/* If the speaker has a "website" field, show globe icon, not LinkedIn */}
-                    {speaker.website && (
+                    {(speaker as any).website && (
                       <a
-                        href={speaker.website}
+                        href={(speaker as any).website as string}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`${speaker.name} Website`}
@@ -333,16 +386,16 @@ const EventYouthChangemaker = () => {
                       </a>
                     )}
                     {/* Otherwise show relevant icons as before */}
-                    {!speaker.website && speaker.linkedinUrl && (
+                    {!(speaker as any).website && (speaker as any).linkedinUrl && (
                       <SocialIcon
-                        href={speaker.linkedinUrl}
+                        href={(speaker as any).linkedinUrl as string}
                         platform="linkedin"
                         ariaLabel={`${speaker.name} on LinkedIn`}
                       />
                     )}
-                    {!speaker.website && speaker.instagramUrl && (
+                    {!(speaker as any).website && (speaker as any).instagramUrl && (
                       <SocialIcon
-                        href={speaker.instagramUrl}
+                        href={(speaker as any).instagramUrl as string}
                         platform="instagram"
                         ariaLabel={`${speaker.name} on Instagram`}
                       />
@@ -398,10 +451,10 @@ const EventYouthChangemaker = () => {
                 </p>
                 
                 {/* Social Icon - Bottom Center */}
-                {moderator.linkedinUrl && (
+                {(moderator as any).linkedinUrl && (
                   <div className="flex justify-center pt-4 mt-4 border-t border-border">
                     <SocialIcon
-                      href={moderator.linkedinUrl}
+                      href={(moderator as any).linkedinUrl as string}
                       platform="linkedin"
                       ariaLabel={`${moderator.name} on LinkedIn`}
                     />
