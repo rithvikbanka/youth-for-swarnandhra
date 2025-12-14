@@ -197,7 +197,7 @@ export const Schedule = () => {
           className="text-center mt-10 md:mt-12"
         >
           <motion.a
-            href="https://drive.google.com/file/d/1szz2ql583WIwFwXIsIWTvYX4MA8POgdS/view?usp=drive_link"
+            href="https://drive.google.com/file/d/13AV92p4GTdnWYpFIYxeqfts5KsC1hgAR/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary inline-flex items-center gap-2"

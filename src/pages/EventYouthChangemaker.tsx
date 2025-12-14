@@ -21,7 +21,7 @@ const speakers = [
   // Dr. G. Trinadh Kumar
   {
     name: "Dr. G Trinadh Kumar, IFS",
-    designation: "Inspector General of Forests (Central), Hyderabad.",
+    designation: "Inspector General of Forests (Central), Hyderabad. Ministry of Environment, Forest & Climate Change, GoI",
     image: "/speakers/s12.webp",
     // website: "https://fsi.nic.in/regional-director-southern-zone"
   },
@@ -145,7 +145,7 @@ const speakers = [
   },
   // Dr. Karumachi Nalini
   {
-    name: "Dr. Karumachi Nalini",
+    name: "Dr. Karumanchi Nalini",
     designation: "Obstetrics and Gynaecologist",
     image: "/speakers/s20.webp"
   },

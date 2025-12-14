@@ -42,14 +42,14 @@ const hackathonPoints = [
 const speakers = [
   {
     name: "Dr. G Trinadh Kumar, IFS",
-    designation: "Inspector General of Forests (Central), Hyderabad.",
+    designation: "Inspector General of Forests (Central), Hyderabad. Ministry of Environment, Forest & Climate Change, GoI",
     image: "/speakers/s12.webp"
   },
-  {
-    name: "Geetanjali Sharma, IAS",
-    designation: "MD, APSFL, Director (Communications), ITE&C Dept., Govt. of AP, Vice Chairperson, MUDA",
-    image: "/speakers/s21.webp"
-  },
+  // {
+  //   name: "Geetanjali Sharma, IAS",
+  //   designation: "MD, APSFL, Director (Communications), ITE&C Dept., Govt. of AP, Vice Chairperson, MUDA",
+  //   image: "/speakers/s21.webp"
+  // },
   {
     name: "Sushmitha Ramanathan, IPS",
     designation: "ASP, Jangareddygudem, Andhra Pradesh",
