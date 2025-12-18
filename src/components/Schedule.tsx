@@ -5,6 +5,47 @@ import { scheduleByDay, type DaySchedule, type ScheduleSession } from "@/data/sc
 import { useLanguage } from "@/i18n/LanguageContext";
 import { trackScheduleDownload } from "@/lib/analytics";
 
+/**
+ * Parses a time range string like "10:00 AM - 01:00 PM" or "11:00 AM onwards"
+ * and returns the START time as minutes since midnight for sorting.
+ */
+const parseStartTimeToMinutes = (timeRange: string): number => {
+  // Extract start time (before " - " or " onwards" or the whole string)
+  const startPart = timeRange.split(/\s*-\s*|\s+onwards/i)[0].trim();
+  
+  // Match pattern: "HH:MM AM/PM"
+  const match = startPart.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+  if (!match) {
+    // If can't parse, return a large number to push to end
+    return 9999;
+  }
+  
+  let hours = parseInt(match[1], 10);
+  const minutes = parseInt(match[2], 10);
+  const period = match[3].toUpperCase();
+  
+  // Convert to 24-hour format
+  if (period === 'PM' && hours !== 12) {
+    hours += 12;
+  } else if (period === 'AM' && hours === 12) {
+    hours = 0;
+  }
+  
+  return hours * 60 + minutes;
+};
+
+/**
+ * Sorts sessions by start time (ascending order).
+ * Uses stable sort to preserve relative order of events with same start time.
+ */
+const sortSessionsByTime = (sessions: ScheduleSession[]): ScheduleSession[] => {
+  return [...sessions].sort((a, b) => {
+    const timeA = parseStartTimeToMinutes(a.time);
+    const timeB = parseStartTimeToMinutes(b.time);
+    return timeA - timeB;
+  });
+};
+
 export const Schedule = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const ref = useRef(null);
@@ -19,9 +60,7 @@ export const Schedule = () => {
     youthConLabel: "యువ కాన్",
     impactLabsLabel: "యువ ఇంపాక్ట్ ల్యాబ్‌లు",
     diasporaLabel: "గ్లోబల్ డయాస్పోరా",
-    talentLabel: "ప్రతిభ కార్నివాల్",
-    artWallLabel: "యువ కళ గోడ",
-    yuvasrishtiLabel: "యువసృష్టి",
+    competitionsLabel: "పోటీలు & ప్రదర్శనలు",
     downloadPDF: "పూర్తి షెడ్యూల్‌ను PDF గా డౌన్‌లోడ్ చేయండి",
     noEvents: "ఈ విభాగంలో ఈవెంట్‌లు లేవు"
   } : {
@@ -32,9 +71,7 @@ export const Schedule = () => {
     youthConLabel: "Youth Con",
     impactLabsLabel: "Youth Impact Labs",
     diasporaLabel: "Global Diaspora",
-    // talentLabel: "Talent Carnival",
-    // artWallLabel: "Youth Art Wall",
-    // yuvasrishtiLabel: "Yuvasrishti",
+    competitionsLabel: "Competitions & Performances",
     downloadPDF: "Download Full Schedule as PDF",
     noEvents: "No events in this category"
   };
@@ -45,9 +82,7 @@ export const Schedule = () => {
     { id: "con", label: content.youthConLabel, tag: "Youth Con" },
     { id: "impact", label: content.impactLabsLabel, tag: "Youth Impact Labs" },
     { id: "diaspora", label: content.diasporaLabel, tag: "Global Diaspora Connect" },
-    // { id: "talent", label: content.talentLabel, tag: "Talent Carnival" },
-    // { id: "artwall", label: content.artWallLabel, tag: "Youth Art Wall" },
-    // { id: "yuvasrishti", label: content.yuvasrishtiLabel, tag: "Yuvasrishti" },
+    { id: "competitions", label: content.competitionsLabel, tag: "Competitions & Performances" },
   ];
 
   const categoryColors: Record<string, string> = {
@@ -56,10 +91,8 @@ export const Schedule = () => {
     "Youth Con": "bg-accent text-accent-foreground",
     "Youth Impact Labs": "bg-festival-gold text-white",
     "Global Diaspora Connect": "bg-indigo-600 text-white",
+    "Competitions & Performances": "bg-pink-600 text-white",
     "Talent Carnival": "bg-pink-500 text-white",
-    "Youth Art Wall": "bg-blue-500 text-white",
-    "Yuvasrishti": "bg-purple-500 text-white",
-    "Carnival Parade": "bg-orange-500 text-white",
   };
 
   const filterSessions = (sessions: ScheduleSession[]) => {
@@ -76,7 +109,8 @@ export const Schedule = () => {
     return scheduleByDay
       .map(day => ({
         ...day,
-        sessions: filterSessions(day.sessions)
+        // Filter by category, then sort by start time (ascending)
+        sessions: sortSessionsByTime(filterSessions(day.sessions))
       }))
       .filter(day => day.sessions.length > 0);
   };

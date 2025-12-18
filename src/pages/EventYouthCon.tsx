@@ -4,7 +4,7 @@ import { MapPin, Clock, Users, Handshake, Coffee, FileText } from "lucide-react"
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { EventHero } from "@/components/EventHero";
-import { scheduleByDay, type ScheduleSession } from "@/data/schedule";
+import { scheduleByDay, type ScheduleSession, parseStartTimeToMinutes } from "@/data/schedule";
 import { PARTICIPANT_FORM_VIEW_URL } from "@/lib/googleForms";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { trackRegistrationClick } from "@/lib/analytics";
@@ -54,7 +54,7 @@ const EventYouthCon = () => {
     registerNow: "🎉 Register Now"
   };
 
-  // Derive Youth Con sessions from shared data
+  // Derive Youth Con sessions from shared data (sorted by time)
   const youthConSessions = useMemo(() => {
     const sessions: SessionWithDay[] = [];
     scheduleByDay.forEach(day => {
@@ -68,7 +68,10 @@ const EventYouthCon = () => {
           });
         });
     });
-    return sessions;
+    // Sort by start time (ascending order)
+    return sessions.sort((a, b) => 
+      parseStartTimeToMinutes(a.time) - parseStartTimeToMinutes(b.time)
+    );
   }, []);
 
   // Group sessions by type
