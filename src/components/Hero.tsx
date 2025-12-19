@@ -217,7 +217,7 @@ export const Hero = () => {
               </motion.button>
             </motion.div>
 
-            {/* Countdown Timer */}
+            {/* Countdown Timer - COMMENTED OUT (Festival has started)
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -228,6 +228,7 @@ export const Hero = () => {
               </p>
               <CountdownTimer />
             </motion.div>
+            */}
           </div>
 
           {/* RIGHT SIDE: Hero Image - CM Chandrababu Naidu */}

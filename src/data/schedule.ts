@@ -17,6 +17,7 @@ export const scheduleByDay: DaySchedule[] = [
     label: "Day 1",
     date: "December 18",
     sessions: [
+      // All Events
       {
         time: "10:00 AM - 12:00 PM",
         topic: "Inauguration",
@@ -24,6 +25,7 @@ export const scheduleByDay: DaySchedule[] = [
         location: "R & D Auditorium, K L University, Vijayawada",
         tag: "All Events"
       },
+      // Youth Changemaker Talks
       {
         time: "02:00 PM - 04:00 PM",
         topic: "Green Innovation",
@@ -31,33 +33,29 @@ export const scheduleByDay: DaySchedule[] = [
         location: "C.V. Raman Seminar Hall, K L University, Vijayawada",
         tag: "Youth Changemaker Talks"
       },
+      // Youth Con - Day 1
       {
         time: "02:00 PM - 04:00 PM",
-        topic: "Speed Networking 1",
-        description: "Youth networking, discussions and collaboration spaces.",
+        topic: "Speed Networking & Mentoring",
+        description: "Youth networking, discussions and collaboration with industry experts.",
         location: "L Block, 5th Floor – Rooms 509 & 515",
         tag: "Youth Con"
       },
+      // Global Diaspora - Day 1
       {
-        time: "02:00 PM - 04:00 PM",
-        topic: "Speed Mentoring 1",
-        description: "One-on-one quick mentoring opportunities with industry experts.",
-        location: "L Block, 5th Floor – Rooms 509 & 515",
-        tag: "Youth Con"
+        time: "02:00 PM - 05:00 PM",
+        topic: "GCC & African Countries – Interaction with NRIs",
+        description: "Sessions connecting youth with the global diaspora from GCC and African regions.",
+        location: "Rose Hall, K L University, Vijayawada",
+        tag: "Global Diaspora Connect"
       },
+      // Youth Talent Carnival
       {
         time: "11:00 AM onwards",
         topic: "Youth Talent Carnival",
         description: "Dance, Acting, Singing, Poetry & More performances.",
         location: "K L University, Vijayawada",
         tag: "Talent Carnival"
-      },
-      {
-        time: "02:00 PM - 05:00 PM",
-        topic: "GCC & African Countries",
-        description: "Sessions connecting youth with the global diaspora.",
-        location: "Rose Hall, K L University, Vijayawada",
-        tag: "Global Diaspora Connect"
       },
       // Competitions & Performances - Day 1
       {
@@ -115,6 +113,15 @@ export const scheduleByDay: DaySchedule[] = [
     label: "Day 2",
     date: "December 19",
     sessions: [
+      // Arrival & Registrations
+      {
+        time: "08:30 AM - 10:00 AM",
+        topic: "Arrival & New Registrations",
+        description: "Check-in and registration for new participants.",
+        location: "Registration Desks, R & D Auditorium Entrance",
+        tag: "All Events"
+      },
+      // Youth Impact Labs
       {
         time: "10:00 AM - 04:00 PM",
         topic: "Social Hackathon 1",
@@ -122,62 +129,61 @@ export const scheduleByDay: DaySchedule[] = [
         location: "Student Activity Centre (SAC), R & D Block",
         tag: "Youth Impact Labs"
       },
+      // Youth Changemaker Talks - Morning
       {
-        time: "02:00 PM - 04:00 PM",
+        time: "10:00 AM - 12:00 PM",
         topic: "Thought Leadership",
         description: "Session to shape the State Youth Vision document.",
-        location: "C.V. Raman Seminar Hall, K L University, Vijayawada",
+        location: "Peacock Hall",
         tag: "Youth Changemaker Talks"
       },
+      // Global Diaspora - Morning
       {
-        time: "10:00 AM - 12:00 PM",
+        time: "10:30 AM - 12:30 PM",
+        topic: "Australia, New Zealand & Southeast Asia – Interaction with NRIs",
+        description: "Sessions connecting youth with the global diaspora from Australia, NZ and Southeast Asia.",
+        location: "Rose Hall",
+        tag: "Global Diaspora Connect"
+      },
+      // Youth Con
+      {
+        time: "11:00 AM - 01:00 PM",
+        topic: "Speed Mentoring & Networking",
+        description: "Youth networking, discussions and collaboration spaces.",
+        location: "L Block, 5th/6th Floor",
+        tag: "Youth Con"
+      },
+      // Youth Changemaker Talks - Afternoon
+      {
+        time: "02:00 PM - 04:00 PM",
         topic: "Future of Work",
         description: "Exploring Youth roles in AI, Quantum Computing, and the Gig Economy.",
-        location: "C.V. Raman Seminar Hall, K L University, Vijayawada",
+        location: "C.V. Raman Seminar Hall",
         tag: "Youth Changemaker Talks"
-      },
-      {
-        time: "10:00 AM - 12:00 PM",
-        topic: "Speed Mentoring 2",
-        description: "Youth networking, discussions and collaboration spaces.",
-        location: "L Block, 5th Floor – Rooms 509 & 515",
-        tag: "Youth Con"
-      },
-      {
-        time: "12:00 PM - 02:00 PM",
-        topic: "Meetup 1",
-        description: "Casual community meetup for participants to share ideas.",
-        location: "L Block, 5th Floor – Rooms 509 & 515",
-        tag: "Youth Con"
       },
       {
         time: "02:00 PM - 04:00 PM",
         topic: "Wellness & Wellbeing",
         description: "Designing healthy habits in the era of lifestyle disorders.",
-        location: "C.V. Raman Seminar Hall, K L University, Vijayawada",
+        location: "Peacock Hall",
         tag: "Youth Changemaker Talks"
       },
+      // Global Diaspora - Afternoon/Evening
       {
         time: "02:00 PM - 04:00 PM",
-        topic: "Speed Mentoring 3",
-        description: "Youth networking, discussions and collaboration spaces.",
-        location: "L Block, 5th Floor – Rooms 509 & 515",
-        tag: "Youth Con"
-      },
-      {
-        time: "02:00 PM - 04:00 PM",
-        topic: "Speed Networking 2",
-        description: "Youth networking, discussions and collaboration spaces.",
-        location: "L Block, 5th Floor – Rooms 509 & 515",
-        tag: "Youth Con"
+        topic: "European (Nordic Nations & Europe) – Interaction with NRIs",
+        description: "Sessions connecting youth with the global diaspora from Europe.",
+        location: "Rose Hall",
+        tag: "Global Diaspora Connect"
       },
       {
         time: "04:00 PM - 06:00 PM",
-        topic: "Meetup 2",
-        description: "Evening meetup session for group discussions and bonding.",
-        location: "L Block, 5th Floor – Rooms 509 & 515",
-        tag: "Youth Con"
+        topic: "America & Canada – Interaction with NRIs",
+        description: "Sessions connecting youth with the global diaspora from America and Canada.",
+        location: "Rose Hall",
+        tag: "Global Diaspora Connect"
       },
+      // Youth Talent Carnival
       {
         time: "11:00 AM onwards",
         topic: "Youth Talent Carnival",
@@ -185,47 +191,19 @@ export const scheduleByDay: DaySchedule[] = [
         location: "K L University, Vijayawada",
         tag: "Talent Carnival"
       },
-      {
-        time: "10:30 AM - 12:30 PM",
-        topic: "Australia, New Zealand & Southeast Asia",
-        description: "Sessions connecting youth with the global diaspora.",
-        location: "Rose Hall, K L University, Vijayawada",
-        tag: "Global Diaspora Connect"
-      },
-      {
-        time: "02:00 PM - 05:00 PM",
-        topic: "European (Nordic Nations & Europe)",
-        description: "Sessions connecting youth with the global diaspora.",
-        location: "Rose Hall, K L University, Vijayawada",
-        tag: "Global Diaspora Connect"
-      },
-      {
-        time: "06:00 PM - 10:00 PM",
-        topic: "America & Canada",
-        description: "Sessions connecting youth with the global diaspora.",
-        location: "Rose Hall, K L University, Vijayawada",
-        tag: "Global Diaspora Connect"
-      },
       // Competitions & Performances - Day 2
       {
         time: "10:00 AM - 05:00 PM",
-        topic: "Folk Dance – Group",
+        topic: "Folk Dance – Group (Continued)",
         description: "Traditional folk dance performances from across Andhra Pradesh.",
         location: "R & D Auditorium",
         tag: "Competitions & Performances"
       },
       {
         time: "10:00 AM - 05:00 PM",
-        topic: "Folk Song Group",
+        topic: "Folk Song Group (Continued)",
         description: "Group performances of folk and cultural songs.",
-        location: "Peacock Hall – C021",
-        tag: "Competitions & Performances"
-      },
-      {
-        time: "06:00 PM - 08:00 PM",
-        topic: "Cultural Programmes",
-        description: "Evening cultural performances by participants.",
-        location: "R & D Auditorium",
+        location: "Jasmine Hall",
         tag: "Competitions & Performances"
       }
     ]
@@ -234,34 +212,70 @@ export const scheduleByDay: DaySchedule[] = [
     label: "Day 3",
     date: "December 20",
     sessions: [
+      // Arrival & Registrations
       {
-        time: "10:00 AM - 02:00 PM",
-        topic: "Social Hackathon 2",
-        description: "Continued collaborative session for youth impact and innovation.",
-        location: "Student Activity Centre (SAC), R & D Block",
-        tag: "Youth Impact Labs"
+        time: "07:00 AM - 10:00 AM",
+        topic: "Arrival & New Registrations",
+        description: "Final day check-in and registration.",
+        location: "Registration Desks, R & D Auditorium Entrance",
+        tag: "All Events"
       },
+      // Andhra Yuva Sankalp
+      {
+        time: "10:00 AM - 03:00 PM",
+        topic: "Andhra Yuva Sankalp 2K25 – Digital Marathon",
+        description: "Digital marathon on Social Responsibility, Fitness & Sports, and Digital Innovation & AI.",
+        location: "R & D Auditorium",
+        tag: "All Events"
+      },
+      // Youth Changemaker Talks
       {
         time: "10:00 AM - 12:00 PM",
         topic: "Swarnandhra for Viksit Bharat 2047",
         description: "Vision talk on the roadmap to a developed India by 2047.",
-        location: "C.V. Raman Seminar Hall, K L University, Vijayawada",
+        location: "C.V. Raman Seminar Hall",
         tag: "Youth Changemaker Talks"
       },
+      // Youth Impact Labs
       {
-        time: "12:00 PM - 02:00 PM",
-        topic: "Meetup 3",
-        description: "Final meetup gathering for the youth festival participants.",
-        location: "L Block, 6th Floor – Rooms 609 & 611",
+        time: "10:00 AM - 04:00 PM",
+        topic: "Social Hackathon 2 & Fire Side Chat",
+        description: "Continued collaborative session for youth impact and innovation with fireside chats.",
+        location: "Student Activity Centre (SAC), R & D Block",
+        tag: "Youth Impact Labs"
+      },
+      // Youth Con
+      {
+        time: "11:00 AM - 01:00 PM",
+        topic: "Youth Con – Final Networking & Commitments",
+        description: "Final networking and commitment session for youth leaders.",
+        location: "L Block, 6th Floor",
         tag: "Youth Con"
       },
+      // Global Diaspora
       {
-        time: "03:00 PM - 06:00 PM",
-        topic: "Valedictory",
-        description: "Closing ceremony, awards, and final address of the festival.",
-        location: "R & D Auditorium, K L University, Vijayawada",
+        time: "11:00 AM - 01:00 PM",
+        topic: "Global Diaspora – Closing Dialogue",
+        description: "Final dialogue session with global diaspora mentors and guests.",
+        location: "Rose Hall",
+        tag: "Global Diaspora Connect"
+      },
+      // Valedictory Prep & Ceremony
+      {
+        time: "02:00 PM - 03:00 PM",
+        topic: "Preparations for Valedictory",
+        description: "Setup and preparation for the closing ceremony.",
+        location: "R & D Auditorium",
         tag: "All Events"
       },
+      {
+        time: "03:00 PM onwards",
+        topic: "Valedictory Session & Closing Ceremony",
+        description: "Closing ceremony, awards, and final address of the festival.",
+        location: "R & D Auditorium",
+        tag: "All Events"
+      },
+      // Youth Talent Carnival
       {
         time: "11:00 AM onwards",
         topic: "Youth Talent Carnival",
@@ -306,7 +320,7 @@ export const parseStartTimeToMinutes = (timeRange: string): number => {
  * Sorts sessions by start time (ascending order).
  * Uses stable sort to preserve relative order of events with same start time.
  */
-export const sortSessionsByTime = (sessions: ScheduleSession[]): ScheduleSession[] => {
+export const sortSessionsByTime = <T extends { time: string }>(sessions: T[]): T[] => {
   return [...sessions].sort((a, b) => {
     const timeA = parseStartTimeToMinutes(a.time);
     const timeB = parseStartTimeToMinutes(b.time);

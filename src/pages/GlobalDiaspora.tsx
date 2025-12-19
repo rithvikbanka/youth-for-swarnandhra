@@ -32,13 +32,13 @@ const diasporaSchedule: DiasporaSession[] = [
   {
     region: "European (Nordic Nations & Europe)",
     date: "19th December",
-    time: "2:00 PM - 5:00 PM",
+    time: "2:00 PM - 4:00 PM",
     icon: "🇪🇺"
   },
   {
     region: "America & Canada",
     date: "19th December",
-    time: "6:00 PM - 10:00 PM",
+    time: "4:00 PM - 6:00 PM",
     icon: "🌎"
   }
 ];

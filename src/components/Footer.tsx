@@ -151,7 +151,15 @@ export const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
             <p>{t('footer.copyright', '© Andhra Pradesh State Youth Festival 2025. All rights reserved.')}</p>
-            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+            <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
+              <a
+                href="https://linktr.ee/rithvikbanka"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium hover:bg-primary/20 transition-all duration-200"
+              >
+                Designed & Developed by Rithvik Banka 👋
+              </a>
               <a href="#" className="hover:text-primary transition-colors">{t('footer.privacy', 'Privacy Policy')}</a>
               <a href="#" className="hover:text-primary transition-colors">{t('footer.terms', 'Terms of Service')}</a>
               <a href="#" className="hover:text-primary transition-colors">{t('footer.accessibility', 'Accessibility')}</a>
